@@ -16,7 +16,7 @@ func (s SodiumMilligram) GetPoints(st types.ScoreType) int {
 	return utilities.GetPointsFromRange(float64(s), sodiumLevels)
 }
 
-// SodiumFromSalt converts salt mg/100g content to sodium content
-func SodiumFromSalt(saltMg float64) SodiumMilligram {
-	return SodiumMilligram(saltMg / 2.5)
-}
+// // SodiumFromSalt converts salt mg/100g content to sodium content
+// func SodiumFromSalt(saltMg float64) SodiumMilligram {
+// 	return SodiumMilligram(saltMg / 2.5)
+// }
