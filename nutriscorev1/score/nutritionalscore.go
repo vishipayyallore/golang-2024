@@ -17,13 +17,6 @@ var proteinLevels = []float64{8, 6.4, 4.8, 3.2, 1.6}
 var energyLevelsBeverage = []float64{270, 240, 210, 180, 150, 120, 90, 60, 30, 0}
 var sugarsLevelsBeverage = []float64{13.5, 12, 10.5, 9, 7.5, 6, 4.5, 3, 1.5, 0}
 
-// type NutritionalScore struct {
-// 	Value     int
-// 	Positive  int
-// 	Negative  int
-// 	ScoreType types.ScoreType
-// }
-
 // EnergyKJ represents the energy density in kJ/100g
 type EnergyKJ float64
 
