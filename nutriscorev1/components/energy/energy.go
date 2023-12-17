@@ -1,4 +1,8 @@
-package components
+package energy
+
+import (
+	"nutriscorev1/score"
+)
 
 // EnergyFromKcal converts energy density from kcal to score.EnergyKJ
 func EnergyFromKcal(kcal float64) score.EnergyKJ {

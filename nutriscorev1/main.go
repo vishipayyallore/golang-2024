@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"nutriscorev1/components/energy"
+	"nutriscorev1/score"
 )
 
 func main() {

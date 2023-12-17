@@ -1,5 +1,9 @@
 package score
 
+import (
+	"nutriscorev1/components/energy"
+)
+
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st
 func GetNutritionalScore(n energy.NutritionalData, st ScoreType) NutritionalScore {
 	value := 0
