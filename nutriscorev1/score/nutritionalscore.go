@@ -3,6 +3,7 @@ package score
 
 import (
 	"nutriscorev1/types"
+	"nutriscorev1/utilities"
 )
 
 var energyLevels = []float64{3350, 3015, 2680, 2345, 2010, 1675, 1340, 1005, 670, 335}
@@ -50,27 +51,27 @@ func SodiumFromSalt(saltMg float64) SodiumMilligram {
 // GetPoints returns the nutritional score
 func (e EnergyKJ) GetPoints(st types.ScoreType) int {
 	if st == types.Beverage {
-		return getPointsFromRange(float64(e), energyLevelsBeverage)
+		return utilities.GetPointsFromRange(float64(e), energyLevelsBeverage)
 	}
-	return getPointsFromRange(float64(e), energyLevels)
+	return utilities.GetPointsFromRange(float64(e), energyLevels)
 }
 
 // GetPoints returns the nutritional score
 func (s SugarGram) GetPoints(st types.ScoreType) int {
 	if st == types.Beverage {
-		return getPointsFromRange(float64(s), sugarsLevelsBeverage)
+		return utilities.GetPointsFromRange(float64(s), sugarsLevelsBeverage)
 	}
-	return getPointsFromRange(float64(s), sugarsLevels)
+	return utilities.GetPointsFromRange(float64(s), sugarsLevels)
 }
 
 // GetPoints returns the nutritional score
 func (sfa SaturatedFattyAcidsGram) GetPoints(st types.ScoreType) int {
-	return getPointsFromRange(float64(sfa), saturatedFattyAcidsLevels)
+	return utilities.GetPointsFromRange(float64(sfa), saturatedFattyAcidsLevels)
 }
 
 // GetPoints returns the nutritional score
 func (s SodiumMilligram) GetPoints(st types.ScoreType) int {
-	return getPointsFromRange(float64(s), sodiumLevels)
+	return utilities.GetPointsFromRange(float64(s), sodiumLevels)
 }
 
 // GetPoints returns the nutritional score
@@ -97,12 +98,12 @@ func (f FruitsPercent) GetPoints(st types.ScoreType) int {
 
 // GetPoints returns the nutritional score
 func (f FibreGram) GetPoints(st types.ScoreType) int {
-	return getPointsFromRange(float64(f), fibreLevels)
+	return utilities.GetPointsFromRange(float64(f), fibreLevels)
 }
 
 // GetPoints returns the nutritional score
 func (p ProteinGram) GetPoints(st types.ScoreType) int {
-	return getPointsFromRange(float64(p), proteinLevels)
+	return utilities.GetPointsFromRange(float64(p), proteinLevels)
 }
 
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st
@@ -138,25 +139,4 @@ func GetNutritionalScore(n NutritionalData, st types.ScoreType) NutritionalScore
 		Negative:  negative,
 		ScoreType: st,
 	}
-}
-
-// GetNutriScore returns the Nutri-Score rating
-func (ns NutritionalScore) GetNutriScore() string {
-	if ns.ScoreType == types.Food {
-		return scoreToLetter[getPointsFromRange(float64(ns.Value), []float64{18, 10, 2, -1})]
-	}
-	if ns.ScoreType == types.Water {
-		return scoreToLetter[0]
-	}
-	return scoreToLetter[getPointsFromRange(float64(ns.Value), []float64{9, 5, 1, -2})]
-}
-
-func getPointsFromRange(v float64, steps []float64) int {
-	lenSteps := len(steps)
-	for i, l := range steps {
-		if v > l {
-			return lenSteps - i
-		}
-	}
-	return 0
 }
