@@ -9,9 +9,9 @@ import (
 type NutritionalData struct {
 	Energy              components.EnergyKJ
 	Sugars              components.SugarGram
-	SaturatedFattyAcids SaturatedFattyAcidsGram
-	Sodium              SodiumMilligram
-	Fruits              FruitsPercent
+	SaturatedFattyAcids components.SaturatedFattyAcidsGram
+	Sodium              components.SodiumMilligram
+	Fruits              components.FruitsPercent
 	Fibre               components.FibreGram
 	Protein             components.ProteinGram
 	IsWater             bool
