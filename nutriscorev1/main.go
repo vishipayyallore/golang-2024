@@ -5,22 +5,18 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World")
+	fmt.Println("Nutritional score")
 
-	ns := GetNutritionalScore(NutritionalData{
-		Energy:              EnergyFromKcal(0),
-		Sugars:              SugarGram(10),
-		SaturatedFattyAcids: SaturatedFattyAcidsGram(2),
-		Sodium:              SodiumMilligram(500),
-		Fruits:              FruitsPercent(60),
-		Fibre:               FibreGram(4),
-		Protein:             ProteinGram(2),
-	}, Food)
+	// ns := score.GetNutritionalScore(components.NutritionalData{
+	// 	Energy:              components.EnergyFromKcal(0),
+	// 	Sugars:              components.SugarGram(10),
+	// 	SaturatedFattyAcids: components.SaturatedFattyAcidsGram(2),
+	// 	Sodium:              components.SodiumMilligram(500),
+	// 	Fruits:              components.FruitsPercent(60),
+	// 	Fibre:               components.FibreGram(4),
+	// 	Protein:             components.ProteinGram(2),
+	// }, components.Food)
 
-	fmt.Printf("Nutritional score: %d\n", ns.Value)
-	fmt.Printf("NutriScore: %s\n", ns.GetNutriScore())
-
-	// Output:
-	// Nutritional score: 2
-	// NutriScore: B
+	// fmt.Printf("Nutritional score: %d\n", ns.Value)
+	// fmt.Printf("NutriScore: %s\n", ns.GetNutriScore())
 }
