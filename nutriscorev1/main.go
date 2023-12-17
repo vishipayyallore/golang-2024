@@ -7,6 +7,13 @@ import (
 func main() {
 	fmt.Println("Nutritional score")
 
+	ns := score.GetNutritionalScore(energy.NutritionalData{
+		Energy: score.EnergyFromKcal(0),
+	}, score.Food)
+
+	fmt.Printf("Nutritional score: %d\n", ns.Value)
+	fmt.Printf("NutriScore: %s\n", ns.GetNutriScore())
+
 	// ns := score.GetNutritionalScore(components.NutritionalData{
 	// 	Energy:              components.EnergyFromKcal(0),
 	// 	Sugars:              components.SugarGram(10),
@@ -17,6 +24,4 @@ func main() {
 	// 	Protein:             components.ProteinGram(2),
 	// }, components.Food)
 
-	// fmt.Printf("Nutritional score: %d\n", ns.Value)
-	// fmt.Printf("NutriScore: %s\n", ns.GetNutriScore())
 }
