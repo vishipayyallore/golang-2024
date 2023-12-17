@@ -20,7 +20,7 @@ func main() {
 		Sodium:              score.SodiumMilligram(500),
 		Fruits:              score.FruitsPercent(60),
 		Fibre:               score.FibreGram(4),
-		Protein:             score.ProteinGram(2),
+		Protein:             components.ProteinGram(2),
 	}, types.Food)
 
 	fmt.Printf("Nutritional score: %d\n", ns.Value)

@@ -9,7 +9,6 @@ import (
 var saturatedFattyAcidsLevels = []float64{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
 var sodiumLevels = []float64{900, 810, 720, 630, 540, 450, 360, 270, 180, 90}
 var fibreLevels = []float64{4.7, 3.7, 2.8, 1.9, 0.9}
-var proteinLevels = []float64{8, 6.4, 4.8, 3.2, 1.6}
 
 // SaturatedFattyAcidsGram represents amount of saturated fatty acids in grams/100g
 type SaturatedFattyAcidsGram float64
@@ -23,9 +22,6 @@ type FruitsPercent float64
 
 // FibreGram represents amount of fibre in grams/100g
 type FibreGram float64
-
-// ProteinGram represents amount of protein in grams/100g
-type ProteinGram float64
 
 // SodiumFromSalt converts salt mg/100g content to sodium content
 func SodiumFromSalt(saltMg float64) SodiumMilligram {
@@ -67,11 +63,6 @@ func (f FruitsPercent) GetPoints(st types.ScoreType) int {
 // GetPoints returns the nutritional score
 func (f FibreGram) GetPoints(st types.ScoreType) int {
 	return utilities.GetPointsFromRange(float64(f), fibreLevels)
-}
-
-// GetPoints returns the nutritional score
-func (p ProteinGram) GetPoints(st types.ScoreType) int {
-	return utilities.GetPointsFromRange(float64(p), proteinLevels)
 }
 
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st

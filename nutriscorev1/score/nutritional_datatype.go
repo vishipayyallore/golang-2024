@@ -13,6 +13,6 @@ type NutritionalData struct {
 	Sodium              SodiumMilligram
 	Fruits              FruitsPercent
 	Fibre               FibreGram
-	Protein             ProteinGram
+	Protein             components.ProteinGram
 	IsWater             bool
 }
