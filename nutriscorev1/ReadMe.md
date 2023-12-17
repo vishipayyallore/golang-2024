@@ -19,3 +19,10 @@ go mod init nutriscorev1/utilities
 go mod tidy
 go work use .
 ```
+
+## Testing
+
+```bash
+go test ./utilities
+go test ./utilities -run TestGetPointsFromRange
+```
