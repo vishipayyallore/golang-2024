@@ -16,7 +16,7 @@ func main() {
 	ns := score.GetNutritionalScore(score.NutritionalData{
 		Energy:              components.EnergyFromKcal(0),
 		Sugars:              components.SugarGram(10),
-		SaturatedFattyAcids: score.SaturatedFattyAcidsGram(2),
+		SaturatedFattyAcids: components.SaturatedFattyAcidsGram(2),
 		Sodium:              components.SodiumMilligram(500),
 		Fruits:              components.FruitsPercent(60),
 		Fibre:               components.FibreGram(4),

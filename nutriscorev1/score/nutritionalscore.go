@@ -3,18 +3,7 @@ package score
 
 import (
 	"nutriscorev1/types"
-	"nutriscorev1/utilities"
 )
-
-var saturatedFattyAcidsLevels = []float64{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
-
-// SaturatedFattyAcidsGram represents amount of saturated fatty acids in grams/100g
-type SaturatedFattyAcidsGram float64
-
-// GetPoints returns the nutritional score
-func (sfa SaturatedFattyAcidsGram) GetPoints(st types.ScoreType) int {
-	return utilities.GetPointsFromRange(float64(sfa), saturatedFattyAcidsLevels)
-}
 
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st
 func GetNutritionalScore(n NutritionalData, st types.ScoreType) NutritionalScore {
