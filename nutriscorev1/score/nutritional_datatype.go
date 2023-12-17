@@ -1,9 +1,13 @@
 // nutritional_datatype.go
 package score
 
+import (
+	"nutriscorev1/components"
+)
+
 // NutritionalData represents the source nutritional data used for the calculation
 type NutritionalData struct {
-	Energy              EnergyKJ
+	Energy              components.EnergyKJ
 	Sugars              SugarGram
 	SaturatedFattyAcids SaturatedFattyAcidsGram
 	Sodium              SodiumMilligram
