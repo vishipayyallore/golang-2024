@@ -11,7 +11,7 @@ type NutritionalData struct {
 	Sugars              components.SugarGram
 	SaturatedFattyAcids SaturatedFattyAcidsGram
 	Sodium              SodiumMilligram
-	Fruits              FruitsPercent
+	Fruits              components.FruitsPercent
 	Fibre               components.FibreGram
 	Protein             components.ProteinGram
 	IsWater             bool

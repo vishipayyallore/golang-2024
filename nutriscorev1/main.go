@@ -18,7 +18,7 @@ func main() {
 		Sugars:              components.SugarGram(10),
 		SaturatedFattyAcids: score.SaturatedFattyAcidsGram(2),
 		Sodium:              score.SodiumMilligram(500),
-		Fruits:              score.FruitsPercent(60),
+		Fruits:              components.FruitsPercent(60),
 		Fibre:               components.FibreGram(4),
 		Protein:             components.ProteinGram(2),
 	}, types.Food)
