@@ -10,7 +10,7 @@ type NutritionalData struct {
 	Energy              components.EnergyKJ
 	Sugars              components.SugarGram
 	SaturatedFattyAcids SaturatedFattyAcidsGram
-	Sodium              SodiumMilligram
+	Sodium              components.SodiumMilligram
 	Fruits              components.FruitsPercent
 	Fibre               components.FibreGram
 	Protein             components.ProteinGram
