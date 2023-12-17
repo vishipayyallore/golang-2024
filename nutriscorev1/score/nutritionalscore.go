@@ -2,21 +2,14 @@
 package score
 
 import (
-	"nutriscorev1/components"
 	"nutriscorev1/types"
 	"nutriscorev1/utilities"
 )
 
-var sugarsLevels = []float64{45, 40, 36, 31, 27, 22.5, 18, 13.5, 9, 4.5}
 var saturatedFattyAcidsLevels = []float64{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
 var sodiumLevels = []float64{900, 810, 720, 630, 540, 450, 360, 270, 180, 90}
 var fibreLevels = []float64{4.7, 3.7, 2.8, 1.9, 0.9}
 var proteinLevels = []float64{8, 6.4, 4.8, 3.2, 1.6}
-
-var sugarsLevelsBeverage = []float64{13.5, 12, 10.5, 9, 7.5, 6, 4.5, 3, 1.5, 0}
-
-// SugarGram represents amount of sugars in grams/100g
-type SugarGram float64
 
 // SaturatedFattyAcidsGram represents amount of saturated fatty acids in grams/100g
 type SaturatedFattyAcidsGram float64
@@ -34,22 +27,9 @@ type FibreGram float64
 // ProteinGram represents amount of protein in grams/100g
 type ProteinGram float64
 
-// EnergyFromKcal converts energy density from kcal to EnergyKJ
-func EnergyFromKcal(kcal float64) components.EnergyKJ {
-	return components.EnergyKJ(kcal * 4.184)
-}
-
 // SodiumFromSalt converts salt mg/100g content to sodium content
 func SodiumFromSalt(saltMg float64) SodiumMilligram {
 	return SodiumMilligram(saltMg / 2.5)
-}
-
-// GetPoints returns the nutritional score
-func (s SugarGram) GetPoints(st types.ScoreType) int {
-	if st == types.Beverage {
-		return utilities.GetPointsFromRange(float64(s), sugarsLevelsBeverage)
-	}
-	return utilities.GetPointsFromRange(float64(s), sugarsLevels)
 }
 
 // GetPoints returns the nutritional score

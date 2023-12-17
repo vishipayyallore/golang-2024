@@ -8,7 +8,7 @@ import (
 // NutritionalData represents the source nutritional data used for the calculation
 type NutritionalData struct {
 	Energy              components.EnergyKJ
-	Sugars              SugarGram
+	Sugars              components.SugarGram
 	SaturatedFattyAcids SaturatedFattyAcidsGram
 	Sodium              SodiumMilligram
 	Fruits              FruitsPercent
