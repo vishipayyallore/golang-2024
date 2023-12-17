@@ -3,5 +3,15 @@
 ## Commands
 
 ```bash
-go mod init github.com/vishipayyallore/learn-golang-2024/nutriscore
+go mod init nutriscorev1
+go mod tidy
+go work use .
+
+go mod init nutriscorev1/score
+go mod tidy
+go work use .
+
+go mod init nutriscorev1/types
+go mod tidy
+go work use .
 ```

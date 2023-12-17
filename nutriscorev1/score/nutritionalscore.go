@@ -1,10 +1,12 @@
 // More about-score: https://en.wikipedia.org/wiki/Nutri-Score
 package score
 
-type ScoreType int
+import (
+	"nutriscorev1/types"
+)
 
 const (
-	Food ScoreType = iota
+	Food types.ScoreType = iota
 
 	Beverage
 
@@ -29,7 +31,7 @@ type NutritionalScore struct {
 	Value     int
 	Positive  int
 	Negative  int
-	ScoreType ScoreType
+	ScoreType types.ScoreType
 }
 
 // EnergyKJ represents the energy density in kJ/100g
@@ -65,7 +67,7 @@ func SodiumFromSalt(saltMg float64) SodiumMilligram {
 }
 
 // GetPoints returns the nutritional score
-func (e EnergyKJ) GetPoints(st ScoreType) int {
+func (e EnergyKJ) GetPoints(st types.ScoreType) int {
 	if st == Beverage {
 		return getPointsFromRange(float64(e), energyLevelsBeverage)
 	}
@@ -73,7 +75,7 @@ func (e EnergyKJ) GetPoints(st ScoreType) int {
 }
 
 // GetPoints returns the nutritional score
-func (s SugarGram) GetPoints(st ScoreType) int {
+func (s SugarGram) GetPoints(st types.ScoreType) int {
 	if st == Beverage {
 		return getPointsFromRange(float64(s), sugarsLevelsBeverage)
 	}
@@ -81,17 +83,17 @@ func (s SugarGram) GetPoints(st ScoreType) int {
 }
 
 // GetPoints returns the nutritional score
-func (sfa SaturatedFattyAcidsGram) GetPoints(st ScoreType) int {
+func (sfa SaturatedFattyAcidsGram) GetPoints(st types.ScoreType) int {
 	return getPointsFromRange(float64(sfa), saturatedFattyAcidsLevels)
 }
 
 // GetPoints returns the nutritional score
-func (s SodiumMilligram) GetPoints(st ScoreType) int {
+func (s SodiumMilligram) GetPoints(st types.ScoreType) int {
 	return getPointsFromRange(float64(s), sodiumLevels)
 }
 
 // GetPoints returns the nutritional score
-func (f FruitsPercent) GetPoints(st ScoreType) int {
+func (f FruitsPercent) GetPoints(st types.ScoreType) int {
 	if st == Beverage {
 		if f > 80 {
 			return 10
@@ -113,12 +115,12 @@ func (f FruitsPercent) GetPoints(st ScoreType) int {
 }
 
 // GetPoints returns the nutritional score
-func (f FibreGram) GetPoints(st ScoreType) int {
+func (f FibreGram) GetPoints(st types.ScoreType) int {
 	return getPointsFromRange(float64(f), fibreLevels)
 }
 
 // GetPoints returns the nutritional score
-func (p ProteinGram) GetPoints(st ScoreType) int {
+func (p ProteinGram) GetPoints(st types.ScoreType) int {
 	return getPointsFromRange(float64(p), proteinLevels)
 }
 
@@ -135,7 +137,7 @@ type NutritionalData struct {
 }
 
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st
-func GetNutritionalScore(n NutritionalData, st ScoreType) NutritionalScore {
+func GetNutritionalScore(n NutritionalData, st types.ScoreType) NutritionalScore {
 	value := 0
 	positive := 0
 	negative := 0
