@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"nutriscorev1/score"
+	"nutriscorev1/types"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 		Fruits:              score.FruitsPercent(60),
 		Fibre:               score.FibreGram(4),
 		Protein:             score.ProteinGram(2),
-	}, score.Food)
+	}, types.Food)
 
 	fmt.Printf("Nutritional score: %d\n", ns.Value)
 	fmt.Printf("NutriScore: %s\n", ns.GetNutriScore())
