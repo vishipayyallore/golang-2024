@@ -107,18 +107,6 @@ func (p ProteinGram) GetPoints(st types.ScoreType) int {
 	return getPointsFromRange(float64(p), proteinLevels)
 }
 
-// NutritionalData represents the source nutritional data used for the calculation
-type NutritionalData struct {
-	Energy              EnergyKJ
-	Sugars              SugarGram
-	SaturatedFattyAcids SaturatedFattyAcidsGram
-	Sodium              SodiumMilligram
-	Fruits              FruitsPercent
-	Fibre               FibreGram
-	Protein             ProteinGram
-	IsWater             bool
-}
-
 // GetNutritionalScore calculates the nutritional score for nutritional data n of type st
 func GetNutritionalScore(n NutritionalData, st types.ScoreType) NutritionalScore {
 	value := 0
