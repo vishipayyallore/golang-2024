@@ -5,8 +5,6 @@ import (
 	"nutriscorev1/types"
 )
 
-var scoreToLetter = []string{"A", "B", "C", "D", "E"}
-
 var energyLevels = []float64{3350, 3015, 2680, 2345, 2010, 1675, 1340, 1005, 670, 335}
 var sugarsLevels = []float64{45, 40, 36, 31, 27, 22.5, 18, 13.5, 9, 4.5}
 var saturatedFattyAcidsLevels = []float64{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}

@@ -10,3 +10,5 @@ type NutritionalScore struct {
 	Negative  int
 	ScoreType types.ScoreType
 }
+
+var scoreToLetter = []string{"A", "B", "C", "D", "E"}
