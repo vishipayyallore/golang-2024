@@ -19,3 +19,9 @@ func main() {
 	fmt.Println(true || false)
 	fmt.Println(!true)
 }
+
+/*
+Notes:
+
+1. Go has various value types including strings, integers, floats, booleans, etc. Here are a few basic examples.
+*/
