@@ -1,5 +1,6 @@
 package main
 
+// factored import statement.
 import (
 	"fmt"
 	"math"
