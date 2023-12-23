@@ -4,6 +4,7 @@
 
 > 1. Packages
 > 1. Imports
+> 1. Exported names
 
 ## Go by Example
 

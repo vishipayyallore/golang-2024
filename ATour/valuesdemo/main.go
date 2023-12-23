@@ -13,3 +13,11 @@ func main() {
 	fmt.Println(true || false)
 	fmt.Println(!true)
 }
+
+/*
+Notes:
+
+1. Strings, which can be added together with +.
+2. Integers and floats.
+3. Booleans, with boolean operators as you’d expect.
+*/
