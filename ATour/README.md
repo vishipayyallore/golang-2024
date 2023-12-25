@@ -6,6 +6,7 @@
 > 1. Imports
 > 1. Exported names
 > 1. Functions, Functions Continued, Multiple Results
+> 1. Named return values
 
 ## Go by Example
 
