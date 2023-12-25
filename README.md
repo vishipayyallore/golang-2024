@@ -5,6 +5,8 @@ I am learning Go Language from different Video Courses, Books, and Websites
 ## Documentation
 
 1. <https://pkg.go.dev/>
+1. <https://pkg.go.dev/std>
+1. <https://pkg.go.dev/builtin@go1.21.5>
 
 ## Frameworks
 
