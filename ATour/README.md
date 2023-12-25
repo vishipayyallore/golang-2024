@@ -16,3 +16,4 @@
 > 1. Constants
 > 1. For
 > 1. If/Else
+> 1. Switch
