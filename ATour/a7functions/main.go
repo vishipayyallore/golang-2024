@@ -12,8 +12,8 @@ func main() {
 	a, b := swap("Kumar", "Manish")
 	fmt.Println("Multiple Return values: ", a, b)
 
-	x, y := split(17)
-	fmt.Println("Named (Naked) Return Values", x, y)
+	n1, n2 := split(17)
+	fmt.Println("Named (Naked) Return Values", n1, n2)
 
 	// fmt.Println("output: ", split(17)) // Error: multiple-value split() in single-value context
 	fmt.Println(split(17))
