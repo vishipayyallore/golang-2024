@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-var c, python, java bool
+var cl, python, java bool
 
 func main() {
 
-	fmt.Println("c, python, java", c, python, java)
+	fmt.Println("cl, python, java", cl, python, java)
 
 	var a = "initial"
 	fmt.Println(a)
@@ -22,13 +22,16 @@ func main() {
 
 	f := "apple"
 	fmt.Println(f)
+
+	var cl1, python1, java1 = true, false, "no!"
+	fmt.Println("cl1, python1, java1", cl1, python1, java1)
 }
 
 /*
 Notes:
 
 1. var declares 1 or more variables. A var statement can be at package or function level
-2. Go will infer the type of initialized variables.
+2. Go will infer the type of initialized variables. If an initializer is present, the type can be omitted; the variable will take the type of the initializer.
 3. Variables declared without a corresponding initialization are zero-valued.
 4. The := syntax is shorthand for declaring and initializing a variable, e.g. for var f string = "apple" in this case.
 */
