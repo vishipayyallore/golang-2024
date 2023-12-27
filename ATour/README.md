@@ -18,3 +18,4 @@
 > 1. For
 > 1. If/Else
 > 1. Switch
+> 1. Arrays
