@@ -4,15 +4,15 @@ import "fmt"
 
 func main() {
 
-	var a [5]int
-	fmt.Println("emp:", a)
+	var arr1 [5]int
+	fmt.Println("emp:", arr1)
 
 	fmt.Println("setting values")
-	a[4] = 100
-	fmt.Println("set:", a)
-	fmt.Println("get:", a[4])
+	arr1[4] = 100
+	fmt.Println("set:", arr1)
+	fmt.Println("get:", arr1[4])
 
-	fmt.Println("len:", len(a))
+	fmt.Println("len:", len(arr1))
 
 	b := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("Declare and Assign Array:", b)

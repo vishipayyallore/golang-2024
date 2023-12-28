@@ -8,6 +8,7 @@
 > 1. Functions, Functions Continued, Multiple Results
 > 1. Named return values
 > 1. Variables, Variables with initializers, Short variable declarations
+> 1. Basic types
 
 ## Go by Example
 
@@ -19,3 +20,4 @@
 > 1. If/Else
 > 1. Switch
 > 1. Arrays
+> 1. Slices
