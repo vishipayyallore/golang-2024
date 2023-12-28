@@ -20,3 +20,4 @@
 > 1. If/Else
 > 1. Switch
 > 1. Arrays
+> 1. Slices
