@@ -12,6 +12,8 @@ var (
 )
 
 func main() {
+	fmt.Println("\nShowing Basic Types:")
+
 	showTypeAndValue(isManager)
 	showTypeAndValue(Salary)
 	showTypeAndValue(someValue)
@@ -65,10 +67,26 @@ func main() {
 
 	var f1 string = "Hello"
 	showTypeAndValue(f1)
+
+	showZeroValue()
 }
 
 func showTypeAndValue(x interface{}) {
 	fmt.Printf("Type: %T Value: %v\n", x, x)
+}
+
+func showZeroValue() {
+	var i int
+	var f float64
+	var b bool
+	var s string
+
+	fmt.Println("\n\nShowing Zero Values:")
+
+	showTypeAndValue(i)
+	showTypeAndValue(f)
+	showTypeAndValue(b)
+	showTypeAndValue(s)
 }
 
 /*
