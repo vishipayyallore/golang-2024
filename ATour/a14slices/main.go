@@ -72,6 +72,15 @@ func main() {
 
 	ts := make([][]int, 3, 5)
 	fmt.Println("ts: ", ts)
+
+	ss := make([]string, 0, 5)
+	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+
+	ss = append(ss, "A", "B")
+	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+
+	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
+	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
 }
 
 func showTypeAndValue(x interface{}) {
