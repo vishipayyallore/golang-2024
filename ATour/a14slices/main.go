@@ -7,8 +7,13 @@ import (
 
 func main() {
 
+	var arr1 [5]int
+	fmt.Printf("Array ")
+	showTypeAndValue(arr1)
+
 	var slcx []string
-	fmt.Printf("Type: %T Value: %v\n", slcx, slcx)
+	fmt.Printf("Slice ")
+	showTypeAndValue(slcx)
 	fmt.Println("uninit:", slcx, slcx == nil, len(slcx) == 0)
 
 	slcx = make([]string, 3)
@@ -18,7 +23,7 @@ func main() {
 	fmt.Println("set(slcx):", slcx)
 
 	var slc1 = make([]string, 3)
-	fmt.Printf("Type: %T Value: %v\n", slc1, slc1)
+	showTypeAndValue(slc1)
 	fmt.Println("emp:", slc1, "len:", len(slc1), "cap:", cap(slc1))
 
 	slc1[0] = "a"
@@ -47,7 +52,7 @@ func main() {
 	fmt.Println("Slice 3:", l)
 
 	t := []string{"g", "h", "i"}
-	fmt.Printf("Type: %T Value: %v\n", t, t)
+	showTypeAndValue(t)
 	fmt.Println("Declare and Initialize:", t)
 
 	t2 := []string{"g", "h", "i"}
@@ -67,6 +72,10 @@ func main() {
 
 	ts := make([][]int, 3, 5)
 	fmt.Println("ts: ", ts)
+}
+
+func showTypeAndValue(x interface{}) {
+	fmt.Printf("Type: %T Value: %v\n", x, x)
 }
 
 /*
