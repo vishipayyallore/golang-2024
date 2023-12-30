@@ -4,9 +4,13 @@ import (
 	"autilities"
 	"fmt"
 	"slices"
+
+	"github.com/fatih/color"
 )
 
 func main() {
+
+	color.Cyan("Prints text in cyan.")
 
 	var arr1 [5]int
 	fmt.Printf("Array ")
