@@ -1,22 +1,23 @@
 package main
 
-import "fmt"
+import "autilities"
 
 func main() {
 	const a = 42
-	printValueAndType(a)
+
+	autilities.PrintValueAndType(a)
 	const b float32 = 3
-	printValueAndType(b)
+	autilities.PrintValueAndType(b)
 
 	var i int = a
-	printValueAndType(i)
+	autilities.PrintValueAndType(i)
 	var f32 float32 = a
-	printValueAndType(f32)
+	autilities.PrintValueAndType(f32)
 	f32 = b
-	printValueAndType(f32)
+	autilities.PrintValueAndType(f32)
 
 	const c = iota
-	printValueAndType(c)
+	autilities.PrintValueAndType(c)
 
 	const (
 		d = 2 * 5
@@ -26,13 +27,9 @@ func main() {
 		h = 10 * iota
 	)
 
-	printValueAndType(d)
-	printValueAndType(e)
-	printValueAndType(f)
-	printValueAndType(g)
-	printValueAndType(h)
-}
-
-func printValueAndType(a interface{}) {
-	fmt.Printf("Type: %T, Value: %v\n", a, a)
+	autilities.PrintValueAndType(d)
+	autilities.PrintValueAndType(e)
+	autilities.PrintValueAndType(f)
+	autilities.PrintValueAndType(g)
+	autilities.PrintValueAndType(h)
 }
