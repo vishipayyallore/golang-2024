@@ -8,7 +8,7 @@
 > 1. Functions, Functions Continued, Multiple Results
 > 1. Named return values
 > 1. Variables, Variables with initializers, Short variable declarations
-> 1. Basic types
+> 1. Basic types, Zero values
 
 ## Go by Example
 
