@@ -37,10 +37,13 @@ func main() {
 
 func showTypeInference() {
 	fmt.Println("\n\nShowing Type Inference:")
-	var i int
-	j := i // j is an int
-	showTypeAndValue(j)
 
+	// When declaring a variable without specifying an explicit type (either by using the := syntax or var = expression syntax), the variable's type is inferred from the value on the right hand side.
+	var i2 int
+	j2 := i2 // j is an int
+	showTypeAndValue(j2)
+
+	// But when the right hand side contains an untyped numeric constant, the new variable may be an int, float64, or complex128 depending on the precision of the constant:
 	i1 := 42           // int
 	f1 := 3.142        // float64
 	g1 := 0.867 + 0.5i // complex128
