@@ -1,8 +1,24 @@
 package main
 
-import "fmt"
+import (
+	"autilities"
+	"fmt"
+
+	"github.com/fatih/color"
+)
+
+var header = autilities.Header{}
+
+const headerChar = '*'
+const headerLength = 100
+const headerColor = color.FgHiYellow
+const titleColor = color.FgHiGreen
+const subHeaderChar = '-'
 
 func main() {
+
+	header.DisplayHeader(headerChar, "Showing Arthmetic Comparisions", headerLength, headerColor, titleColor)
+
 	n1, n2 := 5, 2
 
 	fmt.Println(n1 + n2)
