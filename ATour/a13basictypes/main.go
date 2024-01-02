@@ -31,6 +31,22 @@ func main() {
 	showZeroValue()
 
 	showTypeConversions()
+
+	showTypeInference()
+}
+
+func showTypeInference() {
+	fmt.Println("\n\nShowing Type Inference:")
+	var i int
+	j := i // j is an int
+	showTypeAndValue(j)
+
+	i1 := 42           // int
+	f1 := 3.142        // float64
+	g1 := 0.867 + 0.5i // complex128
+	showTypeAndValue(i1)
+	showTypeAndValue(f1)
+	showTypeAndValue(g1)
 }
 
 func showByteAndRuneType() {
