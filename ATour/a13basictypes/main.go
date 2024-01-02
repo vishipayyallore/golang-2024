@@ -1,8 +1,11 @@
 package main
 
 import (
+	"autilities"
 	"fmt"
 	"math/cmplx"
+
+	"github.com/fatih/color"
 )
 
 var (
@@ -11,8 +14,16 @@ var (
 	someValue complex128 = cmplx.Sqrt(-5 + 12i)
 )
 
+var header = autilities.Header{}
+
+const headerChar = '*'
+const headerLength = 100
+const headerColor = color.FgHiYellow
+const titleColor = color.FgHiGreen
+const subHeaderChar = '-'
+
 func main() {
-	fmt.Println("\nShowing Basic Types:")
+	header.DisplayHeader(headerChar, "Showing Basic Types", headerLength, headerColor, titleColor)
 
 	showBasicTypes()
 
@@ -36,7 +47,7 @@ func main() {
 }
 
 func showTypeInference() {
-	fmt.Println("\n\nShowing Type Inference:")
+	header.DisplayHeader(subHeaderChar, "Showing Type Inference", headerLength, headerColor, titleColor)
 
 	// When declaring a variable without specifying an explicit type (either by using the := syntax or var = expression syntax), the variable's type is inferred from the value on the right hand side.
 	var i2 int
