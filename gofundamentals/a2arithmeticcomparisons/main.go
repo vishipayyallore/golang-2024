@@ -13,7 +13,6 @@ const headerChar = '*'
 const headerLength = 100
 const headerColor = color.FgHiYellow
 const titleColor = color.FgHiGreen
-const subHeaderChar = '-'
 
 func main() {
 
