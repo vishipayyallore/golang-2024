@@ -14,23 +14,72 @@ var (
 func main() {
 	fmt.Println("\nShowing Basic Types:")
 
-	showTypeAndValue(isManager)
-	showTypeAndValue(Salary)
-	showTypeAndValue(someValue)
+	showBasicTypes()
 
+	showIntType()
+
+	showUnsignedIntType()
+
+	showFloatType()
+
+	showComplexType()
+
+	showByteAndRuneType()
+
+	showStringType()
+
+	showZeroValue()
+
+	showTypeConversions()
+
+	showTypeInference()
+}
+
+func showTypeInference() {
+	fmt.Println("\n\nShowing Type Inference:")
+
+	// When declaring a variable without specifying an explicit type (either by using the := syntax or var = expression syntax), the variable's type is inferred from the value on the right hand side.
+	var i2 int
+	j2 := i2 // j is an int
+	showTypeAndValue(j2)
+
+	// But when the right hand side contains an untyped numeric constant, the new variable may be an int, float64, or complex128 depending on the precision of the constant:
+	i1 := 42           // int
+	f1 := 3.142        // float64
+	g1 := 0.867 + 0.5i // complex128
+	showTypeAndValue(i1)
+	showTypeAndValue(f1)
+	showTypeAndValue(g1)
+}
+
+func showByteAndRuneType() {
 	var (
-		a1 int   = 10
-		a2 int8  = 3
-		a3 int16 = 4
-		a4 int32 = 5
-		a5 int64 = 6
+		e1 byte = 10
+		e2 rune = 3
 	)
-	showTypeAndValue(a1)
-	showTypeAndValue(a2)
-	showTypeAndValue(a3)
-	showTypeAndValue(a4)
-	showTypeAndValue(a5)
+	showTypeAndValue(e1)
+	showTypeAndValue(e2)
+}
 
+func showComplexType() {
+	var (
+		d1 complex64  = 10 + 1i
+		d2 complex128 = 3.14 + 2.7i
+	)
+	showTypeAndValue(d1)
+	showTypeAndValue(d2)
+}
+
+func showFloatType() {
+	var (
+		c1 float32 = 10.1
+		c2 float64 = 3.14
+	)
+	showTypeAndValue(c1)
+	showTypeAndValue(c2)
+}
+
+func showUnsignedIntType() {
 	var (
 		b1 uint   = 10
 		b2 uint8  = 3
@@ -43,32 +92,32 @@ func main() {
 	showTypeAndValue(b3)
 	showTypeAndValue(b4)
 	showTypeAndValue(b5)
+}
 
+func showBasicTypes() {
+	showTypeAndValue(isManager)
+	showTypeAndValue(Salary)
+	showTypeAndValue(someValue)
+}
+
+func showIntType() {
 	var (
-		c1 float32 = 10.1
-		c2 float64 = 3.14
+		a1 int   = 10
+		a2 int8  = 3
+		a3 int16 = 4
+		a4 int32 = 5
+		a5 int64 = 6
 	)
-	showTypeAndValue(c1)
-	showTypeAndValue(c2)
+	showTypeAndValue(a1)
+	showTypeAndValue(a2)
+	showTypeAndValue(a3)
+	showTypeAndValue(a4)
+	showTypeAndValue(a5)
+}
 
-	var (
-		d1 complex64  = 10 + 1i
-		d2 complex128 = 3.14 + 2.7i
-	)
-	showTypeAndValue(d1)
-	showTypeAndValue(d2)
-
-	var (
-		e1 byte = 10
-		e2 rune = 3
-	)
-	showTypeAndValue(e1)
-	showTypeAndValue(e2)
-
+func showStringType() {
 	var f1 string = "Hello"
 	showTypeAndValue(f1)
-
-	showZeroValue()
 }
 
 func showTypeAndValue(x interface{}) {
@@ -87,6 +136,17 @@ func showZeroValue() {
 	showTypeAndValue(f)
 	showTypeAndValue(b)
 	showTypeAndValue(s)
+}
+
+func showTypeConversions() {
+	i := 42
+	f := float64(i)
+	u := uint(f)
+
+	fmt.Println("\n\nShowing Type Conversions:")
+	showTypeAndValue(i)
+	showTypeAndValue(f)
+	showTypeAndValue(u)
 }
 
 /*
