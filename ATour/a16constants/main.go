@@ -17,6 +17,10 @@ const (
 	Pi          = 3.14
 	isManager   = true
 	packageName = "a16constants"
+	choice      = iota
+
+	bigValue   = 1 << 100
+	smallValue = bigValue >> 99
 )
 
 func main() {
@@ -29,4 +33,28 @@ func showConstants() {
 	autilities.ShowTypeAndValue(Pi)
 	autilities.ShowTypeAndValue(isManager)
 	autilities.ShowTypeAndValue(packageName)
+	autilities.ShowTypeAndValue(choice)
+
+	autilities.ShowTypeAndValue(needInt(smallValue))
+	autilities.ShowTypeAndValue(needFloat(smallValue))
+
+	autilities.ShowTypeAndValue(needFloat(bigValue))
 }
+
+func needInt(x int) int {
+	return x*10 + 1
+}
+
+func needFloat(x float64) float64 {
+	return x * 0.1
+}
+
+/*
+Notes:
+
+1. Constants are declared like variables, but with the const keyword.
+2. Constants can be character, string, boolean, or numeric values.
+3. Constants cannot be declared using the := syntax.
+4. Constants cannot be declared using the var keyword.
+
+*/

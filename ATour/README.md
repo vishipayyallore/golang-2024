@@ -9,6 +9,7 @@
 > 1. Named return values
 > 1. Variables, Variables with initializers, Short variable declarations
 > 1. Basic types, Zero values, Type conversions, Type inference
+> 1. Constants, Numeric Constants
 
 ## Go by Example
 
