@@ -22,3 +22,4 @@
 > 1. Switch
 > 1. Arrays
 > 1. Slices
+> 1. Maps
