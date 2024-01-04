@@ -8,7 +8,16 @@ import (
 	"github.com/fatih/color"
 )
 
+var header = autilities.Header{}
+
+const headerChar = '*'
+const headerLength = 100
+const headerColor = color.FgHiYellow
+const titleColor = color.FgHiGreen
+
 func main() {
+
+	header.DisplayHeader(headerChar, "Showing Slices", headerLength, headerColor, titleColor)
 
 	color.Cyan("Prints text in cyan.")
 
