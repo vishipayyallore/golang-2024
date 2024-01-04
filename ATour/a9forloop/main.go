@@ -46,6 +46,17 @@ func main() {
 		}
 		c.Println(n)
 	}
+
+	showTable(5)
+}
+
+func showTable(value int) {
+	header.DisplayHeader(subHeaderChar, "For Loops - 5 Table", headerLength, headerColor, titleColor)
+
+	c := color.New(color.FgHiMagenta)
+	for n := 1; n <= 10; n++ {
+		c.Printf("%v * %v = %v\n", value, n, (value * n))
+	}
 }
 
 /*
