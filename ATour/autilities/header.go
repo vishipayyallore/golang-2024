@@ -47,16 +47,25 @@ type Header struct{}
 // DisplayHeader displays the header in Go with color
 func (h Header) DisplayHeader(title string, headerConfig ...HeaderConfig) {
 
-	// Set default configuration if not provided
-	var hConfig HeaderConfig
+	// Set default configuration
+	hConfig := DefaultHeaderConfig()
 
-	switch len(headerConfig) {
-	case 0:
-		// No configuration provided, use default values
-		hConfig = DefaultHeaderConfig()
-	case 1:
-		// Use provided configuration
-		hConfig = headerConfig[0]
+	// Merge user-provided configuration with default configuration
+	if len(headerConfig) > 0 {
+
+		// Override fields in hConfig with non-zero values from userConfig
+		if headerConfig[0].HeaderChar != 0 {
+			hConfig.HeaderChar = headerConfig[0].HeaderChar
+		}
+		if headerConfig[0].HeaderLen != 0 {
+			hConfig.HeaderLen = headerConfig[0].HeaderLen
+		}
+		if headerConfig[0].HeaderColor != 0 {
+			hConfig.HeaderColor = headerConfig[0].HeaderColor
+		}
+		if headerConfig[0].TitleColor != 0 {
+			hConfig.TitleColor = headerConfig[0].TitleColor
+		}
 	}
 
 	leftPadValue := ((hConfig.HeaderLen - len(title)) / 2) + len(title)

@@ -1,25 +1,25 @@
 package main
 
 import (
-	"autilities"
+	utils "autilities"
 
 	"github.com/fatih/color"
 )
 
-var header = autilities.Header{}
+var header = utils.Header{}
 
 const subHeaderChar = '-'
 
 func main() {
 
-	header.DisplayHeader("Showing Maps", autilities.DefaultHeaderConfig())
+	header.DisplayHeader("Showing Maps", utils.DefaultHeaderConfig())
 
 	c := color.New(color.FgHiCyan)
 
-	config := autilities.HeaderConfig{TitleColor: color.FgHiMagenta}
+	config := utils.HeaderConfig{TitleColor: color.FgHiMagenta}
 	header.DisplayHeader("Maps - Creating a Map", config)
 
-	header.DisplayHeader("Maps - Creating a Map")
+	header.DisplayHeader("Maps - Creating a Map", utils.HeaderConfig{HeaderChar: subHeaderChar})
 	m := make(map[string]int)
 
 	m["k1"] = 7
