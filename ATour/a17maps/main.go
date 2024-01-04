@@ -8,19 +8,18 @@ import (
 
 var header = autilities.Header{}
 
-const headerChar = '*'
-const headerLength = 100
-const headerColor = color.FgHiYellow
-const titleColor = color.FgHiGreen
 const subHeaderChar = '-'
 
 func main() {
 
-	header.DisplayHeader(headerChar, "Showing Maps", headerLength, headerColor, titleColor)
+	header.DisplayHeader("Showing Maps", autilities.DefaultHeaderConfig())
 
 	c := color.New(color.FgHiCyan)
 
-	header.DisplayHeader(subHeaderChar, "Maps - Creating a Map", headerLength, headerColor, titleColor)
+	config := autilities.HeaderConfig{TitleColor: color.FgHiMagenta}
+	header.DisplayHeader("Maps - Creating a Map", config)
+
+	header.DisplayHeader("Maps - Creating a Map")
 	m := make(map[string]int)
 
 	m["k1"] = 7
