@@ -10,6 +10,7 @@
 > 1. Variables, Variables with initializers, Short variable declarations
 > 1. Basic types, Zero values, Type conversions, Type inference
 > 1. Constants, Numeric Constants
+> 1. For
 
 ## Go by Example
 
