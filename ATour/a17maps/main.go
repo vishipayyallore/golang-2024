@@ -1,45 +1,43 @@
 package main
 
 import (
-	utils "autilities"
+	utl "autilities"
 
 	"github.com/fatih/color"
 )
 
-var header = utils.Header{}
+var header = utl.Header{}
 
 const subHeaderChar = '-'
 
 func main() {
 
-	header.DisplayHeader("Showing Maps", utils.DefaultHeaderConfig())
+	header.DisplayHeader("Showing Maps", utl.DefaultHeaderConfig())
 
-	c := color.New(color.FgHiCyan)
-
-	config := utils.HeaderConfig{TitleColor: color.FgHiMagenta}
+	config := utl.HeaderConfig{TitleColor: color.FgHiMagenta}
 	header.DisplayHeader("Maps - Creating a Map", config)
 
-	header.DisplayHeader("Maps - Creating a Map", utils.HeaderConfig{HeaderChar: subHeaderChar})
+	header.DisplayHeader("Maps - Creating a Map", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	m := make(map[string]int)
 
 	m["k1"] = 7
 	m["k2"] = 13
 
-	c.Println("map:", m)
+	utl.PLine("map:", m)
 
 	v1 := m["k1"]
-	c.Println("v1: ", v1)
+	utl.PLine("v1: ", v1)
 
-	c.Println("len:", len(m))
+	utl.PLine("len:", len(m))
 
 	delete(m, "k2")
-	c.Println("map:", m)
+	utl.PLine("map:", m)
 
 	_, prs := m["k2"]
-	c.Println("prs:", prs)
+	utl.PLine("prs:", prs)
 
 	n := map[string]int{"foo": 1, "bar": 2}
-	c.Println("map:", n)
+	utl.PLine("map:", n)
 }
 
 /*
