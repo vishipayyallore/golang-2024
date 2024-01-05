@@ -1,29 +1,61 @@
 package main
 
-import "fmt"
+import (
+	"autilities"
+
+	"github.com/fatih/color"
+)
+
+var header = autilities.Header{}
+
+const headerChar = '*'
+const headerLength = 100
+const headerColor = color.FgHiYellow
+const titleColor = color.FgHiGreen
+const subHeaderChar = '-'
 
 func main() {
 
+	header.DisplayHeader(headerChar, "Showing For Loops", headerLength, headerColor, titleColor)
+
+	c := color.New(color.FgHiCyan)
+
+	header.DisplayHeader(subHeaderChar, "For Loops - Only Condition", headerLength, headerColor, titleColor)
 	i := 1
 	for i <= 3 {
-		fmt.Println(i)
+
+		c.Println(i)
 		i = i + 1
 	}
 
+	header.DisplayHeader(subHeaderChar, "For Loops - 3 Components", headerLength, headerColor, titleColor)
 	for j := 7; j <= 9; j++ {
-		fmt.Println(j)
+		c.Println(j)
 	}
 
+	header.DisplayHeader(subHeaderChar, "For Loops - WITHOUT 3 Components, with break", headerLength, headerColor, titleColor)
 	for {
-		fmt.Println("loop")
+		c.Println("loop")
 		break
 	}
 
+	header.DisplayHeader(subHeaderChar, "For Loops - 3 Components, with continue", headerLength, headerColor, titleColor)
 	for n := 0; n <= 5; n++ {
 		if n%2 == 0 {
 			continue
 		}
-		fmt.Println(n)
+		c.Println(n)
+	}
+
+	showTable(5)
+}
+
+func showTable(value int) {
+	header.DisplayHeader(subHeaderChar, "For Loops - 5 Table", headerLength, headerColor, titleColor)
+
+	c := color.New(color.FgHiMagenta)
+	for n := 1; n <= 10; n++ {
+		c.Printf("%v * %v = %v\n", value, n, (value * n))
 	}
 }
 

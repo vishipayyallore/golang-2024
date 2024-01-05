@@ -35,17 +35,17 @@ func showConstants() {
 	autilities.ShowTypeAndValue(packageName)
 	autilities.ShowTypeAndValue(choice)
 
-	autilities.ShowTypeAndValue(needInt(smallValue))
-	autilities.ShowTypeAndValue(needFloat(smallValue))
+	autilities.ShowTypeAndValue(toInt(smallValue))
+	autilities.ShowTypeAndValue(toFloat(smallValue))
 
-	autilities.ShowTypeAndValue(needFloat(bigValue))
+	autilities.ShowTypeAndValue(toFloat(bigValue))
 }
 
-func needInt(x int) int {
+func toInt(x int) int {
 	return x*10 + 1
 }
 
-func needFloat(x float64) float64 {
+func toFloat(x float64) float64 {
 	return x * 0.1
 }
 
