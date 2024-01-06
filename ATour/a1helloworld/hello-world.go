@@ -1,14 +1,18 @@
 package main
 
 import (
-	"fmt"
+	utl "autilities"
 	"time"
 )
 
-func main() {
-	fmt.Println("hello world 🙌❤️👌😊")
+var header = utl.Header{}
 
-	fmt.Println("The time is", time.Now())
+func main() {
+	header.DisplayHeader("Hello World")
+
+	utl.PLine("Hello Go Lang World 🙌❤️👌😊")
+
+	utl.PLine("The time is", time.Now())
 }
 
 /*

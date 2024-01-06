@@ -44,10 +44,8 @@ parameter types, and return types as the methods in the interface, the implement
 */
 type Header struct{}
 
-// DisplayHeader displays the header in Go with color
 func (h Header) DisplayHeader(title string, headerConfig ...HeaderConfig) {
 
-	// Set default configuration
 	hConfig := DefaultHeaderConfig()
 
 	// Merge user-provided configuration with default configuration
@@ -71,7 +69,6 @@ func (h Header) DisplayHeader(title string, headerConfig ...HeaderConfig) {
 	leftPadValue := ((hConfig.HeaderLen - len(title)) / 2) + len(title)
 	headerValue := strings.Repeat(string(hConfig.HeaderChar), hConfig.HeaderLen)
 
-	// Set color for printing
 	headerColorFunc := color.New(hConfig.HeaderColor).SprintFunc()
 	titleColorFunc := color.New(hConfig.TitleColor).SprintFunc()
 
@@ -88,14 +85,15 @@ func (h Header) DisplayHeader(title string, headerConfig ...HeaderConfig) {
 Usage:
 
 // Example 1: Using default colors
-header.DisplayHeader(headerChar, "Showing Maps", headerLength)
+header.DisplayHeader("Program Title")
 
 // Example 2: Providing a single color for both header and title
-config := HeaderConfig{TitleColor: color.FgHiMagenta}
-header.DisplayHeader(subHeaderChar, "Maps - Creating a Map", headerLength, config)
+header.DisplayHeader("Program Title", utils.DefaultHeaderConfig())
 
 // Example 3: Providing separate colors for header and title
-config := HeaderConfig{HeaderColor: color.FgHiCyan, TitleColor: color.FgHiYellow}
-header.DisplayHeader(subHeaderChar, "Maps - Creating a Map", headerLength, config)
+config := utils.HeaderConfig{TitleColor: color.FgHiMagenta}
+header.DisplayHeader("Program Title", config)
 
+// Example 3: Providing separate Header Character
+header.DisplayHeader("Program Title", utils.HeaderConfig{HeaderChar: subHeaderChar})
 */
