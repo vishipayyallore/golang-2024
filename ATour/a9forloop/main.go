@@ -1,63 +1,55 @@
 package main
 
 import (
-	"autilities"
-
-	"github.com/fatih/color"
+	utl "autilities"
 )
 
-var header = autilities.Header{}
+var header = utl.Header{}
 
-const headerChar = '*'
-const headerLength = 100
-const headerColor = color.FgHiYellow
-const titleColor = color.FgHiGreen
 const subHeaderChar = '-'
 
 func main() {
 
-	header.DisplayHeader(headerChar, "Showing For Loops", headerLength, headerColor, titleColor)
+	header.DisplayHeader("Showing For Loops")
 
-	c := color.New(color.FgHiCyan)
-
-	header.DisplayHeader(subHeaderChar, "For Loops - Only Condition", headerLength, headerColor, titleColor)
+	header.DisplayHeader("For Loops - Only Condition", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	i := 1
 	for i <= 3 {
 
-		c.Println(i)
+		utl.PLine(i)
 		i = i + 1
 	}
 
-	header.DisplayHeader(subHeaderChar, "For Loops - 3 Components", headerLength, headerColor, titleColor)
+	header.DisplayHeader("For Loops", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	for j := 7; j <= 9; j++ {
-		c.Println(j)
+		utl.PLine(j)
 	}
 
-	header.DisplayHeader(subHeaderChar, "For Loops - WITHOUT 3 Components, with break", headerLength, headerColor, titleColor)
+	header.DisplayHeader("For Loops - WITHOUT 3 Components, with break", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	for {
-		c.Println("loop")
+		utl.PLine("loop")
 		break
 	}
 
-	header.DisplayHeader(subHeaderChar, "For Loops - 3 Components, with continue", headerLength, headerColor, titleColor)
-	for n := 0; n <= 5; n++ {
-		if n%2 == 0 {
-			continue
-		}
-		c.Println(n)
-	}
+	// header.DisplayHeader(subHeaderChar, "For Loops - 3 Components, with continue", headerLength, headerColor, titleColor)
+	// for n := 0; n <= 5; n++ {
+	// 	if n%2 == 0 {
+	// 		continue
+	// 	}
+	// 	c.Println(n)
+	// }
 
-	showTable(5)
+	// showTable(5)
 }
 
-func showTable(value int) {
-	header.DisplayHeader(subHeaderChar, "For Loops - 5 Table", headerLength, headerColor, titleColor)
+// func showTable(value int) {
+// 	header.DisplayHeader(subHeaderChar, "For Loops - 5 Table", headerLength, headerColor, titleColor)
 
-	c := color.New(color.FgHiMagenta)
-	for n := 1; n <= 10; n++ {
-		c.Printf("%v * %v = %v\n", value, n, (value * n))
-	}
-}
+// 	c := color.New(color.FgHiMagenta)
+// 	for n := 1; n <= 10; n++ {
+// 		c.Printf("%v * %v = %v\n", value, n, (value * n))
+// 	}
+// }
 
 /*
 Notes:
