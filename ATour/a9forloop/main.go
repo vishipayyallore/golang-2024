@@ -39,11 +39,11 @@ func main() {
 		utl.PLine(n)
 	}
 
-	header.DisplayHeader("For Loops - 5 Table", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	showTable(5)
 }
 
 func showTable(value int) {
+	header.DisplayHeader("For Loops - 5 Table", utl.HeaderConfig{HeaderChar: subHeaderChar})
 
 	for n := 1; n <= 10; n++ {
 		utl.PFmted("%v * %v = %v\n", value, n, (value * n))
