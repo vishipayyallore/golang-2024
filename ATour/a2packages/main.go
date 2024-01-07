@@ -1,23 +1,29 @@
 package main
 
 import (
-	"fmt"
+	utl "autilities"
 	"math/rand"
 )
 
+var header = utl.Header{}
+
 func main() {
+
+	header.DisplayHeader("Packages Demo")
+
 	// Packages Demo
-	fmt.Println("My favorite number is", rand.Intn(10))
+	utl.PLine("My favorite number is", rand.Intn(10))
 
+	header.DisplayHeader("Values Demo")
 	// Values Demo
-	fmt.Println("go" + "lang")
+	utl.PLine("go" + "lang")
 
-	fmt.Println("1+1 =", 1+1)
-	fmt.Println("7.0/3.0 =", 7.0/3.0)
+	utl.PLine("1+1 =", 1+1)
+	utl.PLine("7.0/3.0 =", 7.0/3.0)
 
-	fmt.Println(true && false)
-	fmt.Println(true || false)
-	fmt.Println(!true)
+	utl.PLine(true && false)
+	utl.PLine(true || false)
+	utl.PLine(!true)
 }
 
 /*
