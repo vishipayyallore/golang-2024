@@ -31,25 +31,24 @@ func main() {
 		break
 	}
 
-	// header.DisplayHeader(subHeaderChar, "For Loops - 3 Components, with continue", headerLength, headerColor, titleColor)
-	// for n := 0; n <= 5; n++ {
-	// 	if n%2 == 0 {
-	// 		continue
-	// 	}
-	// 	c.Println(n)
-	// }
+	header.DisplayHeader("For Loops - 3 Components, with continue", utl.HeaderConfig{HeaderChar: subHeaderChar})
+	for n := 0; n <= 5; n++ {
+		if n%2 == 0 {
+			continue
+		}
+		utl.PLine(n)
+	}
 
-	// showTable(5)
+	header.DisplayHeader("For Loops - 5 Table", utl.HeaderConfig{HeaderChar: subHeaderChar})
+	showTable(5)
 }
 
-// func showTable(value int) {
-// 	header.DisplayHeader(subHeaderChar, "For Loops - 5 Table", headerLength, headerColor, titleColor)
+func showTable(value int) {
 
-// 	c := color.New(color.FgHiMagenta)
-// 	for n := 1; n <= 10; n++ {
-// 		c.Printf("%v * %v = %v\n", value, n, (value * n))
-// 	}
-// }
+	for n := 1; n <= 10; n++ {
+		utl.PFmted("%v * %v = %v\n", value, n, (value * n))
+	}
+}
 
 /*
 Notes:
