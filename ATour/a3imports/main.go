@@ -2,12 +2,16 @@ package main
 
 // factored import statement.
 import (
-	"fmt"
+	utl "autilities"
 	"math"
 )
 
+var header = utl.Header{}
+
 func main() {
-	fmt.Printf("Now you have %g problems.\n", math.Sqrt(7))
+	header.DisplayHeader("Import Demo")
+
+	utl.PFmted("math.Sqrt(7) is %g.\n", math.Sqrt(7))
 }
 
 /*
