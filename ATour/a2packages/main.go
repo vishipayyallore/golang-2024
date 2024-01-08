@@ -15,15 +15,14 @@ func main() {
 	utl.PLine("My favorite number is", rand.Intn(10))
 
 	header.DisplayHeader("Values Demo")
-	// Values Demo
-	utl.PLine("go" + "lang")
+	utl.PLine("String: go" + "lang")
 
-	utl.PLine("1+1 =", 1+1)
-	utl.PLine("7.0/3.0 =", 7.0/3.0)
+	utl.PLine("Integers: 1+1 =", 1+1)
+	utl.PLine("Floats: 7.0/3.0 =", 7.0/3.0)
 
-	utl.PLine(true && false)
-	utl.PLine(true || false)
-	utl.PLine(!true)
+	utl.PLine("Booleans: (true && false) =", true && false)
+	utl.PLine("Booleans: (true || ) =", true || false)
+	utl.PLine("Booleans: (!true) =", !true)
 }
 
 /*

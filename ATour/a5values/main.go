@@ -1,17 +1,23 @@
 package main
 
-import "fmt"
+import (
+	utl "autilities"
+)
+
+var header = utl.Header{}
 
 func main() {
 
-	fmt.Println("go" + "lang")
+	header.DisplayHeader("Values Demo")
 
-	fmt.Println("1+1 =", 1+1)
-	fmt.Println("7.0/3.0 =", 7.0/3.0)
+	utl.PLine("String: go" + "lang")
 
-	fmt.Println(true && false)
-	fmt.Println(true || false)
-	fmt.Println(!true)
+	utl.PLine("Integers: 1+1 =", 1+1)
+	utl.PLine("Floats: 7.0/3.0 =", 7.0/3.0)
+
+	utl.PLine("Booleans: (true && false) =", true && false)
+	utl.PLine("Booleans: (true || ) =", true || false)
+	utl.PLine("Booleans: (!true) =", !true)
 }
 
 /*
