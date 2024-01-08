@@ -20,8 +20,8 @@ func DefaultHeaderConfig() HeaderConfig {
 	return HeaderConfig{
 		HeaderChar:  '*',
 		HeaderLen:   100,
-		HeaderColor: color.FgHiYellow,
-		TitleColor:  color.FgHiGreen,
+		HeaderColor: color.FgYellow,
+		TitleColor:  color.FgHiYellow,
 	}
 }
 
