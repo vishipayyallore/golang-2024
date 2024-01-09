@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	utl "autilities"
+)
+
+var header = utl.Header{}
 
 var cl, python, java bool
 
@@ -9,25 +13,28 @@ var cl, python, java bool
 
 func main() {
 
-	fmt.Println("cl, python, java", cl, python, java)
+	header.DisplayHeader("Variables Demo")
+
+	utl.PLine("cl, python, java", cl, python, java)
 
 	var a = "initial"
-	fmt.Println(a)
+	utl.PLine(a)
 
 	var b, c int = 1, 2
-	fmt.Println(b, c)
+	utl.PLine(b, c)
 
 	var d = true
-	fmt.Println(d)
+	utl.PLine(d)
 
 	var e int
-	fmt.Println(e)
+	utl.PLine(e)
 
+	// This syntax is only available inside functions.
 	f := "apple"
-	fmt.Println(f)
+	utl.PLine(f)
 
 	var cl1, python1, java1 = true, false, "no!"
-	fmt.Println("cl1, python1, java1", cl1, python1, java1)
+	utl.PLine("cl1, python1, java1", cl1, python1, java1)
 }
 
 /*
