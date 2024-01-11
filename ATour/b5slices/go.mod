@@ -1,4 +1,4 @@
-module a14slices
+module b5slices
 
 go 1.21.6
 
