@@ -1,22 +1,26 @@
 package main
 
 import (
-	"fmt"
+	utl "autilities"
 )
 
+var header = utl.Header{}
+
 func main() {
-	fmt.Println("Sum: ", add(42, 13))
+	header.DisplayHeader("Functions Demo")
 
-	fmt.Println("Sum: ", addv1(42, 13))
+	utl.PLine("Sum: ", add(42, 13))
 
-	a, b := swap("Kumar", "Manish")
-	fmt.Println("Multiple Return values: ", a, b)
+	utl.PLine("Sum: ", addv1(42, 13))
+
+	a, b := swap("Kumar", "Manish ")
+	utl.PLine("Multiple Return values: ", a, b)
 
 	n1, n2 := split(17)
-	fmt.Println("Named (Naked) Return Values", n1, n2)
+	utl.PLine("Named (Naked) Return Values: ", n1, n2)
 
-	// fmt.Println("output: ", split(17)) // Error: multiple-value split() in single-value context
-	fmt.Println(split(17))
+	// utl.PLine("output: ", split(17)) // Error: multiple-value split() in single-value context
+	utl.PLine(split(17))
 }
 
 /*
