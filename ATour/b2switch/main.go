@@ -1,48 +1,53 @@
 package main
 
 import (
-	"fmt"
+	utl "autilities"
 	"time"
 )
 
+var header = utl.Header{}
+
 func main() {
 
+	header.DisplayHeader("Showing Switch")
+
 	i := 2
-	fmt.Print("Write ", i, " as ")
+	utl.PLine("Write ", i, " as ")
 	switch i {
 	case 1:
-		fmt.Println("one")
+		utl.PLine("one")
 	case 2:
-		fmt.Println("two")
+		utl.PLine("two")
 	case 3:
-		fmt.Println("three")
+		utl.PLine("three")
 	}
 
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
-		fmt.Println("It's the weekend")
+		utl.PLine("It's the weekend")
 	default:
-		fmt.Println("It's a weekday")
+		utl.PLine("It's a weekday")
 	}
 
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
-		fmt.Println("It's before noon")
+		utl.PLine("It's before noon")
 	default:
-		fmt.Println("It's after noon")
+		utl.PLine("It's after noon")
 	}
 
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:
-			fmt.Println("I'm a bool")
+			utl.PLine("I'm a bool")
 		case int:
-			fmt.Println("I'm an int")
+			utl.PLine("I'm an int")
 		default:
-			fmt.Printf("Don't know type %T\n", t)
+			utl.PFmted("Don't know type %T\n", t)
 		}
 	}
+
 	whatAmI(true)
 	whatAmI(1)
 	whatAmI("hey")
