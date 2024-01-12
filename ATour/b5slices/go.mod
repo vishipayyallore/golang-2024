@@ -1,4 +1,4 @@
-module autilities
+module b5slices
 
 go 1.21.6
 

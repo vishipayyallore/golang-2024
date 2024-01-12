@@ -1,29 +1,35 @@
 package main
 
-import "fmt"
+import (
+	utl "autilities"
+)
+
+var header = utl.Header{}
 
 func main() {
 
+	header.DisplayHeader("Showing If Else")
+
 	if 7%2 == 0 {
-		fmt.Println("7 is even")
+		utl.PLine("7 is even")
 	} else {
-		fmt.Println("7 is odd")
+		utl.PLine("7 is odd")
 	}
 
 	if 8%4 == 0 {
-		fmt.Println("8 is divisible by 4")
+		utl.PLine("8 is divisible by 4")
 	}
 
 	if 7%2 == 0 || 8%2 == 0 {
-		fmt.Println("either 8 or 7 are even")
+		utl.PLine("either 8 or 7 are even")
 	}
 
 	if num := 9; num < 0 {
-		fmt.Println(num, "is negative")
+		utl.PLine(num, " is negative")
 	} else if num < 10 {
-		fmt.Println(num, "has 1 digit")
+		utl.PLine(num, " has 1 digit")
 	} else {
-		fmt.Println(num, "has multiple digits")
+		utl.PLine(num, " has multiple digits")
 	}
 }
 
