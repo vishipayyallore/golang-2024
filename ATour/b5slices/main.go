@@ -1,77 +1,71 @@
 package main
 
 import (
-	"autilities"
-	"fmt"
+	utl "autilities"
 	"slices"
 
 	"github.com/fatih/color"
 )
 
-var header = autilities.Header{}
-
-const headerChar = '*'
-const headerLength = 100
-const headerColor = color.FgHiYellow
-const titleColor = color.FgHiGreen
+var header = utl.Header{}
 
 func main() {
 
-	header.DisplayHeader(headerChar, "Showing Slices", headerLength, headerColor, titleColor)
+	header.DisplayHeader("Showing Slices")
 
 	color.Cyan("Prints text in cyan.")
 
 	var arr1 [5]int
-	fmt.Printf("Array ")
-	autilities.ShowTypeAndValue(arr1)
+	utl.PLine("Array ")
+	utl.ShowTypeAndValue(arr1)
 
 	var slcx []string
-	fmt.Printf("Slice ")
-	autilities.ShowTypeAndValue(slcx)
-	fmt.Println("uninit:", slcx, slcx == nil, len(slcx) == 0)
+	utl.PLine("Slice ")
+	utl.ShowTypeAndValue(slcx)
+	utl.PLine("uninit:", slcx, slcx == nil, len(slcx) == 0)
 
 	slcx = make([]string, 3)
 	slcx[0] = "a"
 	slcx[1] = "b"
 	slcx[2] = "c"
-	fmt.Println("set(slcx):", slcx)
+	utl.PLine("set(slcx):", slcx)
 
 	var slc1 = make([]string, 3)
-	autilities.ShowTypeAndValue(slc1)
-	fmt.Println("emp:", slc1, "len:", len(slc1), "cap:", cap(slc1))
+	utl.ShowTypeAndValue(slc1)
+	utl.PLine("emp:", slc1, "len:", len(slc1), "cap:", cap(slc1))
 
 	slc1[0] = "a"
 	slc1[1] = "b"
 	slc1[2] = "c"
-	fmt.Println("set:", slc1)
-	fmt.Println("get:", slc1[2])
+	utl.PLine("set:", slc1)
+	utl.PLine("get:", slc1[2])
 
-	fmt.Println("len:", len(slc1))
+	utl.PLine("len:", len(slc1))
 
 	slc1 = append(slc1, "d")
 	slc1 = append(slc1, "e", "f")
-	fmt.Println("Append:", slc1)
+	utl.PLine("Append:", slc1)
 
 	c := make([]string, len(slc1))
 	copy(c, slc1)
-	fmt.Println("Copy:", c)
+	utl.PLine("Copy:", c)
 
 	l := slc1[2:5]
-	fmt.Println("Slice 1:", l)
+	utl.PLine("Slice 1:", l)
 
 	l = slc1[:5]
-	fmt.Println("Slice 2:", l)
+	utl.PLine("Slice 2:", l)
 
 	l = slc1[2:]
-	fmt.Println("Slice 3:", l)
+	utl.PLine("Slice 3:", l)
 
 	t := []string{"g", "h", "i"}
-	autilities.ShowTypeAndValue(t)
-	fmt.Println("Declare and Initialize:", t)
+	utl.ShowTypeAndValue(t)
+	utl.PLine("Declare and Initialize:", t)
 
 	t2 := []string{"g", "h", "i"}
 	if slices.Equal(t, t2) {
-		fmt.Println("t == t2")
+		utl.PLine("t == t2")
 	}
 
 	tdSlice := make([][]int, 3)
@@ -82,19 +76,19 @@ func main() {
 			tdSlice[i][j] = i + j
 		}
 	}
-	fmt.Println("2d Slice: ", tdSlice)
+	utl.PLine("2d Slice: ", tdSlice)
 
 	ts := make([][]int, 3, 5)
-	fmt.Println("ts: ", ts)
+	utl.PLine("ts: ", ts)
 
 	ss := make([]string, 0, 5)
-	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
 
 	ss = append(ss, "A", "B")
-	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
 
 	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
-	fmt.Println("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
 }
 
 /*
@@ -111,5 +105,5 @@ Notes:
 9. And this slices up from (and including) slc1[2].
 10. We can declare and initialize a variable for slice in a single line as well.
 11. Slices can be composed into multi-dimensional data structures. The length of the inner slices can vary, unlike with multi-dimensional arrays.
-12. Note that while slices are different types than arrays, they are rendered similarly by fmt.Println.
+12. Note that while slices are different types than arrays, they are rendered similarly by utl.PLine.
 */

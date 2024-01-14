@@ -1,11 +1,8 @@
 package main
 
 import (
-	"autilities"
-	"fmt"
+	utl "autilities"
 	"math/cmplx"
-
-	"github.com/fatih/color"
 )
 
 var (
@@ -14,16 +11,10 @@ var (
 	someValue complex128 = cmplx.Sqrt(-5 + 12i)
 )
 
-var header = autilities.Header{}
-
-const headerChar = '*'
-const headerLength = 100
-const headerColor = color.FgHiYellow
-const titleColor = color.FgHiGreen
-const subHeaderChar = '-'
+var header = utl.Header{}
 
 func main() {
-	header.DisplayHeader(headerChar, "Showing Basic Types", headerLength, headerColor, titleColor)
+	header.DisplayHeader("Showing Basic Types")
 
 	showBasicTypes()
 
@@ -47,7 +38,7 @@ func main() {
 }
 
 func showTypeInference() {
-	header.DisplayHeader(subHeaderChar, "Showing Type Inference", headerLength, headerColor, titleColor)
+	header.DisplayHeader("Showing Type Inference")
 
 	// When declaring a variable without specifying an explicit type (either by using the := syntax or var = expression syntax), the variable's type is inferred from the value on the right hand side.
 	var i2 int
@@ -132,7 +123,7 @@ func showStringType() {
 }
 
 func showTypeAndValue(x interface{}) {
-	fmt.Printf("Type: %T Value: %v\n", x, x)
+	utl.PFmted("Type: %T Value: %v\n", x, x)
 }
 
 func showZeroValue() {
@@ -141,7 +132,7 @@ func showZeroValue() {
 	var b bool
 	var s string
 
-	fmt.Println("\n\nShowing Zero Values:")
+	utl.PLine("\n\nShowing Zero Values:")
 
 	showTypeAndValue(i)
 	showTypeAndValue(f)
@@ -154,7 +145,7 @@ func showTypeConversions() {
 	f := float64(i)
 	u := uint(f)
 
-	fmt.Println("\n\nShowing Type Conversions:")
+	utl.PLine("\n\nShowing Type Conversions:")
 	showTypeAndValue(i)
 	showTypeAndValue(f)
 	showTypeAndValue(u)

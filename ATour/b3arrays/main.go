@@ -1,21 +1,27 @@
 package main
 
-import "fmt"
+import (
+	utl "autilities"
+)
+
+var header = utl.Header{}
 
 func main() {
 
+	header.DisplayHeader("Showing Arrays")
+
 	var arr1 [5]int
-	fmt.Println("emp:", arr1)
+	utl.PLine("emp:", arr1)
 
-	fmt.Println("setting values")
+	utl.PLine("setting values")
 	arr1[4] = 100
-	fmt.Println("set:", arr1)
-	fmt.Println("get:", arr1[4])
+	utl.PLine("set:", arr1)
+	utl.PLine("get:", arr1[4])
 
-	fmt.Println("len:", len(arr1))
+	utl.PLine("len:", len(arr1))
 
 	b := [5]int{1, 2, 3, 4, 5}
-	fmt.Println("Declare and Assign Array:", b)
+	utl.PLine("Declare and Assign Array:", b)
 
 	var tdarr [3][3]int
 	for i := 0; i < 2; i++ {
@@ -23,7 +29,7 @@ func main() {
 			tdarr[i][j] = i + j
 		}
 	}
-	fmt.Println("2D Array: ", tdarr)
+	utl.PLine("2D Array: ", tdarr)
 }
 
 /*
