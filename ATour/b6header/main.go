@@ -1,15 +1,17 @@
 package main
 
 import (
-	"autilities"
+	utl "autilities"
 
 	"github.com/fatih/color"
 )
 
 func main() {
 	// Example usage
-	header := autilities.Header{}
-	header.DisplayHeader('*', "Golang Header", 100, color.FgHiYellow, color.FgHiGreen)
+	header := utl.Header{}
+	header.DisplayHeader("Golang Header", utl.HeaderConfig{HeaderChar: '*'})
+
+	header.DisplayHeader("Golang Header", utl.HeaderConfig{HeaderChar: '=', HeaderColor: color.FgHiRed, TitleColor: color.FgHiGreen})
 }
 
 //import "github.com/fatih/color"
