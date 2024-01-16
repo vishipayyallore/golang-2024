@@ -2,15 +2,14 @@
 
 ## A Tour of Go
 
-> 1. Packages
+> 1. Packages, Imports
 
 ## Go by Example
 
-> 1. Hello World
+> 1. Hello World, Values
 
 ## Topics
 
-> 1. Imports
 > 1. Exported names
 > 1. Functions, Functions Continued, Multiple Results
 > 1. Named return values
@@ -18,7 +17,6 @@
 > 1. Basic types, Zero values, Type conversions, Type inference
 > 1. Constants, Numeric Constants
 > 1. For
-> 1. Values
 > 1. Variables
 > 1. Constants
 > 1. For
