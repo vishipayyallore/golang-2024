@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"net/http"
 )
 
@@ -9,9 +10,14 @@ import (
 
 func main() {
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello Go Lang Web Service World !!")
-	})
+	addr := ":8080"
 
-	http.ListenAndServe(":8080", nil)
+	helloHandler := func(w http.ResponseWriter, req *http.Request) {
+		io.WriteString(w, "Hello Go Lang Web Service World !!\n")
+	}
+
+	http.HandleFunc("/", helloHandler)
+
+	fmt.Printf("Starting Web Server at %s\n", addr)
+	http.ListenAndServe(addr, nil)
 }
