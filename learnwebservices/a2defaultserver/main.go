@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -18,6 +19,6 @@ func main() {
 
 	http.HandleFunc("/api", helloHandler)
 
-	fmt.Printf("Starting Web Server at %s\n", addr)
-	http.ListenAndServe(addr, nil)
+	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
+	log.Fatal(http.ListenAndServe(addr, nil))
 }

@@ -4,14 +4,21 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
 func main() {
 
 	addr := ":8080"
+	tlsConfig := &tls.Config{InsecureSkipVerify: true}
+	server := &http.Server{
+		Addr:      addr,
+		TLSConfig: tlsConfig,
+	}
 
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		io.WriteString(w, "Welcome to Customer Service Web Service - Secure.\n")
@@ -22,5 +29,7 @@ func main() {
 	http.HandleFunc("/api", helloHandler)
 
 	fmt.Printf("Starting Web Server at https://localhost%s\n", addr)
-	http.ListenAndServeTLS(addr, "./certs/cert.pem", "./certs/key.pem", nil)
+	log.Fatal(server.ListenAndServeTLS("./certs/cert.pem", "./certs/key.pem"))
 }
+
+// http.ListenAndServeTLS(addr, "./certs/cert.pem", "./certs/key.pem", nil)
