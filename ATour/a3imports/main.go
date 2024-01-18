@@ -11,6 +11,7 @@ var header = utl.Header{}
 func main() {
 	header.DisplayHeader("Import Demo")
 
+	utl.PLine("We are using factored import statement")
 	utl.PFmted("math.Sqrt(7) is %g.\n", math.Sqrt(7))
 }
 

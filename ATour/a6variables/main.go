@@ -29,12 +29,11 @@ func main() {
 	var e int
 	utl.PLine(e)
 
-	// This syntax is only available inside functions.
-	f := "apple"
+	f := "apple" // This syntax is only available inside functions.
 	utl.PLine(f)
 
-	var cl1, python1, java1 = true, false, "no!"
-	utl.PLine("cl1, python1, java1", cl1, python1, java1)
+	var cl1, python1, java1 = true, false, " no!"
+	utl.PLine("cl1, python1, java1 ", cl1, python1, java1)
 }
 
 /*
