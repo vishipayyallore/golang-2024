@@ -2,7 +2,7 @@
 
 ## A Tour of Go
 
-> 1. Packages, Imports, Exported names
+> 1. Packages, Imports, Exported names, Functions
 
 ## Go by Example
 

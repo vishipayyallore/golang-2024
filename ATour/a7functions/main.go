@@ -9,18 +9,22 @@ var header = utl.Header{}
 func main() {
 	header.DisplayHeader("Functions Demo")
 
-	utl.PLine("Sum: ", add(42, 13))
+	num1 := 43
+	num2 := 13
+	total := 17
 
-	utl.PLine("Sum: ", addv1(42, 13))
+	utl.PLine("Sum ", num1, " + ", num2, " = ", add(num1, num2))
+
+	utl.PLine("Sum: ", addv1(num1, num2))
 
 	a, b := swap("Kumar", "Manish ")
 	utl.PLine("Multiple Return values: ", a, b)
 
-	n1, n2 := split(17)
+	n1, n2 := split(total)
 	utl.PLine("Named (Naked) Return Values: ", n1, n2)
 
-	// utl.PLine("output: ", split(17)) // Error: multiple-value split() in single-value context
-	utl.PLine(split(17))
+	// utl.PLine("output: ", split(total)) // Error: multiple-value split() in single-value context
+	utl.PLine(split(total)) // This is OK
 }
 
 /*
