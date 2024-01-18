@@ -7,17 +7,15 @@ import (
 
 var header = utl.Header{}
 
-const isManagerI rune = 'Y'
-const s string = "constant"
-
 const (
-	Pi          = 3.14
-	isManager   = true
-	packageName = "a16constants"
-	choice      = iota
-
-	bigValue   = 1 << 100
-	smallValue = bigValue >> 99
+	s           string = "Sri Varu"
+	Pi                 = 3.14
+	isManager          = true
+	isManagerI  rune   = 'Y'
+	packageName        = "a16constants"
+	choice             = iota
+	bigValue           = 1 << 100
+	smallValue         = bigValue >> 99
 )
 
 func main() {
