@@ -27,7 +27,7 @@ func main() {
 
 	http.HandleFunc("/api", helloHandler) // http://localhost:8080/api
 
-	http.HandleFunc("/url/", getUrlHandlerFunc) // http://localhost:8080/url/
+	http.HandleFunc("/url/", getUrlHandlerFunc) // http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
