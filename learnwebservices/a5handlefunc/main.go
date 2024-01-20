@@ -23,11 +23,14 @@ func main() {
 		io.WriteString(w, "Welcome to Customer Service Web Service.\n")
 	}
 
-	http.HandleFunc("/", helloHandler) // http://localhost:8080
+	// http://localhost:8080
+	http.HandleFunc("/", helloHandler)
 
-	http.HandleFunc("/api", helloHandler) // http://localhost:8080/api
+	// http://localhost:8080/api
+	http.HandleFunc("/api", helloHandler)
 
-	http.HandleFunc("/url/", getUrlHandlerFunc) // http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
+	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
+	http.HandleFunc("/url/", getUrlHandlerFunc)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
