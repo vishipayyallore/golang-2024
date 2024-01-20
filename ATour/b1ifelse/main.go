@@ -24,6 +24,8 @@ func main() {
 		utl.PLine("either 8 or 7 are even")
 	}
 
+	// A statement can precede conditionals; any variables declared in this statement
+	// are available in the current and all subsequent branches.
 	if num := 9; num < 0 {
 		utl.PLine(num, " is negative")
 	} else if num < 10 {
