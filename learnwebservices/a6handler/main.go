@@ -14,9 +14,11 @@ func main() {
 	s := http.Server{
 		Addr: addr,
 	}
+	wMessage := "Welcome to Customer Service Web Service.\n"
+	wMessage1 := "Welcome to Customer Service Web API.\n"
 
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
-		io.WriteString(w, "Welcome to Customer Service Web Service.\n")
+		io.WriteString(w, wMessage)
 	}
 
 	// http://localhost:8080
@@ -32,6 +34,9 @@ func main() {
 	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
 	http.HandleFunc("/url/", getUrlHandlerFunc)
 
+	// http://localhost:8080/handler
+	http.Handle("/handler", handlerInterface(wMessage1))
+
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
 	go func() {
@@ -42,4 +47,10 @@ func main() {
 	fmt.Scanln()
 	s.Shutdown(context.Background())
 	fmt.Println("Server stopped")
+}
+
+type handlerInterface string
+
+func (h handlerInterface) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, string(h))
 }
