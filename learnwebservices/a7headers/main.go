@@ -52,5 +52,9 @@ func main() {
 type handlerInterface string
 
 func (h handlerInterface) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	// Visit http://localhost:8080/handler
+	w.Header().Add("X-Powered-By", "Gophers The Great !!")
+
 	fmt.Fprintln(w, string(h))
+	fmt.Fprintln(w, r.Header)
 }
