@@ -22,6 +22,7 @@ func main() {
 		utl.PLine("three")
 	}
 
+	utl.PLine("Today is: ", time.Now().Weekday())
 	switch time.Now().Weekday() {
 	case time.Saturday, time.Sunday:
 		utl.PLine("It's the weekend")
@@ -43,6 +44,8 @@ func main() {
 			utl.PLine("I'm a bool")
 		case int:
 			utl.PLine("I'm an int")
+		case string:
+			utl.PLine("I'm an string")
 		default:
 			utl.PFmted("Don't know type %T\n", t)
 		}
