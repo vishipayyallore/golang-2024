@@ -3,7 +3,7 @@
 ## A Tour of Go
 
 > 1. Packages | Imports | Exported names | Functions | Functions continued
-> 1. Multiple Results | Named return values |
+> 1. Multiple Results | Named return values | Variables |
 
 ## Go by Example
 
