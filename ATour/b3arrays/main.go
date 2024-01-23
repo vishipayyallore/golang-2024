@@ -11,17 +11,17 @@ func main() {
 	header.DisplayHeader("Showing Arrays")
 
 	var arr1 [5]int
-	utl.PLine("emp:", arr1)
+	utl.PLine("Employee: ", arr1)
 
-	utl.PLine("setting values")
+	utl.PLine("Setting values ...")
 	arr1[4] = 100
-	utl.PLine("set:", arr1)
-	utl.PLine("get:", arr1[4])
+	utl.PLine("Set: ", arr1)
+	utl.PLine("Get: ", arr1[4])
 
-	utl.PLine("len:", len(arr1))
+	utl.PLine("Length: ", len(arr1))
 
 	b := [5]int{1, 2, 3, 4, 5}
-	utl.PLine("Declare and Assign Array:", b)
+	utl.PLine("Declare and Assign Array: ", b)
 
 	var tdarr [3][3]int
 	for i := 0; i < 2; i++ {
