@@ -26,7 +26,7 @@ func main() {
 	// http://localhost:8080/api
 	http.HandleFunc("/api", helloHandler)
 
-	filePath := "./data/customers.csv"
+	filePath := "../data/customers.csv"
 	getCustomerDataHandler := func(w http.ResponseWriter, req *http.Request) {
 		customerFile, err := os.Open(filePath)
 		if err != nil {

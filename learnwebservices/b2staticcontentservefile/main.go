@@ -26,9 +26,9 @@ func main() {
 	// http://localhost:8080/api
 	http.HandleFunc("/api", helloHandler)
 
-	filePath := "./data/customers.csv"
+	customersFilePath := "../data/customers.csv"
 	getCustomerDataHandler := func(w http.ResponseWriter, req *http.Request) {
-		customerFile, err := os.Open(filePath)
+		customerFile, err := os.Open(customersFilePath)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -48,6 +48,13 @@ func main() {
 
 	// http://localhost:8080/api/getcustomerdata
 	http.HandleFunc("/api/getcustomerdata", getCustomerDataHandler)
+
+	serveFileHandler := func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, customersFilePath)
+	}
+
+	// http://localhost:8080/api/getcustomerdatav1
+	http.HandleFunc("/api/getcustomerdatav1", serveFileHandler)
 
 	var getUrlHandlerFunc http.HandlerFunc = func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, r.URL.String())
