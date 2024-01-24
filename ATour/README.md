@@ -3,7 +3,7 @@
 ## A Tour of Go
 
 > 1. Packages | Imports | Exported names | Functions | Functions continued
-> 1. Multiple Results | Named return values | Variables |
+> 1. Multiple Results | Named return values | Variables | Variables with initializers |
 
 ## Go by Example
 
@@ -12,6 +12,6 @@
 
 ## Topics
 
-> 1. Variables with initializers, Short variable declarations
+> 1. Short variable declarations
 > 1. Basic types, Zero values, Type conversions, Type inference
 > 1. Constants, Numeric Constants, Slices, Maps
