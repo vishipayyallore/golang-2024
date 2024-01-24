@@ -11,7 +11,7 @@ func main() {
 	header.DisplayHeader("Showing Arrays")
 
 	var arr1 [5]int
-	utl.PLine("Employee: ", arr1)
+	utl.PLine("Empty Array: ", arr1)
 
 	utl.PLine("Setting values ...")
 	arr1[4] = 100
