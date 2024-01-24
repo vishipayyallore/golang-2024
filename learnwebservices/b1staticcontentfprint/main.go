@@ -26,13 +26,15 @@ func main() {
 	// http://localhost:8080/api
 	http.HandleFunc("/api", helloHandler)
 
+	filePath := "./data/customers.csv"
 	getCustomerDataHandler := func(w http.ResponseWriter, req *http.Request) {
-		customerFile, err := os.Open("./data/customers.csv")
+		customerFile, err := os.Open(filePath)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer customerFile.Close()
 
+		// Method 1
 		data, err := io.ReadAll(customerFile)
 		if err != nil {
 			log.Fatal(err)
@@ -40,8 +42,8 @@ func main() {
 
 		fmt.Fprint(w, string(data))
 
+		// Method 2
 		// io.Copy(w, customerFile)
-
 	}
 
 	// http://localhost:8080/api/getcustomerdata
