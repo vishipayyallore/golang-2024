@@ -8,10 +8,9 @@
 ## Go by Example
 
 > 1. Hello World | Values | Variables | Constants | For |
-> 1. If/Else | Switch | Arrays | Slices |
+> 1. If/Else | Switch | Arrays | Slices | Maps |
 
 ## Topics
 
-> 1.
 > 1. Basic types, Zero values, Type conversions, Type inference
-> 1. Constants, Numeric Constants, Maps
+> 1. Constants, Numeric Constants,
