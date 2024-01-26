@@ -17,6 +17,26 @@ func main() {
 		sum += num
 	}
 	utl.PLine("Sum: ", sum)
+
+	for i, num := range nums {
+		if num == 3 {
+			utl.PLine("Index: ", i)
+		}
+	}
+
+	kvs := map[string]string{"a": "apple", "b": "banana"}
+	for k, v := range kvs {
+		utl.PFmted("%s -> %s\n", k, v)
+	}
+
+	for k := range kvs {
+		utl.PLine("key:", k)
+	}
+
+	for i, c := range "go" {
+		utl.PLine(i, c)
+	}
+
 }
 
 /*
