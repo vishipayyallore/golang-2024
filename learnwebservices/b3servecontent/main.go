@@ -3,7 +3,7 @@
 package main
 
 import (
-	"b2staticcontentservefile/handlers"
+	"b3servecontent/handlers"
 	"context"
 	"fmt"
 	"log"
@@ -18,9 +18,12 @@ func main() {
 
 	// Use handlers from filehandlers.go
 	http.HandleFunc("/", handlers.HelloHandler)
+	http.HandleFunc("/api", handlers.HelloHandler)
+	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
+
 	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
 	http.HandleFunc("/api/getcustomerdatav1", handlers.ServeFileHandler)
-	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
+	http.HandleFunc("/api/getcustomerdatav2", handlers.ServeContentHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
