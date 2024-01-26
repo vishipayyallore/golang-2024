@@ -16,23 +16,25 @@ func main() {
 	color.Cyan("Prints text in cyan.")
 
 	var arr1 [5]int
-	utl.PLine("Array ")
+	utl.PLine("\nArray ")
 	utl.ShowTypeAndValue(arr1)
 
 	var slcx []string
-	utl.PLine("Slice ")
+	utl.PLine("\nSlice ")
 	utl.ShowTypeAndValue(slcx)
-	utl.PLine("uninit:", slcx, slcx == nil, len(slcx) == 0)
+	utl.PLine("Uninitialized Slice: ", slcx, slcx == nil, len(slcx) == 0)
 
 	slcx = make([]string, 3)
+	utl.PLine("\nSlice from make: ", slcx, slcx == nil, len(slcx) == 0)
+	utl.ShowTypeAndValue(slcx)
 	slcx[0] = "a"
 	slcx[1] = "b"
 	slcx[2] = "c"
-	utl.PLine("set(slcx):", slcx)
+	utl.PLine("Set(slcx):", slcx)
 
 	var slc1 = make([]string, 3)
 	utl.ShowTypeAndValue(slc1)
-	utl.PLine("emp:", slc1, "len:", len(slc1), "cap:", cap(slc1))
+	utl.PLine("\nEmpty Slice: ", slc1, " Len: ", len(slc1), " Capacity: ", cap(slc1))
 
 	slc1[0] = "a"
 	slc1[1] = "b"
@@ -44,11 +46,11 @@ func main() {
 
 	slc1 = append(slc1, "d")
 	slc1 = append(slc1, "e", "f")
-	utl.PLine("Append:", slc1)
+	utl.PLine("\nAppend:", slc1)
 
 	c := make([]string, len(slc1))
 	copy(c, slc1)
-	utl.PLine("Copy:", c)
+	utl.PLine("\nCopy:", c)
 
 	l := slc1[2:5]
 	utl.PLine("Slice 1:", l)
@@ -60,8 +62,12 @@ func main() {
 	utl.PLine("Slice 3:", l)
 
 	t := []string{"g", "h", "i"}
+	utl.PLine("\nDeclare and Initialize:", t)
 	utl.ShowTypeAndValue(t)
-	utl.PLine("Declare and Initialize:", t)
+	t = append(t, "j")
+	utl.ShowTypeAndValue(t)
+	t = append(t, "k", "l")
+	utl.ShowTypeAndValue(t)
 
 	t2 := []string{"g", "h", "i"}
 	if slices.Equal(t, t2) {
@@ -76,19 +82,19 @@ func main() {
 			tdSlice[i][j] = i + j
 		}
 	}
-	utl.PLine("2d Slice: ", tdSlice)
+	utl.PLine("\n2d Slice: ", tdSlice)
 
 	ts := make([][]int, 3, 5)
 	utl.PLine("ts: ", ts)
 
 	ss := make([]string, 0, 5)
-	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
 
 	ss = append(ss, "A", "B")
-	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
 
 	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
-	utl.PLine("SS:", ss, "len:", len(ss), "cap:", cap(ss))
+	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
 }
 
 /*

@@ -15,25 +15,25 @@ func main() {
 
 	header.DisplayHeader("Variables Demo")
 
-	utl.PLine("cl, python, java", cl, python, java)
+	utl.PLine("cl, python, java: ", cl, python, java)
 
 	var a = "initial"
-	utl.PLine(a)
+	utl.PLine("A: ", a)
 
 	var b, c int = 1, 2
-	utl.PLine(b, c)
+	utl.PLine("B, C: ", b, c)
 
 	var d = true
-	utl.PLine(d)
+	utl.PLine("D: ", d)
 
 	var e int
-	utl.PLine(e)
+	utl.PLine("E: ", e)
 
 	f := "apple" // This syntax is only available inside functions.
-	utl.PLine(f)
+	utl.PLine("F: ", f)
 
 	var cl1, python1, java1 = true, false, " no!"
-	utl.PLine("cl1, python1, java1 ", cl1, python1, java1)
+	utl.PLine("cl1, python1, java1: ", cl1, python1, java1)
 }
 
 /*

@@ -14,30 +14,42 @@ func main() {
 
 	header.DisplayHeader("Showing Maps", utl.DefaultHeaderConfig())
 
-	config := utl.HeaderConfig{TitleColor: color.FgHiMagenta}
-	header.DisplayHeader("Maps - Creating a Map", config)
-
 	header.DisplayHeader("Maps - Creating a Map", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	m := make(map[string]int)
 
 	m["k1"] = 7
 	m["k2"] = 13
 
-	utl.PLine("map:", m)
+	utl.PLine("Map: ", m)
 
 	v1 := m["k1"]
-	utl.PLine("v1: ", v1)
+	utl.PLine("v1 := m['k1'] is ", v1)
 
-	utl.PLine("len:", len(m))
+	v3 := m["k3"]
+	utl.PLine("v3 := m['k3'] is ", v3)
+
+	utl.PLine("Len: ", len(m))
 
 	delete(m, "k2")
-	utl.PLine("map:", m)
+	utl.PLine("\nMap delete(): ", m)
 
-	_, prs := m["k2"]
-	utl.PLine("prs:", prs)
+	clear(m)
+	utl.PLine("Map clear(): ", m)
+
+	utl.PLine("\nCurrent Map Value: ", m)
+	_, kPrs := m["k1"]
+	utl.PLine("Key Present m['k1']: ", kPrs)
+
+	m["k1"] = 18
+	utl.PLine("Current Map Value: ", m)
+	_, kPrs = m["k1"]
+	utl.PLine("Key Present m['k1']: ", kPrs)
 
 	n := map[string]int{"foo": 1, "bar": 2}
 	utl.PLine("map:", n)
+
+	config := utl.HeaderConfig{TitleColor: color.FgHiMagenta}
+	header.DisplayHeader("Maps - Creating a Map", config)
 }
 
 /*
