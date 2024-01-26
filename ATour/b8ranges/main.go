@@ -2,99 +2,21 @@ package main
 
 import (
 	utl "autilities"
-	"slices"
-
-	"github.com/fatih/color"
 )
 
 var header = utl.Header{}
 
 func main() {
 
-	header.DisplayHeader("Showing Slices")
+	header.DisplayHeader("Showing Range")
 
-	color.Cyan("Prints text in cyan.")
+	nums := []int{2, 3, 4}
+	sum := 0
 
-	var arr1 [5]int
-	utl.PLine("\nArray ")
-	utl.ShowTypeAndValue(arr1)
-
-	var slcx []string
-	utl.PLine("\nSlice ")
-	utl.ShowTypeAndValue(slcx)
-	utl.PLine("Uninitialized Slice: ", slcx, slcx == nil, len(slcx) == 0)
-
-	slcx = make([]string, 3)
-	utl.PLine("\nSlice from make: ", slcx, slcx == nil, len(slcx) == 0)
-	utl.ShowTypeAndValue(slcx)
-	slcx[0] = "a"
-	slcx[1] = "b"
-	slcx[2] = "c"
-	utl.PLine("Set(slcx):", slcx)
-
-	var slc1 = make([]string, 3)
-	utl.ShowTypeAndValue(slc1)
-	utl.PLine("\nEmpty Slice: ", slc1, " Len: ", len(slc1), " Capacity: ", cap(slc1))
-
-	slc1[0] = "a"
-	slc1[1] = "b"
-	slc1[2] = "c"
-	utl.PLine("set:", slc1)
-	utl.PLine("get:", slc1[2])
-
-	utl.PLine("len:", len(slc1))
-
-	slc1 = append(slc1, "d")
-	slc1 = append(slc1, "e", "f")
-	utl.PLine("\nAppend:", slc1)
-
-	c := make([]string, len(slc1))
-	copy(c, slc1)
-	utl.PLine("\nCopy:", c)
-
-	l := slc1[2:5]
-	utl.PLine("Slice 1:", l)
-
-	l = slc1[:5]
-	utl.PLine("Slice 2:", l)
-
-	l = slc1[2:]
-	utl.PLine("Slice 3:", l)
-
-	t := []string{"g", "h", "i"}
-	utl.PLine("\nDeclare and Initialize:", t)
-	utl.ShowTypeAndValue(t)
-	t = append(t, "j")
-	utl.ShowTypeAndValue(t)
-	t = append(t, "k", "l")
-	utl.ShowTypeAndValue(t)
-
-	t2 := []string{"g", "h", "i"}
-	if slices.Equal(t, t2) {
-		utl.PLine("t == t2")
+	for _, num := range nums {
+		sum += num
 	}
-
-	tdSlice := make([][]int, 3)
-	for i := 0; i < 3; i++ {
-		innerLen := i + 1
-		tdSlice[i] = make([]int, innerLen)
-		for j := 0; j < innerLen; j++ {
-			tdSlice[i][j] = i + j
-		}
-	}
-	utl.PLine("\n2d Slice: ", tdSlice)
-
-	ts := make([][]int, 3, 5)
-	utl.PLine("ts: ", ts)
-
-	ss := make([]string, 0, 5)
-	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
-
-	ss = append(ss, "A", "B")
-	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
-
-	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
-	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
+	utl.PLine("Sum: ", sum)
 }
 
 /*
