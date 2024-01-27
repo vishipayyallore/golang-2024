@@ -51,7 +51,7 @@ func ServeFileHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ServeContentHandler(w http.ResponseWriter, r *http.Request) {
-	customersFile, err := os.Open(customersFilePath)
+	customersFile, err := openTheFile(customersFilePath)
 
 	if err != nil {
 		handleError(w, err)
