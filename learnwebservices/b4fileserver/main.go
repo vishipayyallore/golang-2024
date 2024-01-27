@@ -3,7 +3,8 @@
 package main
 
 import (
-	"b4fileserver/handlers"
+	"b3servecontent/handlers"
+	fSrvHdlers "b4fileserver/handlers"
 	"context"
 	"fmt"
 	"log"
@@ -32,7 +33,7 @@ func main() {
 	http.HandleFunc("/api/getcustomerdatav2", handlers.ServeContentHandler)
 
 	// File Server
-	http.Handle(fileServerRoute, handlers.GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath))
+	http.Handle(fileServerRoute, fSrvHdlers.GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath))
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
