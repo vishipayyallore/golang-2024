@@ -14,7 +14,7 @@ var (
 var header = utl.Header{}
 
 func main() {
-	header.DisplayHeader("Showing Basic Types")
+	header.DisplayHeader("Showing Types")
 
 	showBasicTypes()
 
@@ -37,8 +37,120 @@ func main() {
 	showTypeInference()
 }
 
+func showBasicTypes() {
+	header.DisplayHeader("Basic Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	showTypeAndValue(isManager)
+	showTypeAndValue(Salary)
+	showTypeAndValue(someValue)
+}
+
+func showIntType() {
+	header.DisplayHeader("Int Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var (
+		a1 int   = 10
+		a2 int8  = 3
+		a3 int16 = 4
+		a4 int32 = 5
+		a5 int64 = 6
+	)
+
+	showTypeAndValue(a1)
+	showTypeAndValue(a2)
+	showTypeAndValue(a3)
+	showTypeAndValue(a4)
+	showTypeAndValue(a5)
+}
+
+func showUnsignedIntType() {
+	header.DisplayHeader("Unsigned Int Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var (
+		b1 uint   = 10
+		b2 uint8  = 3
+		b3 uint16 = 4
+		b4 uint32 = 5
+		b5 uint64 = 6
+	)
+	showTypeAndValue(b1)
+	showTypeAndValue(b2)
+	showTypeAndValue(b3)
+	showTypeAndValue(b4)
+	showTypeAndValue(b5)
+}
+
+func showFloatType() {
+	header.DisplayHeader("Float Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var (
+		c1 float32 = 10.1
+		c2 float64 = 3.14
+	)
+
+	showTypeAndValue(c1)
+	showTypeAndValue(c2)
+}
+
+func showComplexType() {
+	header.DisplayHeader("Complex Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var (
+		d1 complex64  = 10 + 1i
+		d2 complex128 = 3.14 + 2.7i
+	)
+	showTypeAndValue(d1)
+	showTypeAndValue(d2)
+}
+
+func showByteAndRuneType() {
+	header.DisplayHeader("Byte, Rune Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var (
+		e1 byte = 10
+		e2 rune = 3
+	)
+
+	showTypeAndValue(e1)
+	showTypeAndValue(e2)
+}
+
+func showStringType() {
+	header.DisplayHeader("String Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var f1 string = "Hello"
+
+	showTypeAndValue(f1)
+}
+
+func showZeroValue() {
+	header.DisplayHeader("Zero Valued Types", utl.HeaderConfig{HeaderChar: '-'})
+
+	var i int
+	var f float64
+	var b bool
+	var s string
+
+	showTypeAndValue(i)
+	showTypeAndValue(f)
+	showTypeAndValue(b)
+	showTypeAndValue(s)
+}
+
+func showTypeConversions() {
+	header.DisplayHeader("Type Conversions", utl.HeaderConfig{HeaderChar: '-'})
+
+	i := 42
+	f := float64(i)
+	u := uint(f)
+
+	showTypeAndValue(i)
+	showTypeAndValue(f)
+	showTypeAndValue(u)
+}
+
 func showTypeInference() {
-	header.DisplayHeader("Showing Type Inference")
+	header.DisplayHeader("Showing Type Inference", utl.HeaderConfig{HeaderChar: '-'})
 
 	// When declaring a variable without specifying an explicit type (either by using the := syntax or var = expression syntax), the variable's type is inferred from the value on the right hand side.
 	var i2 int
@@ -54,101 +166,8 @@ func showTypeInference() {
 	showTypeAndValue(g1)
 }
 
-func showByteAndRuneType() {
-	var (
-		e1 byte = 10
-		e2 rune = 3
-	)
-	showTypeAndValue(e1)
-	showTypeAndValue(e2)
-}
-
-func showComplexType() {
-	var (
-		d1 complex64  = 10 + 1i
-		d2 complex128 = 3.14 + 2.7i
-	)
-	showTypeAndValue(d1)
-	showTypeAndValue(d2)
-}
-
-func showFloatType() {
-	var (
-		c1 float32 = 10.1
-		c2 float64 = 3.14
-	)
-	showTypeAndValue(c1)
-	showTypeAndValue(c2)
-}
-
-func showUnsignedIntType() {
-	var (
-		b1 uint   = 10
-		b2 uint8  = 3
-		b3 uint16 = 4
-		b4 uint32 = 5
-		b5 uint64 = 6
-	)
-	showTypeAndValue(b1)
-	showTypeAndValue(b2)
-	showTypeAndValue(b3)
-	showTypeAndValue(b4)
-	showTypeAndValue(b5)
-}
-
-func showBasicTypes() {
-	showTypeAndValue(isManager)
-	showTypeAndValue(Salary)
-	showTypeAndValue(someValue)
-}
-
-func showIntType() {
-	var (
-		a1 int   = 10
-		a2 int8  = 3
-		a3 int16 = 4
-		a4 int32 = 5
-		a5 int64 = 6
-	)
-	showTypeAndValue(a1)
-	showTypeAndValue(a2)
-	showTypeAndValue(a3)
-	showTypeAndValue(a4)
-	showTypeAndValue(a5)
-}
-
-func showStringType() {
-	var f1 string = "Hello"
-	showTypeAndValue(f1)
-}
-
 func showTypeAndValue(x interface{}) {
 	utl.PFmted("Type: %T Value: %v\n", x, x)
-}
-
-func showZeroValue() {
-	var i int
-	var f float64
-	var b bool
-	var s string
-
-	utl.PLine("\n\nShowing Zero Values:")
-
-	showTypeAndValue(i)
-	showTypeAndValue(f)
-	showTypeAndValue(b)
-	showTypeAndValue(s)
-}
-
-func showTypeConversions() {
-	i := 42
-	f := float64(i)
-	u := uint(f)
-
-	utl.PLine("\n\nShowing Type Conversions:")
-	showTypeAndValue(i)
-	showTypeAndValue(f)
-	showTypeAndValue(u)
 }
 
 /*
