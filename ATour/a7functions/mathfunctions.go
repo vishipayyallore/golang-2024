@@ -4,8 +4,12 @@ func add(x int, y int) int {
 	return x + y
 }
 
-func addv1(x, y int) int {
+func addTwoNumbers(x, y int) int {
 	return x + y
+}
+
+func addThreeNumbers(a, b, c int) int {
+	return a + b + c
 }
 
 // Named return values
