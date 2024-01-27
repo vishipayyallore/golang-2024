@@ -21,16 +21,17 @@ func main() {
 		Addr: addr,
 	}
 
-	// Use handlers from filehandlers.go
+	// Use handlers from HelloHandlers.go
 	http.HandleFunc("/", handlers.HelloHandler)
 	http.HandleFunc("/api", handlers.HelloHandler)
 	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
 
+	// Use handlers from FileHandlers.go
 	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
 	http.HandleFunc("/api/getcustomerdatav1", handlers.ServeFileHandler)
 	http.HandleFunc("/api/getcustomerdatav2", handlers.ServeContentHandler)
 
-	// http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("../downloads"))))
+	// File Server
 	http.Handle(fileServerRoute, handlers.GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath))
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
@@ -44,3 +45,5 @@ func main() {
 	s.Shutdown(context.Background())
 	fmt.Println("Server stopped")
 }
+
+// http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("../downloads"))))
