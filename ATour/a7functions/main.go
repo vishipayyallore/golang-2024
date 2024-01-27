@@ -11,11 +11,14 @@ func main() {
 
 	num1 := 43
 	num2 := 13
+	num3 := 1
 	total := 17
 
 	utl.PLine("Sum ", num1, " + ", num2, " = ", add(num1, num2))
 
-	utl.PLine("Sum: ", addv1(num1, num2))
+	utl.PLine("Sum: ", addTwoNumbers(num1, num2))
+
+	utl.PFmted("Sum: %d + %d + %d = %d\n", num1, num2, num3, addThreeNumbers(num1, num2, num3))
 
 	a, b := swap("Kumar", "Manish ")
 	utl.PLine("Multiple Return values: ", a, b)

@@ -61,3 +61,7 @@ func ServeContentHandler(w http.ResponseWriter, r *http.Request) {
 
 	http.ServeContent(w, r, "customerdata.csv", time.Now(), customersFile)
 }
+
+func GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath string) http.Handler {
+	return http.StripPrefix(fileServerRoute, http.FileServer(http.Dir(downloadsFilePath)))
+}
