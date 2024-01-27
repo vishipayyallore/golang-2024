@@ -3,6 +3,7 @@
 package main
 
 import (
+	hloHdlers "b2staticcontentservefile/handlers"
 	"b3servecontent/handlers"
 	"context"
 	"fmt"
@@ -17,9 +18,9 @@ func main() {
 	}
 
 	// Use handlers from HelloHandlers.go
-	http.HandleFunc("/", handlers.HelloHandler)
-	http.HandleFunc("/api", handlers.HelloHandler)
-	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
+	http.HandleFunc("/", hloHdlers.HelloHandler)
+	http.HandleFunc("/api", hloHdlers.HelloHandler)
+	http.HandleFunc("/url/", hloHdlers.GetUrlHandlerFunc)
 
 	// Use handlers from FileHandlers.go
 	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
