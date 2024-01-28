@@ -4,6 +4,17 @@ func swap(x, y string) (string, string) {
 	return y, x
 }
 
+func getNames() (firstName, lastName string) {
+	firstName = "Shri"
+	lastName = " Ram"
+
+	return // naked return
+}
+
+func getFMLNames() (firstName, middleName, lastName string) {
+	return "Jai ", "Shri ", "Ram"
+}
+
 /*
 Notes:
 

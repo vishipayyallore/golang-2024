@@ -28,6 +28,15 @@ func main() {
 
 	// utl.PLine("output: ", split(total)) // Error: multiple-value split() in single-value context
 	utl.PLine(split(total)) // This is OK
+
+	a, b = getNames()
+	utl.PLine("Named Return Values: ", a, b)
+
+	_, c := getNames()
+	utl.PLine("Named Return Values: ", c)
+
+	a, b, c = getFMLNames()
+	utl.PLine("Named Return Values: ", a, b, c)
 }
 
 /*
