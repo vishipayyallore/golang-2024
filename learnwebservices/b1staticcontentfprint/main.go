@@ -4,10 +4,8 @@ import (
 	"b1staticcontentfprint/handlers"
 	"context"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
@@ -26,28 +24,9 @@ func main() {
 	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
 	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
 
-	filePath := "../data/customers.csv"
-	getCustomerDataHandler := func(w http.ResponseWriter, req *http.Request) {
-		customerFile, err := os.Open(filePath)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer customerFile.Close()
-
-		// Method 1
-		data, err := io.ReadAll(customerFile)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		fmt.Fprint(w, string(data))
-
-		// Method 2
-		// io.Copy(w, customerFile)
-	}
-
 	// http://localhost:8080/api/getcustomerdata
-	http.HandleFunc("/api/getcustomerdata", getCustomerDataHandler)
+	http.HandleFunc("/api/getcustomerdatav1", handlers.GetCustomerDataHandlerv1)
+	http.HandleFunc("/api/getcustomerdatav2", handlers.GetCustomerDataHandlerv2)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
