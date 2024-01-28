@@ -15,15 +15,15 @@ func main() {
 		Addr: addr,
 	}
 
+	// Use handlers from HelloHandlers.go
 	// http://localhost:8080
 	http.HandleFunc("/", handlers.HelloHandler)
-
 	// http://localhost:8080/api
 	http.HandleFunc("/api", handlers.HelloHandler)
-
 	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
 	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
 
+	// Use handlers from FileHandlers.go
 	// http://localhost:8080/api/getcustomerdata
 	http.HandleFunc("/api/getcustomerdatav1", handlers.GetCustomerDataHandlerv1)
 	http.HandleFunc("/api/getcustomerdatav2", handlers.GetCustomerDataHandlerv2)

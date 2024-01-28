@@ -3,7 +3,7 @@
 package main
 
 import (
-	hloHdlers "b2staticcontentservefile/handlers"
+	hloHdlers "b1staticcontentfprint/handlers"
 	"b3servecontent/handlers"
 	"context"
 	"fmt"
