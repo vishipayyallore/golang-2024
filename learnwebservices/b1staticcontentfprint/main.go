@@ -1,6 +1,7 @@
 package main
 
 import (
+	"b1staticcontentfprint/handlers"
 	"context"
 	"fmt"
 	"io"
@@ -16,15 +17,14 @@ func main() {
 		Addr: addr,
 	}
 
-	helloHandler := func(w http.ResponseWriter, req *http.Request) {
-		io.WriteString(w, "Welcome to Customer Service Web Service.\n")
-	}
-
 	// http://localhost:8080
-	http.HandleFunc("/", helloHandler)
+	http.HandleFunc("/", handlers.HelloHandler)
 
 	// http://localhost:8080/api
-	http.HandleFunc("/api", helloHandler)
+	http.HandleFunc("/api", handlers.HelloHandler)
+
+	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
+	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
 
 	filePath := "../data/customers.csv"
 	getCustomerDataHandler := func(w http.ResponseWriter, req *http.Request) {
@@ -48,13 +48,6 @@ func main() {
 
 	// http://localhost:8080/api/getcustomerdata
 	http.HandleFunc("/api/getcustomerdata", getCustomerDataHandler)
-
-	var getUrlHandlerFunc http.HandlerFunc = func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, r.URL.String())
-	}
-
-	// http://localhost:8080/url/ or http://localhost:8080/url/something or http://localhost:8080/url/something/else
-	http.HandleFunc("/url/", getUrlHandlerFunc)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
