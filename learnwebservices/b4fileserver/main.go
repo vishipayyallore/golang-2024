@@ -3,7 +3,9 @@
 package main
 
 import (
-	"b4fileserver/handlers"
+	hloHdlers "b2staticcontentservefile/handlers"
+	"b3servecontent/handlers"
+	fSrvHdlers "b4fileserver/handlers"
 	"context"
 	"fmt"
 	"log"
@@ -21,17 +23,18 @@ func main() {
 		Addr: addr,
 	}
 
-	// Use handlers from filehandlers.go
-	http.HandleFunc("/", handlers.HelloHandler)
-	http.HandleFunc("/api", handlers.HelloHandler)
-	http.HandleFunc("/url/", handlers.GetUrlHandlerFunc)
+	// Use handlers from HelloHandlers.go
+	http.HandleFunc("/", hloHdlers.HelloHandler)
+	http.HandleFunc("/api", hloHdlers.HelloHandler)
+	http.HandleFunc("/url/", hloHdlers.GetUrlHandlerFunc)
 
+	// Use handlers from FileHandlers.go
 	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
 	http.HandleFunc("/api/getcustomerdatav1", handlers.ServeFileHandler)
 	http.HandleFunc("/api/getcustomerdatav2", handlers.ServeContentHandler)
 
-	// http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("../downloads"))))
-	http.Handle(fileServerRoute, handlers.GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath))
+	// File Server
+	http.Handle(fileServerRoute, fSrvHdlers.GetFileServerHandlerFunc(fileServerRoute, downloadsFilePath))
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
@@ -44,3 +47,5 @@ func main() {
 	s.Shutdown(context.Background())
 	fmt.Println("Server stopped")
 }
+
+// http.Handle("/downloads/", http.StripPrefix("/downloads/", http.FileServer(http.Dir("../downloads"))))
