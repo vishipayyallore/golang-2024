@@ -22,6 +22,7 @@ func main() {
 	http.HandleFunc("/api", holfilHdls.HelloHandler)
 	http.HandleFunc("/url/", holfilHdls.GetUrlHandlerFunc)
 
+	// Use handlers from FileHandlers.go
 	http.HandleFunc("/api/getcustomerdatav1", holfilHdls.GetCustomerDataHandlerv1)
 	http.HandleFunc("/api/getcustomerdatav2", holfilHdls.GetCustomerDataHandlerv2)
 	http.HandleFunc("/api/getcustomerdatav3", handlers.ServeFileHandler)
