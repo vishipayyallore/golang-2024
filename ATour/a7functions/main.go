@@ -37,6 +37,16 @@ func main() {
 
 	a, b, c = getFMLNames()
 	utl.PLine("Named Return Values: ", a, b, c)
+
+	sum := addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+	utl.PLine("Sum: ", sum)
+
+	sum = addAll(1, 2, 3)
+	utl.PLine("Sum: ", sum)
+
+	nums := []int{1, 2, 3, 4}
+	sum = addAll(nums...)
+	utl.PLine("Sum: ", sum)
 }
 
 /*
