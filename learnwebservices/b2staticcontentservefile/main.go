@@ -3,6 +3,7 @@
 package main
 
 import (
+	fileHdlers "b1staticcontentfprint/handlers"
 	hloHdlers "b1staticcontentfprint/handlers"
 	"b2staticcontentservefile/handlers"
 	"context"
@@ -22,7 +23,7 @@ func main() {
 	http.HandleFunc("/api", hloHdlers.HelloHandler)
 	http.HandleFunc("/url/", hloHdlers.GetUrlHandlerFunc)
 
-	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
+	http.HandleFunc("/api/getcustomerdata", fileHdlers.GetCustomerDataHandlerv1)
 	http.HandleFunc("/api/getcustomerdatav1", handlers.ServeFileHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
