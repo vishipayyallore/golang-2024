@@ -3,7 +3,8 @@
 package main
 
 import (
-	hloHdlers "b1staticcontentfprint/handlers"
+	holfilHdls "b1staticcontentfprint/handlers"
+	fileHdls "b2staticcontentservefile/handlers"
 	"b3servecontent/handlers"
 	"context"
 	"fmt"
@@ -18,14 +19,15 @@ func main() {
 	}
 
 	// Use handlers from HelloHandlers.go
-	http.HandleFunc("/", hloHdlers.HelloHandler)
-	http.HandleFunc("/api", hloHdlers.HelloHandler)
-	http.HandleFunc("/url/", hloHdlers.GetUrlHandlerFunc)
+	http.HandleFunc("/", holfilHdls.HelloHandler)
+	http.HandleFunc("/api", holfilHdls.HelloHandler)
+	http.HandleFunc("/url/", holfilHdls.GetUrlHandlerFunc)
 
 	// Use handlers from FileHandlers.go
-	http.HandleFunc("/api/getcustomerdata", handlers.GetCustomerDataHandler)
-	http.HandleFunc("/api/getcustomerdatav1", handlers.ServeFileHandler)
-	http.HandleFunc("/api/getcustomerdatav2", handlers.ServeContentHandler)
+	http.HandleFunc("/api/getcustomerdatav1", holfilHdls.GetCustomerDataHandlerv1)
+	http.HandleFunc("/api/getcustomerdatav2", holfilHdls.GetCustomerDataHandlerv2)
+	http.HandleFunc("/api/getcustomerdatav3", fileHdls.ServeFileHandler)
+	http.HandleFunc("/api/getcustomerdatav4", handlers.ServeContentHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
