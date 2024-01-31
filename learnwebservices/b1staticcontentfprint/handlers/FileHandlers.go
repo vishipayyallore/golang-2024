@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	customersFilePath = "../data/customers.csv"
+	CustomersFilePath = "../data/customers.csv"
 )
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
@@ -20,7 +20,7 @@ func handleError(w http.ResponseWriter, err error) {
 }
 
 func GetCustomerDataHandlerv1(w http.ResponseWriter, req *http.Request) {
-	customerFile, err := os.Open(customersFilePath)
+	customerFile, err := os.Open(CustomersFilePath)
 	if err != nil {
 		handleError(w, err)
 		return
@@ -38,7 +38,7 @@ func GetCustomerDataHandlerv1(w http.ResponseWriter, req *http.Request) {
 }
 
 func GetCustomerDataHandlerv2(w http.ResponseWriter, req *http.Request) {
-	customerFile, err := os.Open(customersFilePath)
+	customerFile, err := os.Open(CustomersFilePath)
 	if err != nil {
 		handleError(w, err)
 		return
