@@ -10,10 +10,11 @@ func main() {
 
 	header.DisplayHeader("Showing Closures")
 
+	// State will be unique to that particular function.
 	sequence1 := numberSequence()
 	sequence2 := numberSequence()
 
-	for i := 1; i <= 5; i++ {
+	for i := 1; i <= 10; i++ {
 		utl.PFmted("Sequence 1: %d\n", sequence1())
 		utl.PFmted("Sequence 2: %d\n", sequence2())
 	}
