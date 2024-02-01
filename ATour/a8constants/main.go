@@ -21,6 +21,9 @@ const (
 func main() {
 	header.DisplayHeader("Constants Demo")
 
+	// Error: Constants cannot be declared using the := syntax.
+	// const a := 10
+
 	showConstantsDemo1()
 
 	showConstantsDemo2()

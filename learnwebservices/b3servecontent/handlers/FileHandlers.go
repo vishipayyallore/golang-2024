@@ -3,15 +3,11 @@
 package handlers
 
 import (
+	fileHdlers "b1staticcontentfprint/handlers"
 	"fmt"
-	"io"
 	"net/http"
 	"os"
 	"time"
-)
-
-const (
-	customersFilePath string = "../data/customers.csv"
 )
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
@@ -20,38 +16,8 @@ func handleError(w http.ResponseWriter, err error) {
 	http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 }
 
-func openTheFile(filePath string) (*os.File, error) {
-	return os.Open(filePath)
-}
-
-func GetCustomerDataHandler(w http.ResponseWriter, req *http.Request) {
-	customerFile, err := openTheFile(customersFilePath)
-
-	if err != nil {
-		handleError(w, err)
-		return
-	}
-	defer customerFile.Close()
-
-	// ***** Method 1 *****
-	data, err := io.ReadAll(customerFile)
-	if err != nil {
-		handleError(w, err)
-		return
-	}
-
-	fmt.Fprint(w, string(data))
-
-	// ***** Method 2 *****
-	// io.Copy(w, customerFile)
-}
-
-func ServeFileHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, customersFilePath)
-}
-
 func ServeContentHandler(w http.ResponseWriter, r *http.Request) {
-	customersFile, err := openTheFile(customersFilePath)
+	customersFile, err := os.Open(fileHdlers.CustomersFilePath)
 
 	if err != nil {
 		handleError(w, err)
