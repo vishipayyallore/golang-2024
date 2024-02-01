@@ -36,3 +36,11 @@ func passByReference(iptr *int) {
 	*iptr = 101
 	utl.PFmted("In passByReference (After), *iptr = %v\n", *iptr)
 }
+
+/*
+Notes:
+
+1. We'll show how pointers work in contrast to values with 2 functions: passByValue and passByReference.
+2. We'll also show how to pass a pointer to a function.
+
+*/
