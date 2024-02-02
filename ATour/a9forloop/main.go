@@ -12,18 +12,19 @@ func main() {
 
 	header.DisplayHeader("Showing For Loops")
 
+	header.DisplayHeader("For Loops", utl.HeaderConfig{HeaderChar: subHeaderChar})
+	// The init statement will often be a short variable declaration, and the variables declared there are visible only in the scope of the for statement.
+	for j := 7; j <= 9; j++ {
+		utl.PLine(j)
+	}
+
 	header.DisplayHeader("For Loops - Only Condition", utl.HeaderConfig{HeaderChar: subHeaderChar})
+	// The init and post statements are optional.
 	i := 1
 	for i <= 3 {
 
 		utl.PLine(i)
 		i = i + 1
-	}
-
-	header.DisplayHeader("For Loops", utl.HeaderConfig{HeaderChar: subHeaderChar})
-	// The init statement will often be a short variable declaration, and the variables declared there are visible only in the scope of the for statement.
-	for j := 7; j <= 9; j++ {
-		utl.PLine(j)
 	}
 
 	header.DisplayHeader("For Loops - WITHOUT 3 Components, with break", utl.HeaderConfig{HeaderChar: subHeaderChar})
