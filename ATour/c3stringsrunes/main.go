@@ -43,4 +43,13 @@ func showStringDetails(s string) {
 	utl.PFmted("")
 
 	utl.PFmted("\nRune count: %d", utf8.RuneCountInString(s))
+
+	utl.PFmted("")
+	rangeStringData(s)
+}
+
+func rangeStringData(s string) {
+	for idx, runeValue := range s {
+		utl.PFmted("%#U starts at %d\n", runeValue, idx)
+	}
 }
