@@ -34,17 +34,21 @@ func showStringDetails(s string) {
 
 	// A string is a read-only slice of bytes ([]byte).
 	// The length of a string is the number of bytes it contains.
-	utl.PFmted("len(s) i.e number of bytes = %v\n", len(s))
+	utl.PFmted("len(s) i.e number of bytes = %v", len(s))
 
+	utl.PFmted("\nRune count: %d", utf8.RuneCountInString(s))
+
+	showBytesInHex(s)
+
+	utl.PLine("")
+	rangeStringData(s)
+}
+
+func showBytesInHex(s string) {
 	utl.PLine("Bytes in Hex")
 	for i := 0; i < len(s); i++ {
 		utl.PFmted("%x %d %c | ", s[i], s[i], s[i])
 	}
-
-	utl.PFmted("\nRune count: %d", utf8.RuneCountInString(s))
-
-	utl.PLine("")
-	rangeStringData(s)
 }
 
 func rangeStringData(s string) {
