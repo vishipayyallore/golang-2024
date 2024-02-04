@@ -34,13 +34,55 @@ func showStringDetails(s string) {
 
 	// A string is a read-only slice of bytes ([]byte).
 	// The length of a string is the number of bytes it contains.
-	utl.PFmted("len(s) i.e number of bytes = %v\n", len(s))
-
-	utl.PLine("Bytes in Hex")
-	for i := 0; i < len(s); i++ {
-		utl.PFmted("%x ", s[i])
-	}
-	utl.PFmted("")
+	utl.PFmted("len(s) i.e number of bytes = %v", len(s))
 
 	utl.PFmted("\nRune count: %d", utf8.RuneCountInString(s))
+
+	showBytesInHex(s)
+
+	rangeStringData(s)
+
+	showDecodeRuneInStringV1(s)
+
+	showDecodeRuneInStringV2(s)
+}
+
+func showBytesInHex(s string) {
+	utl.PLine("Bytes in Hex")
+	for i := 0; i < len(s); i++ {
+		utl.PFmted("%x %d %c | ", s[i], s[i], s[i])
+	}
+}
+
+func rangeStringData(s string) {
+	utl.PLine("")
+	for idx, runeValue := range s {
+		utl.PFmted("%#U starts at %d\n", runeValue, idx)
+	}
+}
+
+func showDecodeRuneInStringV1(s string) {
+	utl.PLine("Using DecodeRuneInString")
+	for i, w := 0, 0; i < len(s); i += w {
+		runeValue, width := utf8.DecodeRuneInString(s[i:])
+		utl.PFmted("%#U starts at %d\n", runeValue, i)
+		w = width
+
+		examineRune(runeValue)
+	}
+}
+
+func examineRune(r rune) {
+	if r == 't' {
+		utl.PLine("found tee")
+	} else if r == 'ส' {
+		utl.PLine("found so sua")
+	}
+}
+
+func showDecodeRuneInStringV2(s string) {
+	utl.PLine("Decode Rune in String")
+	for i, r := range s {
+		utl.PFmted("%d\t%q\t%d\n", i, r, r)
+	}
 }
