@@ -40,7 +40,6 @@ func showStringDetails(s string) {
 
 	showBytesInHex(s)
 
-	utl.PLine("")
 	rangeStringData(s)
 
 	showDecodeRuneInStringV1(s)
@@ -56,6 +55,7 @@ func showBytesInHex(s string) {
 }
 
 func rangeStringData(s string) {
+	utl.PLine("")
 	for idx, runeValue := range s {
 		utl.PFmted("%#U starts at %d\n", runeValue, idx)
 	}
