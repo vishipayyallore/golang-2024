@@ -40,11 +40,10 @@ func showStringDetails(s string) {
 	for i := 0; i < len(s); i++ {
 		utl.PFmted("%x %d %c | ", s[i], s[i], s[i])
 	}
-	utl.PFmted("")
 
 	utl.PFmted("\nRune count: %d", utf8.RuneCountInString(s))
 
-	utl.PFmted("")
+	utl.PLine("")
 	rangeStringData(s)
 }
 
