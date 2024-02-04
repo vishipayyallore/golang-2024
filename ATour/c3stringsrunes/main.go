@@ -38,7 +38,7 @@ func showStringDetails(s string) {
 
 	utl.PLine("Bytes in Hex")
 	for i := 0; i < len(s); i++ {
-		utl.PFmted("%x ", s[i])
+		utl.PFmted("%x %d %c | ", s[i], s[i], s[i])
 	}
 	utl.PFmted("")
 
