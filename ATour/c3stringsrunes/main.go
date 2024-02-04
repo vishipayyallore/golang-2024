@@ -42,6 +42,10 @@ func showStringDetails(s string) {
 
 	utl.PLine("")
 	rangeStringData(s)
+
+	showDecodeRuneInStringV1(s)
+
+	showDecodeRuneInStringV2(s)
 }
 
 func showBytesInHex(s string) {
@@ -54,5 +58,31 @@ func showBytesInHex(s string) {
 func rangeStringData(s string) {
 	for idx, runeValue := range s {
 		utl.PFmted("%#U starts at %d\n", runeValue, idx)
+	}
+}
+
+func showDecodeRuneInStringV1(s string) {
+	utl.PLine("Using DecodeRuneInString")
+	for i, w := 0, 0; i < len(s); i += w {
+		runeValue, width := utf8.DecodeRuneInString(s[i:])
+		utl.PFmted("%#U starts at %d\n", runeValue, i)
+		w = width
+
+		examineRune(runeValue)
+	}
+}
+
+func examineRune(r rune) {
+	if r == 't' {
+		utl.PLine("found tee")
+	} else if r == 'ส' {
+		utl.PLine("found so sua")
+	}
+}
+
+func showDecodeRuneInStringV2(s string) {
+	utl.PLine("Decode Rune in String")
+	for i, r := range s {
+		utl.PFmted("%d\t%q\t%d\n", i, r, r)
 	}
 }
