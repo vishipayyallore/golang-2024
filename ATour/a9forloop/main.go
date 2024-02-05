@@ -42,6 +42,8 @@ func main() {
 	}
 
 	showTable(5)
+
+	sumNumbers(10)
 }
 
 func showTable(value int) {
@@ -50,6 +52,18 @@ func showTable(value int) {
 	for n := 1; n <= 10; n++ {
 		utl.PFmted("%v * %v = %v\n", value, n, (value * n))
 	}
+}
+
+// For is Go's "while"
+func sumNumbers(endValue int) {
+	header.DisplayHeader("For Loops - Sum of Numbers", utl.HeaderConfig{HeaderChar: subHeaderChar})
+
+	sum := 0
+	for i := 1; i <= endValue; i++ {
+		sum += i
+		utl.PFmted("i: %v -> Sum: %v\n", i, sum)
+	}
+	utl.PLine("Total: ", sum)
 }
 
 /*
