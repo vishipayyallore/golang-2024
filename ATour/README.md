@@ -12,4 +12,4 @@
 > 1. Hello World | Values | Variables | Constants | For |
 > 1. If/Else | Switch | Arrays | Slices | Maps |
 > 1. Range | Functions | Multiple Return Values | Variadic Functions | Closures |
-> 1. Recursion | Pointers | Strings and Runes |
+> 1. Recursion | Pointers | Strings and Runes | Structs |
