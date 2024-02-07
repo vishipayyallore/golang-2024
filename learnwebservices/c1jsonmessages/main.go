@@ -1,6 +1,8 @@
 package main
 
 import (
+	ent "c1jsonmessages/entities"
+	flHdls "c1jsonmessages/handlers"
 	"context"
 	"encoding/csv"
 	"encoding/json"
@@ -12,17 +14,6 @@ import (
 	"strconv"
 )
 
-type Customer struct {
-	ID        int    `json:"id"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Address   string `json:"address"`
-}
-
-const (
-	CustomersFilePath = "../data/customers.csv"
-)
-
 func main() {
 
 	addr := ":8080"
@@ -30,7 +21,7 @@ func main() {
 		Addr: addr,
 	}
 
-	http.HandleFunc("/customers", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/customers", func(w http.ResponseWriter, r *http.Request) {
 		customers, err := readCustomers()
 		if err != nil {
 			log.Print(err)
@@ -61,14 +52,14 @@ func main() {
 	fmt.Println("Server stopped")
 }
 
-func readCustomers() ([]Customer, error) {
-	f, err := os.Open(CustomersFilePath)
+func readCustomers() ([]ent.Customer, error) {
+	f, err := os.Open(flHdls.CustomersFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()
 
-	customers := make([]Customer, 0)
+	customers := make([]ent.Customer, 0)
 	csvReader := csv.NewReader(f)
 	csvReader.Read() // throw away header
 	for {
@@ -79,7 +70,7 @@ func readCustomers() ([]Customer, error) {
 		if err != nil {
 			return nil, err
 		}
-		var c Customer
+		var c ent.Customer
 		id, err := strconv.Atoi(fields[0])
 		if err != nil {
 			continue
