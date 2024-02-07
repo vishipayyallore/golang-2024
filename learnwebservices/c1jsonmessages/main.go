@@ -1,17 +1,12 @@
 package main
 
 import (
-	ent "c1jsonmessages/entities"
+	holfilHdls "b1staticcontentfprint/handlers"
 	flHdls "c1jsonmessages/handlers"
 	"context"
-	"encoding/csv"
-	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
-	"os"
-	"strconv"
 )
 
 func main() {
@@ -21,24 +16,13 @@ func main() {
 		Addr: addr,
 	}
 
-	http.HandleFunc("/api/customers", func(w http.ResponseWriter, r *http.Request) {
-		customers, err := readCustomers()
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
+	// Use handlers from HelloHandlers.go
+	http.HandleFunc("/", holfilHdls.HelloHandler)
+	http.HandleFunc("/api", holfilHdls.HelloHandler)
+	http.HandleFunc("/url/", holfilHdls.GetUrlHandlerFunc)
 
-		data, err := json.Marshal(customers)
-		if err != nil {
-			log.Print(err)
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
-		w.Header().Add("content-type", "application/json")
-		w.Write(data)
-
-	})
+	// Use handlers from FileHandlers.go
+	http.HandleFunc("/api/customers", flHdls.GetCustomersInJsonHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
@@ -50,35 +34,4 @@ func main() {
 	fmt.Scanln()
 	s.Shutdown(context.Background())
 	fmt.Println("Server stopped")
-}
-
-func readCustomers() ([]ent.Customer, error) {
-	f, err := os.Open(flHdls.CustomersFilePath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer f.Close()
-
-	customers := make([]ent.Customer, 0)
-	csvReader := csv.NewReader(f)
-	csvReader.Read() // throw away header
-	for {
-		fields, err := csvReader.Read()
-		if err == io.EOF {
-			return customers, nil
-		}
-		if err != nil {
-			return nil, err
-		}
-		var c ent.Customer
-		id, err := strconv.Atoi(fields[0])
-		if err != nil {
-			continue
-		}
-		c.ID = id
-		c.FirstName = fields[1]
-		c.LastName = fields[2]
-		c.Address = fields[3]
-		customers = append(customers, c)
-	}
 }

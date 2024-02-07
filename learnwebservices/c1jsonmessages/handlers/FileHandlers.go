@@ -3,48 +3,66 @@
 package handlers
 
 import (
-	"fmt"
+	ent "c1jsonmessages/entities"
+	"encoding/csv"
+	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 	"os"
+	"strconv"
 )
 
 const (
 	CustomersFilePath = "../data/customers.csv"
 )
 
-// HandleError responds with an HTTP 500 Internal Server Error and logs the error.
-func HandleError(w http.ResponseWriter, err error) {
-	fmt.Println("Error: ", err)
-	http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+func GetCustomersInJsonHandler(w http.ResponseWriter, req *http.Request) {
+	customers, err := readCustomers()
+	if err != nil {
+		log.Print(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+
+	data, err := json.Marshal(customers)
+	if err != nil {
+		log.Print(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.Header().Add("content-type", "application/json")
+	w.Write(data)
 }
 
-func GetCustomerDataHandlerv1(w http.ResponseWriter, req *http.Request) {
-	customerFile, err := os.Open(CustomersFilePath)
+// TODO: Implement this function in Util.go
+func readCustomers() ([]ent.Customer, error) {
+	f, err := os.Open(CustomersFilePath)
 	if err != nil {
-		HandleError(w, err)
-		return
+		log.Fatal(err)
 	}
-	defer customerFile.Close()
+	defer f.Close()
 
-	// ***** Method 1 *****
-	data, err := io.ReadAll(customerFile)
-	if err != nil {
-		HandleError(w, err)
-		return
+	customers := make([]ent.Customer, 0)
+	csvReader := csv.NewReader(f)
+	csvReader.Read() // throw away header
+	for {
+		fields, err := csvReader.Read()
+		if err == io.EOF {
+			return customers, nil
+		}
+		if err != nil {
+			return nil, err
+		}
+		var c ent.Customer
+		id, err := strconv.Atoi(fields[0])
+		if err != nil {
+			continue
+		}
+		c.ID = id
+		c.FirstName = fields[1]
+		c.LastName = fields[2]
+		c.Address = fields[3]
+		customers = append(customers, c)
 	}
-
-	fmt.Fprint(w, string(data))
-}
-
-func GetCustomerDataHandlerv2(w http.ResponseWriter, req *http.Request) {
-	customerFile, err := os.Open(CustomersFilePath)
-	if err != nil {
-		HandleError(w, err)
-		return
-	}
-	defer customerFile.Close()
-
-	// ***** Method 2 *****
-	io.Copy(w, customerFile)
 }
