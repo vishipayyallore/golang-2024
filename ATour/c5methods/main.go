@@ -42,3 +42,16 @@ func showPointerReceiver(rp *rect) {
 	utl.PLine("Area: ", rp.area())
 	utl.PLine("Perimeter: ", rp.perim())
 }
+
+/*
+Notes:
+
+- Methods can be defined for either pointer or value receiver types.
+- Here’s an example of a value receiver.
+- This area method has a receiver type of *rect.
+- The method area() has a receiver type of *rect.
+- Methods with value receivers take either a value or a pointer as the receiver when they are called.
+- Methods with pointer receivers take either a value or a pointer as the receiver when they are called.
+- The Go compiler will help you out if you try to use a value receiver when a pointer receiver is expected.
+
+*/
