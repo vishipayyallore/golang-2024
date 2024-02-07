@@ -15,10 +15,15 @@ func main() {
 	header.DisplayHeader("Showing Methods")
 
 	r := rect{width: 10, height: 5}
-	utl.PLine("Rectangle: ", r)
-	utl.PLine("Area: ", r.area())
-	utl.PLine("Perimeter: ", r.perim())
+	showValueReceiver(r)
 
+	rp := &r
+	showPointerReceiver(rp)
+}
+
+// Methods can be defined for either pointer or value receiver types. Here’s an example of a value receiver.
+func (r rect) perim() int {
+	return 2*r.width + 2*r.height
 }
 
 // This area method has a receiver type of *rect.
@@ -26,7 +31,14 @@ func (r *rect) area() int {
 	return r.width * r.height
 }
 
-// Methods can be defined for either pointer or value receiver types. Here’s an example of a value receiver.
-func (r rect) perim() int {
-	return 2*r.width + 2*r.height
+func showValueReceiver(r rect) {
+	utl.PLine("Rectangle: ", r)
+	utl.PLine("Area: ", r.area())
+	utl.PLine("Perimeter: ", r.perim())
+}
+
+func showPointerReceiver(rp *rect) {
+	utl.PLine("\nRectangle: ", rp)
+	utl.PLine("Area: ", rp.area())
+	utl.PLine("Perimeter: ", rp.perim())
 }
