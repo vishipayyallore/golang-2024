@@ -33,6 +33,14 @@ func main() {
 		break
 	}
 
+	showForEver()
+
+	showTable(5)
+
+	sumNumbers(10)
+}
+
+func showForEver() {
 	header.DisplayHeader("For Loops - 3 Components, with continue", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	for n := 0; n <= 5; n++ {
 		if n%2 == 0 {
@@ -40,10 +48,6 @@ func main() {
 		}
 		utl.PLine(n)
 	}
-
-	showTable(5)
-
-	sumNumbers(10)
 }
 
 func showTable(value int) {
