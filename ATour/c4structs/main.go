@@ -10,9 +10,9 @@ func main() {
 
 	header.DisplayHeader("Showing Structs")
 
-	utl.PLine("Creating a new person")
-	p := newPerson("John")
-	utl.PLine("Person: ", p)
+	createPersonStruct()
+
+	constructNewPerson()
 }
 
 type person struct {
@@ -25,4 +25,18 @@ func newPerson(name string) *person {
 	p.age = 42
 
 	return &p
+}
+
+func constructNewPerson() {
+	utl.PLine("\nCreating a new person")
+	p := newPerson("John")
+	utl.PLine("Person: ", p)
+}
+
+func createPersonStruct() {
+	utl.PLine("Creating a new person struct")
+	utl.PLine(person{"Fred", 20})
+	utl.PLine(person{name: "Ann", age: 40})
+	utl.PLine(person{name: "Alice"})
+	utl.PLine(&person{name: "Bob", age: 50})
 }
