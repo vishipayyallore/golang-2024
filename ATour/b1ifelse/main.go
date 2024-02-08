@@ -10,6 +10,7 @@ func main() {
 
 	header.DisplayHeader("Showing If Else")
 
+	// the expression need not be surrounded by parentheses ( )
 	if 7%2 == 0 {
 		utl.PLine("7 is even")
 	} else {
