@@ -19,5 +19,5 @@
 | If/Else | Switch | Arrays | Slices | Maps |
 | Range | Functions | Multiple Return Values | Variadic Functions | Closures |
 | Recursion | Pointers | Strings and Runes | Structs | Methods |
-| -------- | ------- | -------- | ------- | -------- |
+| Interfaces | ------- | -------- | ------- | -------- |
 | -------- | ------- | -------- | ------- | -------- |
