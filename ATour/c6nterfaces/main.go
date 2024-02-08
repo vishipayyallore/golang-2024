@@ -2,56 +2,65 @@ package main
 
 import (
 	utl "autilities"
+	"math"
 )
 
 var header = utl.Header{}
 
-// Go supports methods defined on struct types.
-type rect struct {
-	width, height int
+// Interfaces are named collections of method signatures.
+type Geometry interface {
+	area() float64
+	perim() float64
 }
 
-// Methods can be defined for either pointer or value receiver types. Here’s an example of a value receiver.
-func (r rect) perim() int {
-	return 2*r.width + 2*r.height
+// implement this interface on Rectangle and circle types.
+type Rectangle struct {
+	width, height float64
 }
 
-// This area method has a receiver type of *rect (pointer).
-func (r *rect) area() int {
+type Circle struct {
+	radius float64
+}
+
+func (r Rectangle) area() float64 {
 	return r.width * r.height
 }
 
+func (r Rectangle) perim() float64 {
+	return 2*r.width + 2*r.height
+}
+
+func (c Circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c Circle) perim() float64 {
+	return 2 * math.Pi * c.radius
+}
+
 func main() {
-	header.DisplayHeader("Showing Methods")
+	header.DisplayHeader("Showing Interfaces")
 
-	r := rect{width: 10, height: 5}
-	showValueReceiver(r)
-
-	rp := &r
-	showPointerReceiver(rp)
+	showRectangle()
+	showCircle()
 }
 
-func showValueReceiver(r rect) {
-	utl.PLine("Value Receiver -> Rectangle: ", r)
-	utl.PLine("Area: ", r.area())
-	utl.PLine("Perimeter: ", r.perim())
+func measure(g Geometry) {
+	utl.PLine("Geometry: ", g)
+	utl.PLine("Area: ", g.area())
+	utl.PLine("Perimeter: ", g.perim())
 }
 
-func showPointerReceiver(rp *rect) {
-	utl.PLine("\nPointer Receiver -> Rectangle: ", rp)
-	utl.PLine("Area: ", rp.area())
-	utl.PLine("Perimeter: ", rp.perim())
+func showRectangle() {
+	utl.PLine("Showing Rectangles")
+
+	r := Rectangle{width: 3, height: 4}
+	measure(r)
 }
 
-/*
-Notes:
+func showCircle() {
+	utl.PLine("\nShowing Circles")
 
-- Methods can be defined for either pointer or value receiver types.
-- Here’s an example of a value receiver.
-- This area method has a receiver type of *rect.
-- The method area() has a receiver type of *rect.
-- Methods with value receivers take either a value or a pointer as the receiver when they are called.
-- Methods with pointer receivers take either a value or a pointer as the receiver when they are called.
-- The Go compiler will help you out if you try to use a value receiver when a pointer receiver is expected.
-
-*/
+	c := Circle{radius: 5}
+	measure(c)
+}
