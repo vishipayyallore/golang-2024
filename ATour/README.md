@@ -8,7 +8,7 @@
 | Multiple Results | Named return values | Variables | Variables with initializers | Short variable declarations |
 | Basic types | Zero values | Type conversions | Type inference | Constants |
 | Numeric Constants | For | For continued | For is Go's "while" | Forever |
-| If | ------- | -------- | ------- | -------- |
+| If | If with a short statement | -------- | ------- | -------- |
 | -------- | ------- | -------- | ------- | -------- |
 
 ## Go by Example

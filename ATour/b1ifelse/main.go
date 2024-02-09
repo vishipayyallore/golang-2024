@@ -2,6 +2,7 @@ package main
 
 import (
 	utl "autilities"
+	"math"
 )
 
 var header = utl.Header{}
@@ -10,12 +11,10 @@ func main() {
 
 	header.DisplayHeader("Showing If Else")
 
-	// the expression need not be surrounded by parentheses ( )
-	if 7%2 == 0 {
-		utl.PLine("7 is even")
-	} else {
-		utl.PLine("7 is odd")
-	}
+	// the expression need not be surrounded by parentheses( )
+	showSimpleIfDemo()
+
+	showPowerOrLimitDemo()
 
 	if 8%4 == 0 {
 		utl.PLine("8 is divisible by 4")
@@ -34,6 +33,34 @@ func main() {
 	} else {
 		utl.PLine(num, " has multiple digits")
 	}
+}
+
+func showSimpleIfDemo() {
+	utl.PLine("Simple If Demo")
+	if 7%2 == 0 {
+		utl.PLine("7 is even")
+	} else {
+		utl.PLine("7 is odd")
+	}
+}
+
+func power(x, n, limit float64) float64 {
+	v := 0.0
+
+	if v = math.Pow(x, n); v < limit {
+		utl.PLine("\n", v, " is less than ", limit, " so returning ", v)
+
+		return v
+	}
+
+	utl.PLine("\n", v, " is greater than ", limit, " so returning ", limit)
+	return limit
+}
+
+func showPowerOrLimitDemo() {
+	utl.PLine("Power OR Limit output is power(2, 3, 10) = ", power(2, 3, 10))
+	utl.PLine("Power OR Limit output is power(3, 2, 10) = ", power(3, 2, 10))
+	utl.PLine("Power OR Limit output is power(3, 3, 20) = ", power(3, 3, 20))
 }
 
 /*
