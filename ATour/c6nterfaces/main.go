@@ -18,10 +18,6 @@ type Rectangle struct {
 	width, height float64
 }
 
-type Circle struct {
-	radius float64
-}
-
 // To implement an interface in Go, we just need to implement all the methods in the interface
 func (r Rectangle) area() float64 {
 	return r.width * r.height
@@ -29,6 +25,10 @@ func (r Rectangle) area() float64 {
 
 func (r Rectangle) perim() float64 {
 	return 2*r.width + 2*r.height
+}
+
+type Circle struct {
+	radius float64
 }
 
 // To implement an interface in Go, we just need to implement all the methods in the interface
