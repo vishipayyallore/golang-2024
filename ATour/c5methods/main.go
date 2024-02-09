@@ -16,7 +16,7 @@ func (r rect) perim() int {
 	return 2*r.width + 2*r.height
 }
 
-// This area method has a receiver type of *rect.
+// This area method has a receiver type of *rect (pointer).
 func (r *rect) area() int {
 	return r.width * r.height
 }
