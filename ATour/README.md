@@ -1,5 +1,11 @@
 # Learning Go Lang
 
+## Learning Resources
+
+> 1. <https://go.dev/learn/>
+> 1. <https://go.dev/tour/welcome/1>
+> 1. <https://gobyexample.com>
+
 ## A Tour of Go
 
 || Name 1    | Name 2 | Name 3    | Name 4 | Name 5   |
