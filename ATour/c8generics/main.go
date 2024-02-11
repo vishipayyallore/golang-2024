@@ -7,7 +7,16 @@ import (
 var header = utl.Header{}
 
 func main() {
-	// Starting with version 1.18, Go has added support for generics, also known as type parameters.
+	// Generics, also known as type parameters.
 	header.DisplayHeader("Showing Generics")
 
+}
+
+func MapKeys[K comparable, V any](m map[K]V) []K {
+	r := make([]K, 0, len(m))
+	for k := range m {
+		r = append(r, k)
+	}
+
+	return r
 }
