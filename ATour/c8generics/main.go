@@ -11,7 +11,16 @@ func main() {
 	header.DisplayHeader("Showing Generics")
 
 	var m = map[int]string{1: "2", 2: "4", 4: "8"}
+	utl.PLine("Map = ", m)
 	utl.PLine("MapKeys(m) = ", MapKeys(m))
+
+	_ = MapKeys[int, string](m)
+	lst := List[int]{}
+	lst.Push(10)
+	lst.Push(13)
+	lst.Push(23)
+
+	utl.PLine("lst.GetAll() = ", lst.GetAll())
 }
 
 /*
@@ -48,6 +57,7 @@ func (lst *List[T]) Push(v T) {
 		lst.tail = lst.tail.next
 	}
 }
+
 func (lst *List[T]) GetAll() []T {
 	var elems []T
 	for e := lst.head; e != nil; e = e.next {
