@@ -10,6 +10,8 @@ func main() {
 	// Generics, also known as type parameters.
 	header.DisplayHeader("Showing Generics")
 
+	var m = map[int]string{1: "2", 2: "4", 4: "8"}
+	utl.PLine("MapKeys(m) = ", MapKeys(m))
 }
 
 /*
