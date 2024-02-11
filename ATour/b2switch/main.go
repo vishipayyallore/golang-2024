@@ -38,6 +38,7 @@ func main() {
 		utl.PLine("It's after noon")
 	}
 
+	// any is an alias for interface{}
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:

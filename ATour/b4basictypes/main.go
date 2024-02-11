@@ -166,6 +166,7 @@ func showTypeInference() {
 	showTypeAndValue(g1)
 }
 
+// any is an alias for interface{}
 func showTypeAndValue(x interface{}) {
 	utl.PFmted("Type: %T Value: %v\n", x, x)
 }
