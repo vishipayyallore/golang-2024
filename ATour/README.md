@@ -14,8 +14,12 @@
 |2. | Multiple Results | Named return values | Variables | Variables with initializers | Short variable declarations |
 |3. | Basic types | Zero values | Type conversions | Type inference | Constants |
 |4. | Numeric Constants | For | For continued | For is Go's "while" | Forever |
-|5. | If | If with a short statement | If and else | Exercise: Loops and Functions | -------- |
-|6. | -------- | ------- | -------- | ------- | -------- |
+|5. | If | If with a short statement | If and else | Exercise: Loops and Functions | 5 |
+|6. | 1 | 2 | 3 | 4 | 5 |
+|7. | 1 | 2 | 3 | 4 | 5 |
+|8. | 1 | 2 | 3 | 4 | 5 |
+|9. | 1 | 2 | 3 | 4 | 5 |
+
 
 ## Go by Example
 
@@ -25,5 +29,8 @@
 |2. | If/Else | Switch | Arrays | Slices | Maps |
 |3. | Range | Functions | Multiple Return Values | Variadic Functions | Closures |
 |4. | Recursion | Pointers | Strings and Runes | Structs | Methods |
-|5. | Interfaces | Struct Embedding | Generics | ------- | -------- |
-|6. | -------- | ------- | -------- | ------- | -------- |
+|5. | Interfaces | Struct Embedding | Generics | Errors | -------- |
+|6. | 1 | 2 | 3 | 4 | 5 |
+|7. | 1 | 2 | 3 | 4 | 5 |
+|8. | 1 | 2 | 3 | 4 | 5 |
+|9. | 1 | 2 | 3 | 4 | 5 |
