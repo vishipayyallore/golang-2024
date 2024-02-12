@@ -15,6 +15,8 @@ func main() {
 	utl.PLine("MapKeys(m) = ", MapKeys(m))
 
 	_ = MapKeys[int, string](m)
+	utl.PLine("MapKeys[int, string](m) with explicit types = ", MapKeys[int, string](m))
+
 	lst := List[int]{}
 	lst.Push(10)
 	lst.Push(13)
