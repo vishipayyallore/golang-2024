@@ -2,6 +2,7 @@ package main
 
 import (
 	utl "autilities"
+	"runtime"
 	"time"
 )
 
@@ -16,34 +17,21 @@ func main() {
 	 */
 	header.DisplayHeader("Showing Switch")
 
-	i := 2
-	utl.PLine("Write ", i, " as ")
-	switch i {
-	case 1:
-		utl.PLine("one")
-	case 2:
-		utl.PLine("two")
-	case 3:
-		utl.PLine("three")
-	}
+	showRuntime()
 
-	utl.PLine("Today is: ", time.Now().Weekday())
-	switch time.Now().Weekday() {
-	case time.Saturday, time.Sunday:
-		utl.PLine("It's the weekend")
-	default:
-		utl.PLine("It's a weekday")
-	}
+	showDemo1()
 
-	t := time.Now()
-	switch {
-	case t.Hour() < 12:
-		utl.PLine("It's before noon")
-	default:
-		utl.PLine("It's after noon")
-	}
+	showDemo2()
+
+	showDemo3()
 
 	// any is an alias for interface{}
+	showDemo4()
+}
+
+func showDemo4() {
+	utl.PLine("\nShowing Switch with Type")
+
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:
@@ -65,6 +53,57 @@ func main() {
 	whatAmI('a')
 	whatAmI(1 << 2)
 	whatAmI([]int{2, 3})
+}
+
+func showDemo3() {
+	utl.PLine("\nShowing Switch with Time")
+
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		utl.PLine("It's before noon")
+	default:
+		utl.PLine("It's after noon")
+	}
+}
+
+func showDemo2() {
+	utl.PLine("\nShowing Switch with Weekday")
+
+	utl.PLine("Today is: ", time.Now().Weekday())
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		utl.PLine("It's the weekend")
+	default:
+		utl.PLine("It's a weekday")
+	}
+}
+
+func showDemo1() {
+	utl.PLine("\nShowing Switch with Integer")
+
+	i := 2
+	utl.PLine("Write ", i, " as ")
+	switch i {
+	case 1:
+		utl.PLine("one")
+	case 2:
+		utl.PLine("two")
+	case 3:
+		utl.PLine("three")
+	}
+}
+
+func showRuntime() {
+	utl.PLine("\nShowing Runtime")
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		utl.PLine("OS X. ", os)
+	case "linux":
+		utl.PLine("Linux.", os)
+	default:
+		utl.PFmted("%s.\n", os)
+	}
 }
 
 /*
