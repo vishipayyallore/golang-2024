@@ -29,12 +29,20 @@ func main() {
 	}
 
 	_, e := verifyAgeV2(17)
+	utl.PLine("Error Value: ", e)
+	if e != nil {
+		utl.PLine("Custom Error: ", e.(*argError))
+	}
 	if ae, ok := e.(*argError); ok {
 		utl.PLine(ae.arg)
 		utl.PLine(ae.prob)
 	}
 
 	_, e = verifyAgeV2(42)
+	utl.PLine("Error Value: ", e)
+	if e != nil {
+		utl.PLine("Custom Error: ", e.(*argError))
+	}
 	if ae, ok := e.(*argError); ok {
 		utl.PLine(ae.arg)
 		utl.PLine(ae.prob)
