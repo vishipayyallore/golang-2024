@@ -23,6 +23,7 @@ func main() {
 
 	// Use handlers from FileHandlers.go
 	http.HandleFunc("/api/customers", flHdls.GetCustomersInJsonHandler)
+	http.HandleFunc("/api/customers/add", flHdls.AddCustomersFromJsonHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 

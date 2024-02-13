@@ -17,6 +17,20 @@ const (
 	CustomersFilePath = "../data/customers.csv"
 )
 
+func AddCustomersFromJsonHandler(w http.ResponseWriter, r *http.Request) {
+	var c ent.Customer
+
+	dec := json.NewDecoder(r.Body)
+	err := dec.Decode(&c)
+
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
+	log.Print("Added New Customer: ", c)
+}
+
 func GetCustomersInJsonHandler(w http.ResponseWriter, req *http.Request) {
 	customers, err := readCustomers()
 	if err != nil {
