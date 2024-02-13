@@ -29,7 +29,7 @@
 |2. | If/Else | Switch | Arrays | Slices | Maps |
 |3. | Range | Functions | Multiple Return Values | Variadic Functions | Closures |
 |4. | Recursion | Pointers | Strings and Runes | Structs | Methods |
-|5. | Interfaces | Struct Embedding | Generics | Errors | -------- |
+|5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
 |6. | 1 | 2 | 3 | 4 | 5 |
 |7. | 1 | 2 | 3 | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
