@@ -19,6 +19,8 @@ func main() {
 
 	showRuntime()
 
+	whenIsSaturday()
+
 	showDemo1()
 
 	showDemo2()
@@ -103,6 +105,22 @@ func showRuntime() {
 		utl.PLine("Linux.", os)
 	default:
 		utl.PFmted("%s.\n", os)
+	}
+}
+
+func whenIsSaturday() {
+	utl.PLine("\nShowing When's Saturday?")
+
+	today := time.Now().Weekday()
+	switch time.Saturday {
+	case today + 0:
+		utl.PLine("Today.")
+	case today + 1:
+		utl.PLine("Tomorrow.")
+	case today + 2:
+		utl.PLine("In two days.")
+	default:
+		utl.PLine("Too far away.")
 	}
 }
 
