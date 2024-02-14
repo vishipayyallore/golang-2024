@@ -1,9 +1,8 @@
 package main
 
 import (
-	holfilHdls "b1staticcontentfprint/handlers"
-	flHdls "c1jsonmessages/handlers"
 	"context"
+	pHdls "d1basicrouting/handlers"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,19 +10,12 @@ import (
 
 func main() {
 
-	addr := ":8080"
+	addr := ":8081"
 	s := http.Server{
 		Addr: addr,
 	}
 
-	// Use handlers from HelloHandlers.go
-	http.HandleFunc("/", holfilHdls.HelloHandler)
-	http.HandleFunc("/api", holfilHdls.HelloHandler)
-	http.HandleFunc("/url/", holfilHdls.GetUrlHandlerFunc)
-
-	// Use handlers from FileHandlers.go
-	http.HandleFunc("/api/customers", flHdls.GetCustomersInJsonHandler)
-	http.HandleFunc("/api/customers/add", flHdls.AddCustomersFromJsonHandler)
+	http.HandleFunc("/api/products", pHdls.GetAllProductsHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
