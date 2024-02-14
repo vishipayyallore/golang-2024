@@ -8,6 +8,7 @@ import (
 	"strconv"
 )
 
+// GET http://localhost:8081/api/products
 func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := json.Marshal(ent.Products)
 
@@ -21,6 +22,7 @@ func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write(data)
 }
 
+// GET http://localhost:8081/api/products/?id=1
 func GetAllProductByQueryHandler(w http.ResponseWriter, r *http.Request) {
 	idRaw := r.URL.Query().Get("id")
 
