@@ -11,18 +11,22 @@ func main() {
 	// receive those values into another goroutine.
 	header.DisplayHeader("Showing Channel Buffering")
 
-	message := "Hello Channels - Ping"
+	// Here we make a channel of strings buffering up to 2 values.
+	messages := make(chan string, 2)
 
-	// Create a new channel with make(chan val-type). Channels are typed by the values they convey.
-	messages := make(chan string)
+	// Because this channel is buffered, we can send these values into the channel without a corresponding concurrent receive.
+	messages <- "buffered - msg 1"
+	messages <- "channel - msg 2"
 
-	// Send a value into a channel using the channel <- syntax. Here we send "Hello Channels - Ping" to the messages channel we made above, from a new goroutine.
-	utl.PLine("Sending message to channel : ", message)
-	go func() { messages <- "Hello Channels - Ping" }()
-
-	//The <-channel syntax receives a value from the channel. Here we’ll receive the "Hello Channels - Ping" message we sent above and print it out.
-	utl.PLine("Receiving message from channel ... ")
-	msg := <-messages
-
-	utl.PLine("Received message from channel : ", msg)
+	// Later we can receive these two values as usual.
+	utl.PLine(<-messages)
+	utl.PLine(<-messages)
 }
+
+/*
+Notes:
+
+Buffered channels accept a limited number of values without a corresponding receiver for those values.
+By creating a buffered channel, we can send a value into the channel without a corresponding concurrent receive.
+
+*/

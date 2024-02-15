@@ -28,3 +28,13 @@ func main() {
 
 	utl.PLine("Received message from channel : ", msg)
 }
+
+/*
+Notes:
+
+- Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine.
+- Create a new channel with make(chan val-type). Channels are typed by the values they convey.
+- By default channels are unbuffered, meaning that
+- they will only accept sends (chan <-) if there is a corresponding receive (<- chan) ready to receive the sent value
+
+*/
