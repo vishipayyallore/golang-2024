@@ -78,7 +78,7 @@ func (h Header) DisplayHeader(title string, headerConfig ...HeaderConfig) {
 	title = titleColorFunc(title)
 	fmt.Printf("%*s\n", leftPadValue, title)
 
-	ShowExecutablePath()
+	// ShowExecutablePath()
 
 	fmt.Printf("%s\n\n", headerValue)
 }
