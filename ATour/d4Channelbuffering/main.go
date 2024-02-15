@@ -11,8 +11,6 @@ func main() {
 	// receive those values into another goroutine.
 	header.DisplayHeader("Showing Channel Buffering")
 
-	utl.ShowExecutablePath()
-
 	message := "Hello Channels - Ping"
 
 	// Create a new channel with make(chan val-type). Channels are typed by the values they convey.
