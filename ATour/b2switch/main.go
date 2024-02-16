@@ -25,7 +25,7 @@ func main() {
 
 	showDemo2()
 
-	showDemo3()
+	showSwitchWithNoCondition()
 
 	// any is an alias for interface{}
 	showDemo4()
@@ -57,13 +57,17 @@ func showDemo4() {
 	whatAmI([]int{2, 3})
 }
 
-func showDemo3() {
-	utl.PLine("\nShowing Switch with Time")
+// Switch without a condition is the same as switch true.
+// This construct can be a clean way to write long if-then-else chains.
+func showSwitchWithNoCondition() {
+	utl.PLine("\nShowing Switch with no condition")
 
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
 		utl.PLine("It's before noon")
+	case t.Hour() < 17:
+		utl.PLine("Good afternoon.")
 	default:
 		utl.PLine("It's after noon")
 	}
