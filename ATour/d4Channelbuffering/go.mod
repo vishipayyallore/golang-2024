@@ -1,3 +1,3 @@
-module d4Channelbuffering
+module d4channelbuffering
 
 go 1.22.0
