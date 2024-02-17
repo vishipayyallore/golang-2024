@@ -7,7 +7,7 @@ import (
 var header = utl.Header{}
 
 func main() {
-	//
+	// Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order.
 	header.DisplayHeader("Showing Stacking defers")
 
 	stackingDefers()
@@ -19,7 +19,6 @@ func main() {
 	utl.PLine("main() done !!")
 }
 
-// Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order.
 func stackingDefers() {
 	defer utl.PLine("First")
 	defer utl.PLine("Second")
