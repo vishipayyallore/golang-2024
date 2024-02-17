@@ -11,6 +11,15 @@ func main() {
 	// This specificity increases the type-safety of the program.
 	header.DisplayHeader("Showing Channel Directions")
 
+	message := "Message passed to ping"
+	pings := make(chan string, 1)
+	pongs := make(chan string, 1)
+
+	ping(pings, message)
+
+	pong(pings, pongs)
+
+	utl.PLine("Message Received from pongs : ", <-pongs)
 }
 
 // This ping function only accepts a channel for sending values. It would be a compile-time error to try to receive on this channel.
