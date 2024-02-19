@@ -25,7 +25,6 @@ func showDemo1() {
 
 	p := &i // point to i
 	utl.PFmted("p: %v, p: %v\n", p, *p)
-	// utl.PFmted("i: %v, j: %v\n", *(&i), *(&j))
 }
 
 func showDemo2() {
@@ -41,5 +40,4 @@ func showDemo2() {
 	p = &j                   // point to j
 	*p = *p / 50             // divide j through the pointer
 	utl.PFmted("j: %v\n", j) // see the new value of j
-	// fmt.Println(j) // see the new value of j
 }
