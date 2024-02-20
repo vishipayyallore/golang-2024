@@ -15,7 +15,7 @@
 |3. | Basic types | Zero values | Type conversions | Type inference | Constants |
 |4. | Numeric Constants | For | For continued | For is Go's "while" | Forever |
 |5. | If | If with a short statement | If and else | Exercise: Loops and Functions | Switch |
-|6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | 5 |
+|6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
 |7. | 1 | 2 | 3 | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
@@ -29,7 +29,7 @@
 |3. | Range | Functions | Multiple Return Values | Variadic Functions | Closures |
 |4. | Recursion | Pointers | Strings and Runes | Structs | Methods |
 |5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
-|6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | 5 |
+|6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
 |7. | 1 | 2 | 3 | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
