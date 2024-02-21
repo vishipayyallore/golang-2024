@@ -11,9 +11,16 @@ type Person struct {
 	age  int
 }
 
+type Vertex struct {
+	X int
+	Y int
+}
+
 func main() {
 
 	header.DisplayHeader("Showing Structs")
+
+	showVertexDemo()
 
 	createPersonStruct()
 
@@ -22,6 +29,15 @@ func main() {
 	accessStructFields()
 
 	anonymousStruct()
+}
+
+func showVertexDemo() {
+	utl.PLine("\nVertex struct demo")
+
+	v := Vertex{1, 2}
+	utl.PLine("Vertex : ", v)
+	v.X = 4
+	utl.PLine("Vertex : ", v)
 }
 
 func newPerson(name string) *Person {
