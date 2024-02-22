@@ -6,14 +6,21 @@ import (
 
 var header = utl.Header{}
 
-type person struct {
+type Person struct {
 	name string
 	age  int
+}
+
+type Vertex struct {
+	X int
+	Y int
 }
 
 func main() {
 
 	header.DisplayHeader("Showing Structs")
+
+	showVertexDemo()
 
 	createPersonStruct()
 
@@ -24,8 +31,17 @@ func main() {
 	anonymousStruct()
 }
 
-func newPerson(name string) *person {
-	p := person{name: name}
+func showVertexDemo() {
+	utl.PLine("\nVertex struct demo")
+
+	v := Vertex{1, 2}
+	utl.PLine("Vertex : ", v)
+	v.X = 4
+	utl.PLine("Vertex : ", v)
+}
+
+func newPerson(name string) *Person {
+	p := Person{name: name}
 	p.age = 42
 
 	return &p
@@ -44,22 +60,22 @@ func createPersonStruct() {
 	utl.PLine("\nCreating a new person struct")
 
 	// This creates a new struct.
-	utl.PLine(person{"Fred", 20})
+	utl.PLine(Person{"Fred", 20})
 
 	// You can name the fields when initializing a struct.
-	utl.PLine(person{name: "Ann", age: 40})
+	utl.PLine(Person{name: "Ann", age: 40})
 
 	// Omitted fields will be zero-valued.
-	utl.PLine(person{name: "Alice"})
+	utl.PLine(Person{name: "Alice"})
 
 	// An & prefix yields a pointer to the struct.
-	utl.PLine(&person{name: "Bob", age: 50})
+	utl.PLine(&Person{name: "Bob", age: 50})
 }
 
 func accessStructFields() {
 	utl.PLine("\nAccessing struct fields")
 
-	s := person{name: "Sean", age: 50}
+	s := Person{name: "Sean", age: 50}
 	utl.PLine(s.name)
 
 	// You can also use dots with struct pointers - the pointers are automatically dereferenced.
