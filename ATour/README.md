@@ -16,7 +16,7 @@
 |4. | Numeric Constants | For | For continued | For is Go's "while" | Forever |
 |5. | If | If with a short statement | If and else | Exercise: Loops and Functions | Switch |
 |6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
-|7. | Structs | Struct Fields | 3 | 4 | 5 |
+|7. | Structs | Struct Fields | Pointers to structs | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
 

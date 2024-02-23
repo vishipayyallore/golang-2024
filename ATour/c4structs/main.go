@@ -20,6 +20,8 @@ func main() {
 
 	header.DisplayHeader("Showing Structs")
 
+	showPointerToStruct()
+
 	showVertexDemo()
 
 	createPersonStruct()
@@ -29,6 +31,19 @@ func main() {
 	accessStructFields()
 
 	anonymousStruct()
+}
+
+// Pointers to structs
+func showPointerToStruct() {
+	utl.PLine("\nPointer to struct demo")
+
+	v := Vertex{1, 2}
+	p := &v
+
+	// To access the field X of a struct when we have the struct pointer p we could write (*p).X.
+	// However, that notation is cumbersome, so the language permits us instead to write just p.X, without the explicit dereference.
+	p.X = 1e9
+	utl.PLine(v)
 }
 
 func showVertexDemo() {
