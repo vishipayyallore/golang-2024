@@ -23,14 +23,15 @@ func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GET http://localhost:8081/api/products/?id=1
-func GetAllProductByQueryHandler(w http.ResponseWriter, r *http.Request) {
+// GET http://localhost:8081/api/products-qs?id=1
+func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 	idRaw := r.URL.Query().Get("id")
 
 	id, err := strconv.Atoi(idRaw)
 
 	if err != nil {
 		log.Print(err)
-		w.WriteHeader(http.StatusNotFound)
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
@@ -46,7 +47,7 @@ func GetAllProductByQueryHandler(w http.ResponseWriter, r *http.Request) {
 			w.Write(data)
 			return
 		}
-		w.WriteHeader(http.StatusNotFound)
 	}
 
+	w.WriteHeader(http.StatusNotFound)
 }
