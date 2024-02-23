@@ -17,6 +17,7 @@ func main() {
 
 	http.HandleFunc("/api/products", pHdls.GetAllProductsHandler)
 	http.HandleFunc("/api/products/", pHdls.GetAllProductByQueryHandler)
+	http.HandleFunc("/api/products-qs", pHdls.GetAllProductByQueryStringHandler)
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
