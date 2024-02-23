@@ -16,7 +16,7 @@
 |4. | Numeric Constants | For | For continued | For is Go's "while" | Forever |
 |5. | If | If with a short statement | If and else | Exercise: Loops and Functions | Switch |
 |6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
-|7. | Structs | 2 | 3 | 4 | 5 |
+|7. | Structs | Struct Fields | 3 | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
 
@@ -30,6 +30,6 @@
 |4. | Recursion | Pointers | Strings and Runes | Structs | Methods |
 |5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
-|7. | Timeouts | 2 | 3 | 4 | 5 |
+|7. | Timeouts | Non-Blocking Channel Operations | 3 | 4 | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
