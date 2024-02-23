@@ -31,7 +31,7 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		log.Print(err)
-		w.WriteHeader(http.StatusNotFound)
+		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
@@ -47,6 +47,7 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 			w.Write(data)
 			return
 		}
-		w.WriteHeader(http.StatusNotFound)
 	}
+
+	w.WriteHeader(http.StatusNotFound)
 }
