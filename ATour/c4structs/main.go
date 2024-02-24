@@ -16,6 +16,10 @@ type Vertex struct {
 	Y int
 }
 
+type VertexV1 struct {
+	X, Y int
+}
+
 func main() {
 
 	header.DisplayHeader("Showing Structs")
