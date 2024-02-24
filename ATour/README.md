@@ -30,6 +30,6 @@
 |4. | Recursion | Pointers | Strings and Runes | Structs | Methods |
 |5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
-|7. | Timeouts | Non-Blocking Channel Operations | 3 | 4 | 5 |
+|7. | Timeouts | Non-Blocking Channel Operations | Closing Channels | Range over Channels | 5 |
 |8. | 1 | 2 | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
