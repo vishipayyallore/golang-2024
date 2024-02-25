@@ -55,15 +55,16 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 // GET http://localhost:8081/api/products/1
 func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request) {
 	parts := strings.Split(r.URL.Path, "/")
+	log.Print(" URL: ", r.URL.Path, " | Parts : ", parts, " | Length: ", len(parts))
 
-	if len(parts) != 3 { // path: /products/1 -> [ "" "products" "1"]
+	if len(parts) != 4 { // path: /products/1 -> [ "" "products" "1"]
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
 
-	id, err := strconv.Atoi(parts[2])
+	id, err := strconv.Atoi(parts[3])
 	if err != nil {
-		log.Print(err)
+		log.Print("Error: ", err, " Parts: ", parts)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
