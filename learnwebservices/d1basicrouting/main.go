@@ -24,6 +24,9 @@ func main() {
 	// GET http://localhost:8081/api/products-qs?id=1
 	http.HandleFunc("/api/products-qs", pHdls.GetAllProductByQueryStringHandler)
 
+	// GET http://localhost:8081/api/products/1
+	http.HandleFunc("/api/products-ssplit", pHdls.GetAllProductByRouteParameterHandler)
+
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
 	go func() {
