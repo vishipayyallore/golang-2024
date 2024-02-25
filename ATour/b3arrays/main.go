@@ -8,10 +8,13 @@ var header = utl.Header{}
 
 func main() {
 
+	// The type [n]T is an array of n values of type T.
 	header.DisplayHeader("Showing Arrays")
 
+	showArraysDemo()
+
 	var arr1 [5]int
-	utl.PLine("Empty Array: ", arr1)
+	utl.PLine("\nEmpty Array: ", arr1)
 
 	utl.PLine("Setting values ...")
 	arr1[4] = 100
@@ -30,6 +33,20 @@ func main() {
 		}
 	}
 	utl.PLine("2D Array: ", tdarr)
+}
+
+func showArraysDemo() {
+
+	utl.PLine("Showing Arrays")
+
+	var a [2]string
+	a[0] = "Hello, "
+	a[1] = "Go World"
+	utl.PLine("Accessing Individual Elements -> ", a[0], a[1])
+	utl.PLine("Accessing entire array -> ", a)
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	utl.PLine("Prime Numbers -> ", primes)
 }
 
 /*
