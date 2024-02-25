@@ -17,6 +17,25 @@ func main() {
 	timer1 := time.NewTimer(2 * time.Second)
 
 	// The <-timer1.C blocks on the timer’s channel C until it sends a value indicating that the timer fired.
+	utl.PLine("Waiting for 2 seconds to show Timer 1 fired")
 	<-timer1.C
 	utl.PLine("Timer 1 fired")
+
+	// If you just wanted to wait, you could have used time.Sleep.
+	// One reason a timer may be useful is that you can cancel the timer before it fires. Here’s an example of that.
+	timer2 := time.NewTimer(time.Second)
+	go func() {
+		<-timer2.C
+		utl.PLine("Timer 2 fired")
+	}()
+
+	utl.PLine("Waiting for 1 second to show Timer 2 fired")
+	stop2 := timer2.Stop()
+	if stop2 {
+		utl.PLine("Timer 2 stopped")
+	}
+
+	// Give the timer2 enough time to fire, if it ever was going to, to show it is in fact stopped.
+	utl.PLine("Waiting for 2 seconds to show Timer 2 is stopped")
+	time.Sleep(2 * time.Second)
 }
