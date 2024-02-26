@@ -19,6 +19,11 @@ func main() {
 	utl.PLine("\nArray ")
 	utl.ShowTypeAndValue(arr1)
 
+	var slc []int
+	utl.PLine("\nSlice ")
+	utl.ShowTypeAndValue(slc)
+	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
+
 	var slcx []string
 	utl.PLine("\nSlice ")
 	utl.ShowTypeAndValue(slcx)
