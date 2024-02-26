@@ -61,8 +61,9 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
+	idRaw := parts[3]
 
-	id, err := strconv.Atoi(parts[3])
+	id, err := strconv.Atoi(idRaw)
 	if err != nil {
 		log.Print("Error: ", err, " Parts: ", parts)
 		w.WriteHeader(http.StatusBadRequest)
