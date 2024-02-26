@@ -28,8 +28,13 @@ func main() {
 		}
 	}()
 
+	// Tickers can be stopped like timers.
 	time.Sleep(1600 * time.Millisecond)
+
+	// Once a ticker is stopped it won’t receive any more values on its channel. We’ll stop ours after 1600ms.
+	utl.PLine("Ticker stopping")
 	ticker.Stop()
+	utl.PLine("Ticker stopped")
 
 	done <- true
 
