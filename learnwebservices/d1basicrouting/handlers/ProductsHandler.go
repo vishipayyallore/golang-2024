@@ -3,10 +3,12 @@ package handlers
 import (
 	ent "d1basicrouting/entities"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // GET http://localhost:8081/api/products
@@ -14,8 +16,7 @@ func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := json.Marshal(ent.Products)
 
 	if err != nil {
-		log.Print(err)
-		w.WriteHeader(http.StatusInternalServerError)
+		handleError(w, err, http.StatusInternalServerError)
 		return
 	}
 
@@ -30,26 +31,11 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 
 	id, err := strconv.Atoi(idRaw)
 	if err != nil {
-		log.Print(err)
-		w.WriteHeader(http.StatusBadRequest)
+		handleError(w, err, http.StatusBadRequest)
 		return
 	}
 
-	for _, p := range ent.Products {
-		if p.ID == id {
-			data, err := json.Marshal(p)
-			if err != nil {
-				log.Print(err)
-				w.WriteHeader(http.StatusInternalServerError)
-				return
-			}
-			w.Header().Add("Content-Type", "application/json")
-			w.Write(data)
-			return
-		}
-	}
-
-	w.WriteHeader(http.StatusNotFound)
+	getProductByID(w, id)
 }
 
 // GET http://localhost:8081/api/products/1
@@ -58,21 +44,33 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 	log.Print(" URL: ", r.URL.Path, " | Parts : ", parts, " | Length: ", len(parts))
 
 	if len(parts) != 4 { // path: /products/1 -> [ "" "products" "1"]
-		w.WriteHeader(http.StatusBadRequest)
+		handleError(w, fmt.Errorf("invalid route: %v", parts), http.StatusBadRequest)
 		return
 	}
+	idRaw := parts[3]
 
-	id, err := strconv.Atoi(parts[3])
+	id, err := strconv.Atoi(idRaw)
 	if err != nil {
-		log.Print("Error: ", err, " Parts: ", parts)
-		w.WriteHeader(http.StatusBadRequest)
+		handleError(w, err, http.StatusBadRequest)
 		return
 	}
 
+	getProductByID(w, id)
+}
+
+// handleError responds with an HTTP 500 Internal Server Error and logs the error.
+func handleError(w http.ResponseWriter, err error, statusCode int) {
+	// fmt.Println("Error: ", err)
+	log.Printf("[%s] Error: %v\n", time.Now().Format("2006-01-02 15:04:05"), err)
+	w.WriteHeader(statusCode)
+}
+
+func getProductByID(w http.ResponseWriter, id int) {
 	for _, p := range ent.Products {
-		if id == p.ID {
+		if p.ID == id {
 			data, err := json.Marshal(p)
 			if err != nil {
+				log.Print(err)
 				w.WriteHeader(http.StatusInternalServerError)
 				return
 			}
