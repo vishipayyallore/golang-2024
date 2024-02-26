@@ -21,9 +21,10 @@ func main() {
 		for {
 			select {
 			case <-done:
+				utl.PLine("Done")
 				return
 			case t := <-ticker.C:
-				utl.PLine("Tick at", t)
+				utl.PLine("Tick at ", t)
 			}
 		}
 	}()
@@ -34,7 +35,6 @@ func main() {
 	// Once a ticker is stopped it won’t receive any more values on its channel. We’ll stop ours after 1600ms.
 	utl.PLine("Ticker stopping")
 	ticker.Stop()
-	utl.PLine("Ticker stopped")
 
 	done <- true
 
