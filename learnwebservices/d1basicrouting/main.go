@@ -15,6 +15,11 @@ func main() {
 		Addr: addr,
 	}
 
+	// GET http://localhost:8081
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/home.html")
+	})
+
 	// GET http://localhost:8081/api/products
 	http.HandleFunc("/api/products", pHdls.GetAllProductsHandler)
 
