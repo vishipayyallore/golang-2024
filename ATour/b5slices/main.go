@@ -11,13 +11,27 @@ var header = utl.Header{}
 
 func main() {
 
+	// An array has a fixed size. A slice, on the other hand, is a dynamically-sized, flexible view into the elements of an array.
+	// In practice, slices are much more common than arrays.
 	header.DisplayHeader("Showing Slices")
 
 	color.Cyan("Prints text in cyan.")
 
+	showCliceDemo()
+
+	// Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
+	// Unlike arrays, slices are typed only by the elements they contain (not the number of elements).
+	// To create an empty slice with non-zero length, use the builtin make. Here we make a slice of strings of length 3 (initially zero-valued).
+	// The make function allocates a zeroed array and returns a slice that refers to that array:
+	// The type []T is a slice with elements of type T.
 	var arr1 [5]int
 	utl.PLine("\nArray ")
 	utl.ShowTypeAndValue(arr1)
+
+	var slc []int
+	utl.PLine("\nSlice ")
+	utl.ShowTypeAndValue(slc)
+	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
 
 	var slcx []string
 	utl.PLine("\nSlice ")
@@ -95,6 +109,17 @@ func main() {
 
 	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
 	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
+}
+
+func showCliceDemo() {
+	utl.PLine("Showing Slices")
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+	// A slice is formed by specifying two indices, a low and high bound, separated by a colon:
+	// a[low : high]
+	var s []int = primes[1:4]
+	utl.PLine("Slice: ", s)
 }
 
 /*
