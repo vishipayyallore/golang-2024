@@ -1,3 +1,5 @@
+// handlers/ProductsHandler.go
+
 package handlers
 
 import (
