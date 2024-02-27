@@ -29,9 +29,8 @@ func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 	idRaw := r.URL.Query().Get("id")
 
-	id, err := strconv.Atoi(idRaw)
-	if err != nil {
-		handleError(w, err, http.StatusBadRequest)
+	id, shouldReturn := getIdfromString(idRaw, w)
+	if shouldReturn {
 		return
 	}
 
@@ -49,9 +48,8 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 	}
 	idRaw := parts[3]
 
-	id, err := strconv.Atoi(idRaw)
-	if err != nil {
-		handleError(w, err, http.StatusBadRequest)
+	id, shouldReturn := getIdfromString(idRaw, w)
+	if shouldReturn {
 		return
 	}
 
@@ -62,6 +60,15 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 func handleError(w http.ResponseWriter, err error, statusCode int) {
 	log.Printf("[%s] Error: %v\n", time.Now().Format("2006-01-02 15:04:05"), err)
 	w.WriteHeader(statusCode)
+}
+
+func getIdfromString(idRaw string, w http.ResponseWriter) (int, bool) {
+	id, err := strconv.Atoi(idRaw)
+	if err != nil {
+		handleError(w, err, http.StatusBadRequest)
+		return 0, true
+	}
+	return id, false
 }
 
 func getProductByID(w http.ResponseWriter, id int) {
