@@ -18,6 +18,8 @@ var log = logrus.New()
 
 // GET http://localhost:8081/api/products
 func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductsHandler started")
+
 	data, err := json.Marshal(ent.Products)
 
 	if err != nil {
@@ -27,11 +29,15 @@ func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("Content-Type", "application/json")
 	w.Write(data)
+
+	log.Info("GetAllProductsHandler completed")
 }
 
 // GET http://localhost:8081/api/products/?id=1
 // GET http://localhost:8081/api/products-qs?id=1
 func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByQueryStringHandler started")
+
 	idRaw := r.URL.Query().Get("id")
 
 	id, shouldReturn := getIdfromString(idRaw, w)
@@ -40,10 +46,14 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	getProductByID(w, id)
+
+	log.Info("GetAllProductByQueryStringHandler completed")
 }
 
 // GET http://localhost:8081/api/products/1
 func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByRouteParameterHandler started")
+
 	parts := strings.Split(r.URL.Path, "/")
 	log.Print(" URL: ", r.URL.Path, " | Parts : ", parts, " | Length: ", len(parts))
 
@@ -59,6 +69,8 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 	}
 
 	getProductByID(w, id)
+
+	log.Info("GetAllProductByRouteParameterHandler completed")
 }
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
