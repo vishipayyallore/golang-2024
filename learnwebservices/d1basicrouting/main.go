@@ -6,8 +6,9 @@ import (
 	"context"
 	pHdls "d1basicrouting/handlers"
 	"fmt"
-	"log"
 	"net/http"
+
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -16,6 +17,12 @@ func main() {
 	s := http.Server{
 		Addr: addr,
 	}
+
+	// Use logrus logger
+	var log = logrus.New()
+
+	// Set log level
+	log.SetLevel(logrus.DebugLevel)
 
 	// GET http://localhost:8081
 	http.HandleFunc("/", pHdls.ServerHomeHtml)
