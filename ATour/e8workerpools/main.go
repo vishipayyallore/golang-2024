@@ -12,7 +12,7 @@ func main() {
 	header.DisplayHeader("Showing Worker Pools")
 
 	// In order to use our pool of workers we need to send them work and collect their results. We make 2 channels for this.
-	const numJobs = 5
+	const numJobs = 15
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
@@ -41,9 +41,9 @@ We’ll sleep a second per job to simulate an expensive task.
 */
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
-		utl.PLine("worker ", id, " started job ", j)
-		time.Sleep(time.Second)
-		utl.PLine("worker ", id, " finished job ", j)
+		utl.PLine("worker ", id, " started job ", j, " at ", time.Now())
+		time.Sleep(2 * time.Second)
+		utl.PLine("worker ", id, " finished job ", j, " at ", time.Now())
 		results <- j * 2
 	}
 }
