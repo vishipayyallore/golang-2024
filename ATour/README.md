@@ -17,7 +17,7 @@
 |5. | If | If with a short statement | If and else | Exercise: Loops and Functions | Switch |
 |6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
 |7. | Structs | Struct Fields | Pointers to structs | Struct Literals | Arrays |
-|8. | Slices | 2 | 3 | 4 | 5 |
+|8. | Slices | Slices ... references to arrays | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
@@ -31,5 +31,5 @@
 |5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
 |7. | Timeouts | Non-Blocking Channel Operations | Closing Channels | Range over Channels | Timers |
-|8. | Tickers | 2 | 3 | 4 | 5 |
+|8. | Tickers | Worker Pools | 3 | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
