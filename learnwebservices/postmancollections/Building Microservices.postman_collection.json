@@ -7,54 +7,187 @@
 	},
 	"item": [
 		{
-			"name": "GET /api/customers",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/api/customers",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers"
-					]
+			"name": "D1 Basic Routing",
+			"item": [
+				{
+					"name": "GET /",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}",
+							"host": [
+								"{{apihostname}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api/products",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/?id=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api/products/?id=1",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products-qs?id=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api/products-qs?id=2",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api",
+								"products-qs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products-ssplit/3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api/products-ssplit/3",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api",
+								"products-ssplit",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "POST /api/customers/add",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n        \"id\": {{$randomInt}},\r\n        \"firstName\": \"{{$randomFirstName}}\",\r\n        \"lastName\": \"{{$randomLastName}}\",\r\n        \"address\": \"123 Main St, Anytown, USA\"\r\n    }",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Customers",
+			"item": [
+				{
+					"name": "GET /api/customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/api/customers/add",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"customers",
-						"add"
-					]
+				{
+					"name": "POST /api/customers/add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": {{$randomInt}},\r\n        \"firstName\": \"{{$randomFirstName}}\",\r\n        \"lastName\": \"{{$randomLastName}}\",\r\n        \"address\": \"123 Main St, Anytown, USA\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"add"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "apihostname",
+			"value": "http://localhost:8081"
 		}
 	]
 }
