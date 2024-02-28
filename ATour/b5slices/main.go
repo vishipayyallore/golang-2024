@@ -17,9 +17,9 @@ func main() {
 
 	color.Cyan("Prints text in cyan.")
 
-	showCliceDemo()
+	showSliceDemo()
 
-	showCliceDemo1()
+	showSliceDemo1()
 
 	showArrayVsSliceDemo()
 
@@ -118,7 +118,7 @@ func showArrayVsSliceDemo() {
 	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
 }
 
-func showCliceDemo() {
+func showSliceDemo() {
 	utl.PLine("\nShowing Slices")
 
 	primes := [6]int{2, 3, 5, 7, 11, 13}
@@ -129,7 +129,7 @@ func showCliceDemo() {
 	utl.PLine("Slice: ", s)
 }
 
-func showCliceDemo1() {
+func showSliceDemo1() {
 	utl.PLine("\nShowing Slices are like references to arrays")
 
 	names := [4]string{
