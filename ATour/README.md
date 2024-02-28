@@ -17,7 +17,7 @@
 |5. | If | If with a short statement | If and else | Exercise: Loops and Functions | Switch |
 |6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
 |7. | Structs | Struct Fields | Pointers to structs | Struct Literals | Arrays |
-|8. | Slices | Slices ... references to arrays | 3 | 4 | 5 |
+|8. | Slices | Slices ... references to arrays | Slice literals | 4 | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
