@@ -17,11 +17,13 @@ func main() {
 
 	color.Cyan("Prints text in cyan.")
 
-	showCliceDemo()
+	showSliceDemo()
 
-	showCliceDemo1()
+	showSliceRefToArrays()
 
 	showArrayVsSliceDemo()
+
+	showSliceLiterals()
 
 	var slcx []string
 	utl.PLine("\nSlice ")
@@ -118,7 +120,7 @@ func showArrayVsSliceDemo() {
 	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
 }
 
-func showCliceDemo() {
+func showSliceDemo() {
 	utl.PLine("\nShowing Slices")
 
 	primes := [6]int{2, 3, 5, 7, 11, 13}
@@ -129,7 +131,7 @@ func showCliceDemo() {
 	utl.PLine("Slice: ", s)
 }
 
-func showCliceDemo1() {
+func showSliceRefToArrays() {
 	utl.PLine("\nShowing Slices are like references to arrays")
 
 	names := [4]string{
@@ -147,6 +149,31 @@ func showCliceDemo1() {
 	b[0] = "No Name"
 	utl.PLine("Slices A, and B: ", a, b)
 	utl.PLine("Array of Names: ", names)
+}
+
+func showSliceLiterals() {
+	// A slice literal is like an array literal without the length.
+	utl.PLine("\nShowing Slice Literals")
+	// This is an array literal: === [3]bool{true, true, false}
+	// And this creates the same array as above, then builds a slice that references it: []bool{true, true, false}
+	q := []int{2, 3, 5, 7, 11, 13}
+	utl.PLine("Slice Literal: ", q)
+
+	r := []bool{true, true, false}
+	utl.PLine("Slice Literal: ", r)
+
+	s := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, true},
+		{5, false},
+		{7, true},
+		{11, true},
+		{13, false},
+	}
+	utl.PLine("Slice Literal: ", s)
 }
 
 /*
