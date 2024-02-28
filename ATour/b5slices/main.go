@@ -152,12 +152,28 @@ func showSliceRefToArrays() {
 }
 
 func showSliceLiterals() {
-	utl.PLine("\nShowing Slice Literals")
 	// A slice literal is like an array literal without the length.
-	// This is an array literal:
-	// [3]bool{true, true, false}
-	// And this creates the same array as above, then builds a slice that references it:
-	// []bool{true, true, false}
+	utl.PLine("\nShowing Slice Literals")
+	// This is an array literal: === [3]bool{true, true, false}
+	// And this creates the same array as above, then builds a slice that references it: []bool{true, true, false}
+	q := []int{2, 3, 5, 7, 11, 13}
+	utl.PLine("Slice Literal: ", q)
+
+	r := []bool{true, true, false}
+	utl.PLine("Slice Literal: ", r)
+
+	s := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, true},
+		{5, false},
+		{7, true},
+		{11, true},
+		{13, false},
+	}
+	utl.PLine("Slice Literal: ", s)
 }
 
 /*
