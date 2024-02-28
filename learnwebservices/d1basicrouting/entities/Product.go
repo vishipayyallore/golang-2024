@@ -1,3 +1,5 @@
+// entities/Product.go
+
 package entities
 
 type Product struct {

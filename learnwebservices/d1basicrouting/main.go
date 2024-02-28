@@ -1,11 +1,14 @@
+// main.go
+
 package main
 
 import (
 	"context"
 	pHdls "d1basicrouting/handlers"
 	"fmt"
-	"log"
 	"net/http"
+
+	"github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -15,10 +18,17 @@ func main() {
 		Addr: addr,
 	}
 
+	// Use logrus logger
+	var log = logrus.New()
+
+	// Set log level
+	log.SetLevel(logrus.DebugLevel)
+
 	// GET http://localhost:8081
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "./static/home.html")
-	})
+	http.HandleFunc("/", pHdls.ServerHomeHtml)
+
+	// GET http://localhost:8081/api
+	http.HandleFunc("/api", pHdls.ServerHomeHtml)
 
 	// GET http://localhost:8081/api/products
 	http.HandleFunc("/api/products", pHdls.GetAllProductsHandler)
