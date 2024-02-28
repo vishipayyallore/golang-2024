@@ -19,9 +19,11 @@ func main() {
 
 	showSliceDemo()
 
-	showSliceDemo1()
+	showSliceRefToArrays()
 
 	showArrayVsSliceDemo()
+
+	showSliceLiterals()
 
 	var slcx []string
 	utl.PLine("\nSlice ")
@@ -129,7 +131,7 @@ func showSliceDemo() {
 	utl.PLine("Slice: ", s)
 }
 
-func showSliceDemo1() {
+func showSliceRefToArrays() {
 	utl.PLine("\nShowing Slices are like references to arrays")
 
 	names := [4]string{
@@ -147,6 +149,15 @@ func showSliceDemo1() {
 	b[0] = "No Name"
 	utl.PLine("Slices A, and B: ", a, b)
 	utl.PLine("Array of Names: ", names)
+}
+
+func showSliceLiterals() {
+	utl.PLine("\nShowing Slice Literals")
+	// A slice literal is like an array literal without the length.
+	// This is an array literal:
+	// [3]bool{true, true, false}
+	// And this creates the same array as above, then builds a slice that references it:
+	// []bool{true, true, false}
 }
 
 /*
