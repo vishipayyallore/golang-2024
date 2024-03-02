@@ -23,6 +23,8 @@ func main() {
 
 	showSliceLiterals()
 
+	showSliceDefaults()
+
 	showArrayVsSliceDemo()
 
 	showSliceDemo1()
@@ -103,6 +105,25 @@ func showSliceLiterals() {
 		{13, false},
 	}
 	utl.PLine("Slice Literal: ", s)
+}
+
+// When slicing, you may omit the high or low bounds to use their defaults instead.
+// The default is zero for the low bound and the length of the slice for the high bound.
+func showSliceDefaults() {
+	utl.PLine("\nShowing Slice Defaults")
+
+	s := []int{2, 3, 5, 7, 11, 13}
+
+	utl.PLine("Entire Slice: ", s)
+
+	s = s[1:4]
+	utl.PLine("Slice s[1:4]: ", s)
+
+	s = s[:2]
+	utl.PLine("Slice s[:2]: ", s)
+
+	s = s[1:]
+	utl.PLine("Slice s[1:]: ", s)
 }
 
 func showSliceDemo3() {
