@@ -21,15 +21,88 @@ func main() {
 
 	showSliceRefToArrays()
 
-	showArrayVsSliceDemo()
-
 	showSliceLiterals()
+
+	showArrayVsSliceDemo()
 
 	showSliceDemo1()
 
 	showSliceDemo2()
 
 	showSliceDemo3()
+}
+
+func showArrayVsSliceDemo() {
+	// Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
+	// Unlike arrays, slices are typed only by the elements they contain (not the number of elements).
+	// To create an empty slice with non-zero length, use the builtin make. Here we make a slice of strings of length 3 (initially zero-valued).
+	// The make function allocates a zeroed array and returns a slice that refers to that array:
+	// The type []T is a slice with elements of type T.
+
+	var arr1 [5]int
+	utl.PLine("\nArray ")
+	utl.ShowTypeAndValue(arr1)
+
+	var slc []int
+	utl.PLine("\nSlice ")
+	utl.ShowTypeAndValue(slc)
+	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
+}
+
+func showSliceDemo() {
+	utl.PLine("\nShowing Slices")
+
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+
+	// A slice is formed by specifying two indices, a low and high bound, separated by a colon:
+	// a[low : high] = This selects a half-open range which includes the first element, but excludes the last one.
+	var s []int = primes[1:4]
+	utl.PLine("Slice: ", s)
+}
+
+func showSliceRefToArrays() {
+	utl.PLine("\nShowing Slices are like references to arrays")
+
+	names := [4]string{
+		"John",
+		"Paul",
+		"George",
+		"Ringo",
+	}
+	utl.PLine("Array of Names: ", names)
+
+	a := names[0:2]
+	b := names[1:3]
+	utl.PLine("Slices A, and B: ", a, b)
+
+	b[0] = "No Name"
+	utl.PLine("Slices A, and B: ", a, b)
+	utl.PLine("Array of Names: ", names)
+}
+
+func showSliceLiterals() {
+	// A slice literal is like an array literal without the length.
+	utl.PLine("\nShowing Slice Literals")
+	// This is an array literal: === [3]bool{true, true, false}
+	// And this creates the same array as above, then builds a slice that references it: []bool{true, true, false}
+	q := []int{2, 3, 5, 7, 11, 13}
+	utl.PLine("Slice Literal: ", q)
+
+	r := []bool{true, true, false}
+	utl.PLine("Slice Literal: ", r)
+
+	s := []struct {
+		i int
+		b bool
+	}{
+		{2, true},
+		{3, true},
+		{5, false},
+		{7, true},
+		{11, true},
+		{13, false},
+	}
+	utl.PLine("Slice Literal: ", s)
 }
 
 func showSliceDemo3() {
@@ -113,79 +186,6 @@ func showSliceDemo1() {
 	slcx[1] = "b"
 	slcx[2] = "c"
 	utl.PLine("Set(slcx):", slcx)
-}
-
-func showArrayVsSliceDemo() {
-	// Slices are a key data type in Go, giving a more powerful interface to sequences than arrays.
-	// Unlike arrays, slices are typed only by the elements they contain (not the number of elements).
-	// To create an empty slice with non-zero length, use the builtin make. Here we make a slice of strings of length 3 (initially zero-valued).
-	// The make function allocates a zeroed array and returns a slice that refers to that array:
-	// The type []T is a slice with elements of type T.
-
-	var arr1 [5]int
-	utl.PLine("\nArray ")
-	utl.ShowTypeAndValue(arr1)
-
-	var slc []int
-	utl.PLine("\nSlice ")
-	utl.ShowTypeAndValue(slc)
-	utl.PLine("Uninitialized Slice: ", slc, slc == nil, len(slc) == 0)
-}
-
-func showSliceDemo() {
-	utl.PLine("\nShowing Slices")
-
-	primes := [6]int{2, 3, 5, 7, 11, 13}
-
-	// A slice is formed by specifying two indices, a low and high bound, separated by a colon:
-	// a[low : high] = This selects a half-open range which includes the first element, but excludes the last one.
-	var s []int = primes[1:4]
-	utl.PLine("Slice: ", s)
-}
-
-func showSliceRefToArrays() {
-	utl.PLine("\nShowing Slices are like references to arrays")
-
-	names := [4]string{
-		"John",
-		"Paul",
-		"George",
-		"Ringo",
-	}
-	utl.PLine("Array of Names: ", names)
-
-	a := names[0:2]
-	b := names[1:3]
-	utl.PLine("Slices A, and B: ", a, b)
-
-	b[0] = "No Name"
-	utl.PLine("Slices A, and B: ", a, b)
-	utl.PLine("Array of Names: ", names)
-}
-
-func showSliceLiterals() {
-	// A slice literal is like an array literal without the length.
-	utl.PLine("\nShowing Slice Literals")
-	// This is an array literal: === [3]bool{true, true, false}
-	// And this creates the same array as above, then builds a slice that references it: []bool{true, true, false}
-	q := []int{2, 3, 5, 7, 11, 13}
-	utl.PLine("Slice Literal: ", q)
-
-	r := []bool{true, true, false}
-	utl.PLine("Slice Literal: ", r)
-
-	s := []struct {
-		i int
-		b bool
-	}{
-		{2, true},
-		{3, true},
-		{5, false},
-		{7, true},
-		{11, true},
-		{13, false},
-	}
-	utl.PLine("Slice Literal: ", s)
 }
 
 /*
