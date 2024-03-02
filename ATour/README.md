@@ -31,5 +31,5 @@
 |5. | Interfaces | Struct Embedding | Generics | Errors | Goroutines |
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
 |7. | Timeouts | Non-Blocking Channel Operations | Closing Channels | Range over Channels | Timers |
-|8. | Tickers | Worker Pools | WaitGroups | 4 | 5 |
+|8. | Tickers | Worker Pools | WaitGroups | Rate Limiting | 5 |
 |9. | 1 | 2 | 3 | 4 | 5 |
