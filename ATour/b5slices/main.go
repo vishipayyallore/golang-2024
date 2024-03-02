@@ -25,48 +25,14 @@ func main() {
 
 	showSliceLiterals()
 
-	var slcx []string
-	utl.PLine("\nSlice ")
-	utl.ShowTypeAndValue(slcx)
-	utl.PLine("Uninitialized Slice: ", slcx, slcx == nil, len(slcx) == 0)
+	showSliceDemo1()
 
-	slcx = make([]string, 3)
-	utl.PLine("\nSlice from make: ", slcx, slcx == nil, len(slcx) == 0)
-	utl.ShowTypeAndValue(slcx)
-	slcx[0] = "a"
-	slcx[1] = "b"
-	slcx[2] = "c"
-	utl.PLine("Set(slcx):", slcx)
+	showSliceDemo2()
 
-	var slc1 = make([]string, 3)
-	utl.ShowTypeAndValue(slc1)
-	utl.PLine("\nEmpty Slice: ", slc1, " Len: ", len(slc1), " Capacity: ", cap(slc1))
+	showSliceDemo3()
+}
 
-	slc1[0] = "a"
-	slc1[1] = "b"
-	slc1[2] = "c"
-	utl.PLine("set:", slc1)
-	utl.PLine("get:", slc1[2])
-
-	utl.PLine("len:", len(slc1))
-
-	slc1 = append(slc1, "d")
-	slc1 = append(slc1, "e", "f")
-	utl.PLine("\nAppend:", slc1)
-
-	c := make([]string, len(slc1))
-	copy(c, slc1)
-	utl.PLine("\nCopy:", c)
-
-	l := slc1[2:5]
-	utl.PLine("Slice 1:", l)
-
-	l = slc1[:5]
-	utl.PLine("Slice 2:", l)
-
-	l = slc1[2:]
-	utl.PLine("Slice 3:", l)
-
+func showSliceDemo3() {
 	t := []string{"g", "h", "i"}
 	utl.PLine("\nDeclare and Initialize:", t)
 	utl.ShowTypeAndValue(t)
@@ -101,6 +67,52 @@ func main() {
 
 	ss = append(ss, "C", "D", "E", "F", "G", "H", "I", "J")
 	utl.PLine("SS: ", ss, " len: ", len(ss), " cap: ", cap(ss))
+}
+
+func showSliceDemo2() {
+	var slc1 = make([]string, 3)
+	utl.ShowTypeAndValue(slc1)
+	utl.PLine("\nEmpty Slice: ", slc1, " Len: ", len(slc1), " Capacity: ", cap(slc1))
+
+	slc1[0] = "a"
+	slc1[1] = "b"
+	slc1[2] = "c"
+	utl.PLine("set:", slc1)
+	utl.PLine("get:", slc1[2])
+
+	utl.PLine("len:", len(slc1))
+
+	slc1 = append(slc1, "d")
+	slc1 = append(slc1, "e", "f")
+	utl.PLine("\nAppend:", slc1)
+
+	c := make([]string, len(slc1))
+	copy(c, slc1)
+	utl.PLine("\nCopy:", c)
+
+	l := slc1[2:5]
+	utl.PLine("Slice 1:", l)
+
+	l = slc1[:5]
+	utl.PLine("Slice 2:", l)
+
+	l = slc1[2:]
+	utl.PLine("Slice 3:", l)
+}
+
+func showSliceDemo1() {
+	var slcx []string
+	utl.PLine("\nSlice ")
+	utl.ShowTypeAndValue(slcx)
+	utl.PLine("Uninitialized Slice: ", slcx, slcx == nil, len(slcx) == 0)
+
+	slcx = make([]string, 3)
+	utl.PLine("\nSlice from make: ", slcx, slcx == nil, len(slcx) == 0)
+	utl.ShowTypeAndValue(slcx)
+	slcx[0] = "a"
+	slcx[1] = "b"
+	slcx[2] = "c"
+	utl.PLine("Set(slcx):", slcx)
 }
 
 func showArrayVsSliceDemo() {
