@@ -75,7 +75,6 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
 func handleError(w http.ResponseWriter, err error, statusCode int) {
-	// log.Printf("[%s] Error: %v\n", time.Now().Format("2006-01-02 15:04:05"), err)
 	log.WithError(err).WithField("status_code", statusCode).Error("Request failed")
 
 	w.WriteHeader(statusCode)
@@ -108,3 +107,5 @@ func getProductByID(w http.ResponseWriter, id int) {
 	log.WithField("product_id", id).Warn("Product not found")
 	w.WriteHeader(http.StatusNotFound)
 }
+
+// log.Printf("[%s] Error: %v\n", time.Now().Format("2006-01-02 15:04:05"), err)
