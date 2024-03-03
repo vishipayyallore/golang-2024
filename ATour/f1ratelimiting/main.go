@@ -60,7 +60,7 @@ func showRateLimitDemo1() {
 	}
 	close(requests)
 
-	// This limiter channel will receive a value every 200 milliseconds. This is the regulator in our rate limiting scheme.
+	// This limiter channel will receive a value every 500 milliseconds. This is the regulator in our rate limiting scheme.
 	limiter := time.Tick(500 * time.Millisecond)
 
 	// By blocking on a receive from the limiter channel before serving each request,
