@@ -25,6 +25,8 @@ func main() {
 
 	showSliceDefaults()
 
+	showSliceLengthCapacity()
+
 	showArrayVsSliceDemo()
 
 	showSliceDemo1()
@@ -124,6 +126,30 @@ func showSliceDefaults() {
 
 	s = s[1:]
 	utl.PLine("Slice s[1:]: ", s)
+}
+
+// A slice has both a length and a capacity.
+func showSliceLengthCapacity() {
+	utl.PLine("\nShowing Slice Length and Capacity")
+
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s)
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+	utl.PFmted("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
 func showSliceDemo3() {
