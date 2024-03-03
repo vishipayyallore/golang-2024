@@ -18,7 +18,7 @@ func main() {
 }
 
 func showRateLimitDemo2() {
-	utl.PLine("\nRate Limiting Demo 2")
+	utl.PLine("\nRate Limiting Demo 2 with 1500 milliseconds burst rate.")
 
 	// We may want to allow short bursts of requests in our rate limiting scheme while preserving the overall rate limit.
 	// We can accomplish this by buffering our limiter channel. This burstyLimiter channel will allow bursts of up to 3 events.
@@ -31,7 +31,7 @@ func showRateLimitDemo2() {
 
 	// Every 200 milliseconds we’ll try to add a new value to burstyLimiter, up to its limit of 3.
 	go func() {
-		for t := range time.Tick(900 * time.Millisecond) {
+		for t := range time.Tick(1500 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
@@ -50,7 +50,7 @@ func showRateLimitDemo2() {
 }
 
 func showRateLimitDemo1() {
-	utl.PLine("Rate Limiting Demo 1")
+	utl.PLine("Rate Limiting Demo 1 with 500 milliseconds rate.")
 
 	// First we’ll look at basic rate limiting. Suppose we want to limit our handling of incoming requests.
 	// We’ll serve these requests off a channel of the same name.
@@ -60,7 +60,7 @@ func showRateLimitDemo1() {
 	}
 	close(requests)
 
-	// This limiter channel will receive a value every 200 milliseconds. This is the regulator in our rate limiting scheme.
+	// This limiter channel will receive a value every 500 milliseconds. This is the regulator in our rate limiting scheme.
 	limiter := time.Tick(500 * time.Millisecond)
 
 	// By blocking on a receive from the limiter channel before serving each request,
