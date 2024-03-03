@@ -42,6 +42,9 @@ func main() {
 	// GET http://localhost:8081/api/products-ssplit/3
 	http.HandleFunc("/api/products-ssplit/", pHdls.GetAllProductByRouteParameterHandler)
 
+	// GET http://localhost:8081/api/products-regexp/4
+	http.HandleFunc("/api/products-regexp/", pHdls.GetAllProductByRouteParameterHandlerRegExp)
+
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
 	go func() {

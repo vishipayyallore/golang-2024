@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -15,6 +16,9 @@ import (
 
 // Use logrus logger
 var log = logrus.New()
+
+// Regexp pattern for route parameter
+var pattern = regexp.MustCompile(`^\/api/products-regexp\/(\d+?)$`)
 
 // GET http://localhost:8081/api/products
 func GetAllProductsHandler(w http.ResponseWriter, r *http.Request) {
@@ -62,6 +66,29 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 	idRaw := parts[3]
+
+	id, shouldReturn := getIdfromString(idRaw, w)
+	if shouldReturn {
+		return
+	}
+
+	getProductByID(w, id)
+
+	log.Info("GetAllProductByRouteParameterHandler completed")
+}
+
+// GET http://localhost:8081/api/products/1
+func GetAllProductByRouteParameterHandlerRegExp(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByRouteParameterHandler started")
+
+	matches := pattern.FindStringSubmatch(r.URL.Path)
+	log.Print(" URL: ", r.URL.Path, " | Matches : ", matches, " | Length: ", len(matches))
+
+	if len(matches) == 0 {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	idRaw := matches[1]
 
 	id, shouldReturn := getIdfromString(idRaw, w)
 	if shouldReturn {
