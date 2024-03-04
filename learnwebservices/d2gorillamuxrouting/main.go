@@ -6,21 +6,15 @@ import (
 	"context"
 	pHdls "d1basicrouting/handlers"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
 )
 
 func main() {
 
 	r := mux.NewRouter()
-
-	// Use logrus logger
-	var log = logrus.New()
-
-	// Set log level
-	log.SetLevel(logrus.DebugLevel)
 
 	// GET http://localhost:8081
 	r.HandleFunc("/", pHdls.ServerHomeHtml)
