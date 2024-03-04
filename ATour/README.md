@@ -32,4 +32,4 @@
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
 |7. | Timeouts | Non-Blocking Channel Operations | Closing Channels | Range over Channels | Timers |
 |8. | Tickers | Worker Pools | WaitGroups | Rate Limiting | Atomic Counters |
-|9. | 1 | 2 | 3 | 4 | 5 |
+|9. | Mutexes | 2 | 3 | 4 | 5 |
