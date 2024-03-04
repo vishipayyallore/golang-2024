@@ -1,0 +1,16 @@
+html,
+body {
+    background-color: #f2f7fe;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    color: navy;
+}
+
+p {
+    color: navy;
+} 

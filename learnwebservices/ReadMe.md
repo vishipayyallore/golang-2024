@@ -7,3 +7,4 @@
 > 1. `go run "C:\Program Files\Go\src\crypto\tls\generate_cert.go" --host localhost`
 > 1. `go build . && go run .`
 > 1. `go get -u github.com/sirupsen/logrus`
+> 1. `go get -u github.com/gorilla/mux`
