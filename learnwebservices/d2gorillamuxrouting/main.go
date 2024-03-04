@@ -35,7 +35,7 @@ func main() {
 	r.HandleFunc("/api/products-ssplit/", pHdls.GetAllProductByRouteParameterHandler)
 
 	// GET http://localhost:8081/api/products-regexp/4
-	r.HandleFunc("/products-regexp/", pHdls.GetAllProductByRouteParameterHandlerRegExp)
+	r.HandleFunc("/api/products-regexp/", pHdls.GetAllProductByRouteParameterHandlerRegExp)
 
 	http.Handle("/", r)
 
