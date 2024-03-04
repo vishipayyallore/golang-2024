@@ -6,23 +6,11 @@ import (
 	"context"
 	pHdls "d1basicrouting/handlers"
 	"fmt"
+	"log"
 	"net/http"
-
-	"github.com/sirupsen/logrus"
 )
 
 func main() {
-
-	addr := ":8081"
-	s := http.Server{
-		Addr: addr,
-	}
-
-	// Use logrus logger
-	var log = logrus.New()
-
-	// Set log level
-	log.SetLevel(logrus.DebugLevel)
 
 	// GET http://localhost:8081
 	http.HandleFunc("/", pHdls.ServerHomeHtml)
@@ -44,6 +32,11 @@ func main() {
 
 	// GET http://localhost:8081/api/products-regexp/4
 	http.HandleFunc("/api/products-regexp/", pHdls.GetAllProductByRouteParameterHandlerRegExp)
+
+	addr := ":8081"
+	s := http.Server{
+		Addr: addr,
+	}
 
 	fmt.Printf("Starting Web Server at http://localhost%s\n", addr)
 
