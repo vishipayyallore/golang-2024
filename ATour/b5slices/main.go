@@ -27,6 +27,8 @@ func main() {
 
 	showSliceLengthCapacity()
 
+	showNilSlices()
+
 	showArrayVsSliceDemo()
 
 	showSliceDemo1()
@@ -146,6 +148,20 @@ func showSliceLengthCapacity() {
 	// Drop its first two values.
 	s = s[2:]
 	printSlice(s)
+}
+
+func showNilSlices() {
+	utl.PLine("\nShowing Nil Slices")
+
+	// The zero value of a slice is nil.
+	var s []int
+
+	// A nil slice has a length and capacity of 0 and has no underlying array.
+	utl.PLine("Nil Slice: ", s, s == nil, len(s) == 0)
+
+	if s == nil {
+		utl.PLine("Nil!")
+	}
 }
 
 func printSlice(s []int) {
