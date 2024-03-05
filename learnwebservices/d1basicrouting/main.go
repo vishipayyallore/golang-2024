@@ -28,7 +28,7 @@ func main() {
 	http.HandleFunc("/api/products-qs", pHdls.GetAllProductByQueryStringHandler)
 
 	// GET http://localhost:8081/api/products-ssplit/3
-	http.HandleFunc("/api/products-ssplit/", pHdls.GetAllProductByRouteParameterHandler)
+	http.HandleFunc("/api/products-ssplit/", pHdls.GetAllProductByRouteParameterHandlerStrSplit)
 
 	// GET http://localhost:8081/api/products-regexp/4
 	http.HandleFunc("/api/products-regexp/", pHdls.GetAllProductByRouteParameterHandlerRegExp)

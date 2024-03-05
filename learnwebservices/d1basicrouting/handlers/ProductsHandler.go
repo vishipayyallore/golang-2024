@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 )
 
@@ -55,8 +56,8 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GET http://localhost:8081/api/products/1
-func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request) {
-	log.Info("GetAllProductByRouteParameterHandler started")
+func GetAllProductByRouteParameterHandlerStrSplit(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByRouteParameterHandlerStrSplit started")
 
 	parts := strings.Split(r.URL.Path, "/")
 	log.Print(" URL: ", r.URL.Path, " | Parts : ", parts, " | Length: ", len(parts))
@@ -74,12 +75,12 @@ func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request
 
 	getProductByID(w, id)
 
-	log.Info("GetAllProductByRouteParameterHandler completed")
+	log.Info("GetAllProductByRouteParameterHandlerStrSplit completed")
 }
 
 // GET http://localhost:8081/api/products/1
 func GetAllProductByRouteParameterHandlerRegExp(w http.ResponseWriter, r *http.Request) {
-	log.Info("GetAllProductByRouteParameterHandler started")
+	log.Info("GetAllProductByRouteParameterHandlerRegExp started")
 
 	matches := pattern.FindStringSubmatch(r.URL.Path)
 	log.Print(" URL: ", r.URL.Path, " | Matches : ", matches, " | Length: ", len(matches))
@@ -97,7 +98,23 @@ func GetAllProductByRouteParameterHandlerRegExp(w http.ResponseWriter, r *http.R
 
 	getProductByID(w, id)
 
-	log.Info("GetAllProductByRouteParameterHandler completed")
+	log.Info("GetAllProductByRouteParameterHandlerRegExp completed")
+}
+
+func GetAllProductByRouteParameterHandlerGMux(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByRouteParameterHandlerGMux started")
+
+	vars := mux.Vars(r)
+	idRaw := vars["id"]
+
+	id, shouldReturn := getIdfromString(idRaw, w)
+	if shouldReturn {
+		return
+	}
+
+	getProductByID(w, id)
+
+	log.Info("GetAllProductByRouteParameterHandlerGMux completed")
 }
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
