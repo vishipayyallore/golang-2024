@@ -125,6 +125,147 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GET /api/products-regexp/4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname}}/api/products-regexp/4",
+							"host": [
+								"{{apihostname}}"
+							],
+							"path": [
+								"api",
+								"products-regexp",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "D2 Gorilla Mux",
+			"item": [
+				{
+					"name": "GET /",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}",
+							"host": [
+								"{{apihostname-1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}/api",
+							"host": [
+								"{{apihostname-1}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}/api/products",
+							"host": [
+								"{{apihostname-1}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/?id=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}/api/products/?id=1",
+							"host": [
+								"{{apihostname-1}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products-qs?id=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}/api/products-qs?id=2",
+							"host": [
+								"{{apihostname-1}}"
+							],
+							"path": [
+								"api",
+								"products-qs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-1}}/api/products/3",
+							"host": [
+								"{{apihostname-1}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -184,10 +325,35 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "apihostname",
 			"value": "http://localhost:8081"
+		},
+		{
+			"key": "apihostname-1",
+			"value": "http://localhost:8082",
+			"type": "string"
 		}
 	]
 }
