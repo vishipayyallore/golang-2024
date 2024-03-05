@@ -29,6 +29,8 @@ func main() {
 
 	showNilSlices()
 
+	showSliceWithMake()
+
 	showArrayVsSliceDemo()
 
 	showSliceDemo1()
@@ -164,8 +166,33 @@ func showNilSlices() {
 	}
 }
 
+// Slices can be created with the built-in make function; this is how you create dynamically-sized arrays.
+func showSliceWithMake() {
+
+	utl.PLine("\nShowing Slices with Make")
+
+	// The make function allocates a zeroed array and returns a slice that refers to that array:
+	a := make([]int, 5)
+	printSliceV1("a", a)
+
+	// To specify a capacity, pass a third argument to make:
+	b := make([]int, 0, 5)
+	printSliceV1("b", b)
+
+	c := b[:2]
+	printSliceV1("c", c)
+
+	d := c[2:5]
+	printSliceV1("d", d)
+}
+
 func printSlice(s []int) {
 	utl.PFmted("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+
+func printSliceV1(s string, x []int) {
+	utl.PFmted("%s len=%d cap=%d %v\n",
+		s, len(x), cap(x), x)
 }
 
 func showSliceDemo3() {
