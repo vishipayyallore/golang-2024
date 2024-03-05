@@ -55,7 +55,7 @@ func GetAllProductByQueryStringHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // GET http://localhost:8081/api/products/1
-func GetAllProductByRouteParameterHandler(w http.ResponseWriter, r *http.Request) {
+func GetAllProductByRouteParameterHandlerStrSplit(w http.ResponseWriter, r *http.Request) {
 	log.Info("GetAllProductByRouteParameterHandler started")
 
 	parts := strings.Split(r.URL.Path, "/")
