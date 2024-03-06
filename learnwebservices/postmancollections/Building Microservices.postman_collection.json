@@ -156,9 +156,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}",
+							"raw": "{{apihostname-gmux}}",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
 							]
 						}
 					},
@@ -170,9 +170,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}/api",
+							"raw": "{{apihostname-gmux}}/api",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
 							],
 							"path": [
 								"api"
@@ -187,9 +187,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}/api/products",
+							"raw": "{{apihostname-gmux}}/api/products",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
 							],
 							"path": [
 								"api",
@@ -205,9 +205,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}/api/products/?id=1",
+							"raw": "{{apihostname-gmux}}/api/products/?id=1",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
 							],
 							"path": [
 								"api",
@@ -230,9 +230,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}/api/products-qs?id=2",
+							"raw": "{{apihostname-gmux}}/api/products-qs?id=2",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
 							],
 							"path": [
 								"api",
@@ -254,9 +254,131 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{apihostname-1}}/api/products/3",
+							"raw": "{{apihostname-gmux}}/api/products/3",
 							"host": [
-								"{{apihostname-1}}"
+								"{{apihostname-gmux}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "D3 Go Chi",
+			"item": [
+				{
+					"name": "GET /",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}",
+							"host": [
+								"{{apihostname-gochi}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}/api",
+							"host": [
+								"{{apihostname-gochi}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}/api/products",
+							"host": [
+								"{{apihostname-gochi}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/?id=1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}/api/products/?id=1",
+							"host": [
+								"{{apihostname-gochi}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products-qs?id=2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}/api/products-qs?id=2",
+							"host": [
+								"{{apihostname-gochi}}"
+							],
+							"path": [
+								"api",
+								"products-qs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apihostname-gochi}}/api/products/3",
+							"host": [
+								"{{apihostname-gochi}}"
 							],
 							"path": [
 								"api",
@@ -351,8 +473,13 @@
 			"value": "http://localhost:8081"
 		},
 		{
-			"key": "apihostname-1",
+			"key": "apihostname-gmux",
 			"value": "http://localhost:8082",
+			"type": "string"
+		},
+		{
+			"key": "apihostname-gochi",
+			"value": "http://localhost:8083",
 			"type": "string"
 		}
 	]
