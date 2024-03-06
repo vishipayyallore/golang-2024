@@ -16,23 +16,23 @@ func main() {
 
 	r := chi.NewRouter()
 
-	// GET http://localhost:8082
-	r.HandleFunc("/", pHdls.ServerHomeHtml)
+	// GET http://localhost:8083
+	r.Get("/", pHdls.ServerHomeHtml)
 
-	// GET http://localhost:8082/api
-	r.HandleFunc("/api", pHdls.ServerHomeHtml)
+	// GET http://localhost:8083/api
+	r.Get("/api", pHdls.ServerHomeHtml)
 
-	// GET http://localhost:8082/api/products
-	r.HandleFunc("/api/products", pHdls.GetAllProductsHandler)
+	// GET http://localhost:8083/api/products
+	r.Get("/api/products", pHdls.GetAllProductsHandler)
 
-	// GET http://localhost:8082/api/products/?id=1
-	r.HandleFunc("/api/products/", pHdls.GetAllProductByQueryStringHandler)
+	// GET http://localhost:8083/api/products/?id=1
+	r.Get("/api/products/", pHdls.GetAllProductByQueryStringHandler)
 
-	// GET http://localhost:8082/api/products-qs?id=2
-	r.HandleFunc("/api/products-qs", pHdls.GetAllProductByQueryStringHandler)
+	// GET http://localhost:8083/api/products-qs?id=2
+	r.Get("/api/products-qs", pHdls.GetAllProductByQueryStringHandler)
 
-	// GET http://localhost:8082/api/products-ssplit/3
-	r.HandleFunc("/api/products/{id:[0-9]+}", pHdls.GetAllProductByRouteParameterHandlerGMux)
+	// GET http://localhost:8083/api/products-ssplit/3
+	r.Get("/api/products/{id:[0-9]+}", pHdls.GetAllProductByRouteParameterHandlerGoChi)
 
 	http.Handle("/", r)
 

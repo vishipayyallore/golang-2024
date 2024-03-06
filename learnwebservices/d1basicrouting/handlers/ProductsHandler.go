@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 )
@@ -115,6 +116,21 @@ func GetAllProductByRouteParameterHandlerGMux(w http.ResponseWriter, r *http.Req
 	getProductByID(w, id)
 
 	log.Info("GetAllProductByRouteParameterHandlerGMux completed")
+}
+
+func GetAllProductByRouteParameterHandlerGoChi(w http.ResponseWriter, r *http.Request) {
+	log.Info("GetAllProductByRouteParameterHandlerGoChi started")
+
+	idRaw := chi.URLParam(r, "id")
+
+	id, shouldReturn := getIdfromString(idRaw, w)
+	if shouldReturn {
+		return
+	}
+
+	getProductByID(w, id)
+
+	log.Info("GetAllProductByRouteParameterHandlerGoChi completed")
 }
 
 // handleError responds with an HTTP 500 Internal Server Error and logs the error.
