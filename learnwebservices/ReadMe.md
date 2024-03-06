@@ -8,4 +8,4 @@
 > 1. `go build . && go run .`
 > 1. `go get -u github.com/sirupsen/logrus` - <https://pkg.go.dev/github.com/sirupsen/logrus>
 > 1. `go get -u github.com/gorilla/mux` - <https://pkg.go.dev/github.com/gorilla/mux>
-> 1. `go get -u github.com/go-chi/chi` - <https://pkg.go.dev/github.com/go-chi/chi#section-readme>
+> 1. `go get -u github.com/go-chi/chi/v5` - <https://pkg.go.dev/github.com/go-chi/chi#section-readme>
