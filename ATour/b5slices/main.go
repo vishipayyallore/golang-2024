@@ -3,6 +3,7 @@ package main
 import (
 	utl "autilities"
 	"slices"
+	"strings"
 
 	"github.com/fatih/color"
 )
@@ -30,6 +31,8 @@ func main() {
 	showNilSlices()
 
 	showSliceWithMake()
+
+	showSlicesOfSlices()
 
 	showArrayVsSliceDemo()
 
@@ -184,6 +187,29 @@ func showSliceWithMake() {
 
 	d := c[2:5]
 	printSliceV1("d", d)
+}
+
+// Slices can contain any type, including other slices.
+func showSlicesOfSlices() {
+	utl.PLine("\nShowing Slices of Slices")
+
+	// Create a tic-tac-toe board.
+	board := [][]string{
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+		{"_", "_", "_"},
+	}
+
+	// The players take turns.
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+
+	for i := 0; i < len(board); i++ {
+		utl.PLine(strings.Join(board[i], " "))
+	}
 }
 
 func printSlice(s []int) {
