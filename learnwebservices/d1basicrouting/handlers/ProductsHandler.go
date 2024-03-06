@@ -79,7 +79,7 @@ func GetAllProductByRouteParameterHandlerStrSplit(w http.ResponseWriter, r *http
 	log.Info("GetAllProductByRouteParameterHandlerStrSplit completed")
 }
 
-// GET http://localhost:8081/api/products/1
+// GET http://localhost:8082/api/products/1
 func GetAllProductByRouteParameterHandlerRegExp(w http.ResponseWriter, r *http.Request) {
 	log.Info("GetAllProductByRouteParameterHandlerRegExp started")
 
@@ -102,6 +102,7 @@ func GetAllProductByRouteParameterHandlerRegExp(w http.ResponseWriter, r *http.R
 	log.Info("GetAllProductByRouteParameterHandlerRegExp completed")
 }
 
+// GET http://localhost:8082/api/products/3
 func GetAllProductByRouteParameterHandlerGMux(w http.ResponseWriter, r *http.Request) {
 	log.Info("GetAllProductByRouteParameterHandlerGMux started")
 
