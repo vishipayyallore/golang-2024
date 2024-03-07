@@ -19,6 +19,8 @@
 |7. | Structs | Struct Fields | Pointers to structs | Struct Literals | Arrays |
 |8. | Slices | Slices ... references to arrays | Slice literals | Slice defaults | Slice length and capacity |
 |9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | 5 |
+|10. | 1 | 2 | 3 | 4 | 5 |
+|11. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -32,4 +34,6 @@
 |6. | Channels | Channel Buffering | Channel Synchronization | Channel Directions | Select |
 |7. | Timeouts | Non-Blocking Channel Operations | Closing Channels | Range over Channels | Timers |
 |8. | Tickers | Worker Pools | WaitGroups | Rate Limiting | Atomic Counters |
-|9. | Mutexes | Stateful Goroutines | Sorting | 4 | 5 |
+|9. | Mutexes | Stateful Goroutines | Sorting | Sorting by Functions | 5 |
+|10. | 1 | 2 | 3 | 4 | 5 |
+|11. | 1 | 2 | 3 | 4 | 5 |
