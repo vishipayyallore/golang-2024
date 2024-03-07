@@ -34,6 +34,8 @@ func main() {
 
 	showSlicesOfSlices()
 
+	showAppendingToASlice()
+
 	showArrayVsSliceDemo()
 
 	showSliceDemo1()
@@ -210,6 +212,26 @@ func showSlicesOfSlices() {
 	for i := 0; i < len(board); i++ {
 		utl.PLine(strings.Join(board[i], " "))
 	}
+}
+
+// Appending to a slice. It is common to append new elements to a slice, and so Go provides a built-in append function.
+func showAppendingToASlice() {
+	utl.PLine("\nShowing Appending to a Slice")
+
+	var s []int
+	printSlice(s)
+
+	// append works on nil slices.
+	s = append(s, 0)
+	printSlice(s)
+
+	// The slice grows as needed.
+	s = append(s, 1)
+	printSlice(s)
+
+	// We can add more than one element at a time.
+	s = append(s, 2, 3, 4)
+	printSlice(s)
 }
 
 func printSlice(s []int) {
