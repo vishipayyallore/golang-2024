@@ -10,6 +10,18 @@ func main() {
 
 	header.DisplayHeader("Showing Range")
 
+	showRangeOnSlices()
+
+	showRangeOnMaps()
+
+	showRangeOnStrings()
+
+	showRangeAsForLoop()
+}
+
+func showRangeOnSlices() {
+	utl.PLine("Range on slices")
+
 	nums := []int{2, 3, 4}
 	sum := 0
 
@@ -23,7 +35,9 @@ func main() {
 			utl.PLine("\nIndex: ", i)
 		}
 	}
+}
 
+func showRangeOnMaps() {
 	utl.PLine("\nRange on map")
 	kvs := map[string]string{"a": "apple", "b": "banana"}
 	for k, v := range kvs {
@@ -34,13 +48,26 @@ func main() {
 	for k := range kvs {
 		utl.PLine("key:", k)
 	}
+}
+
+func showRangeOnStrings() {
+	utl.PLine("\nRange on strings")
 
 	strData := "GoLang"
 	utl.PLine("\nRange on ", strData, " string !")
 	for i, c := range strData {
 		utl.PFmted("%d. %d -> %c\n", i, c, c)
 	}
+}
 
+func showRangeAsForLoop() {
+	utl.PLine("\nRange as for loop")
+
+	pows := []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+	for i, v := range pows {
+		utl.PFmted("2**%d = %d\n", i, v)
+	}
 }
 
 /*
