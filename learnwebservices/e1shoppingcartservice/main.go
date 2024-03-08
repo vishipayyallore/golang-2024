@@ -132,7 +132,7 @@ func createCustomerService() *http.Server {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/customers", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/customers", func(w http.ResponseWriter, r *http.Request) {
 
 		data, err := json.Marshal(customers)
 		if err != nil {
@@ -145,8 +145,8 @@ func createCustomerService() *http.Server {
 
 	})
 
-	pattern := regexp.MustCompile(`^\/customers\/(\d+?)$`)
-	mux.HandleFunc("/customers/", func(w http.ResponseWriter, r *http.Request) {
+	pattern := regexp.MustCompile(`^\/api/customers\/(\d+?)$`)
+	mux.HandleFunc("/api/customers/", func(w http.ResponseWriter, r *http.Request) {
 		matches := pattern.FindStringSubmatch(r.URL.Path)
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
