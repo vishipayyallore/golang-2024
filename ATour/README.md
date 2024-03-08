@@ -18,7 +18,7 @@
 |6. | Switch evaluation order | Switch with no condition | Defer | Stacking defers | Pointers |
 |7. | Structs | Struct Fields | Pointers to structs | Struct Literals | Arrays |
 |8. | Slices | Slices ... references to arrays | Slice literals | Slice defaults | Slice length and capacity |
-|9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | 5 |
+|9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | Range |
 |10. | 1 | 2 | 3 | 4 | 5 |
 |11. | 1 | 2 | 3 | 4 | 5 |
 
