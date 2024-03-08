@@ -22,7 +22,7 @@ var cartMux = http.NewServeMux()
 
 func createShoppingCartService() *http.Server {
 
-	cartMux.HandleFunc("/carts", cartsHandler)
+	cartMux.HandleFunc("/api/carts", cartsHandler)
 
 	s := http.Server{
 		Addr:    ":5005",
