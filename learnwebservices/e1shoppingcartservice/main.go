@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	ent "e1shoppingcartservice/entities"
+	svc "e1shoppingcartservice/services"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -18,7 +19,7 @@ import (
 func main() {
 	cs := createCustomerService()
 	ps := createProductService()
-	scs := createShoppingCartService()
+	scs := svc.CreateShoppingCartService()
 
 	go func() {
 		cs.ListenAndServe()
