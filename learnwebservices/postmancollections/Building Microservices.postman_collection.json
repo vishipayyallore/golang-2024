@@ -450,6 +450,35 @@
 			"name": "E1 Shopping Cart Service",
 			"item": [
 				{
+					"name": "POST /api/carts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": {{$randomInt}},\r\n    \"customerId\": {{$randomInt}},\r\n    \"productIds\": [{{$randomInt}}, {{$randomInt}}, {{$randomInt}}, {{$randomInt}}, {{$randomInt}}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5005/api/carts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5005",
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "GET /api/carts",
 					"request": {
 						"method": "GET",
