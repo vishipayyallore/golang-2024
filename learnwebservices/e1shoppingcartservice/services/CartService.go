@@ -2,47 +2,26 @@ package services
 
 import (
 	ent "e1shoppingcartservice/entities"
+	mware "e1shoppingcartservice/middlewares"
 	"encoding/json"
 	"fmt"
 	"log"
-	"log/slog"
 	"net/http"
-	"time"
 )
 
 var nextID int = 1
 var carts = make([]ent.Cart, 0)
 
-var cartMux = http.NewServeMux()
+func CreateShoppingCartService() *http.Server {
 
-func createShoppingCartService() *http.Server {
-
-	cartMux.HandleFunc("/api/carts", cartsHandler)
+	mware.CartMux.HandleFunc("/api/carts", cartsHandler)
 
 	s := http.Server{
 		Addr:    ":5005",
-		Handler: &loggingMiddleware{next: cartMux},
+		Handler: &mware.LoggingMiddleware{Next: mware.CartMux},
 	}
 
 	return &s
-}
-
-type loggingMiddleware struct {
-	next http.Handler
-}
-
-func (lm loggingMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	if lm.next == nil {
-		lm.next = cartMux
-	}
-
-	slog.Info(fmt.Sprintf("Received %v request on route: %v", r.Method, r.URL.Path))
-	now := time.Now()
-
-	lm.next.ServeHTTP(w, r)
-
-	slog.Info(fmt.Sprintf("Response generated for %v request on route: %v. Duration: %v", r.Method, r.URL.Path, time.Since(now)))
-
 }
 
 func cartsHandler(w http.ResponseWriter, r *http.Request) {
