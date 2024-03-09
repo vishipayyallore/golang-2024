@@ -51,13 +51,6 @@ func main() {
 	fmt.Println("Services stopped")
 }
 
-// type Product struct {
-// 	ID         int
-// 	Name       string
-// 	USDPerUnit float64
-// 	Unit       string
-// }
-
 func createProductService() *http.Server {
 
 	mux := http.NewServeMux()
@@ -110,13 +103,6 @@ func createProductService() *http.Server {
 	}
 
 	return &s
-}
-
-type Customer struct {
-	ID        int    `json:"id"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Address   string `json:"address"`
 }
 
 func createCustomerService() *http.Server {
@@ -185,8 +171,8 @@ func createCustomerService() *http.Server {
 
 }
 
-func readCustomers(r io.Reader) ([]Customer, error) {
-	customers := make([]Customer, 0)
+func readCustomers(r io.Reader) ([]ent.Customer, error) {
+	customers := make([]ent.Customer, 0)
 	csvReader := csv.NewReader(r)
 	csvReader.Read() // throw away header
 	for {
@@ -197,7 +183,7 @@ func readCustomers(r io.Reader) ([]Customer, error) {
 		if err != nil {
 			return nil, err
 		}
-		var c Customer
+		var c ent.Customer
 		id, err := strconv.Atoi(fields[0])
 		if err != nil {
 			continue
