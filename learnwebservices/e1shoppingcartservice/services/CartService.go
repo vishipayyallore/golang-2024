@@ -1,4 +1,4 @@
-package main
+package services
 
 import (
 	ent "e1shoppingcartservice/entities"
