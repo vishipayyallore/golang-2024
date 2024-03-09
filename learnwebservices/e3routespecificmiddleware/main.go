@@ -34,7 +34,7 @@ func main() {
 
 	time.Sleep(1 * time.Second)
 
-	http.Post("http://localhost:5005/carts", "applcation/json",
+	http.Post("http://localhost:5005/api/carts", "applcation/json",
 		bytes.NewBufferString(`
 				{
 					"id": 1,
@@ -43,7 +43,7 @@ func main() {
 				}
 			`))
 
-	res, err := http.Get("http://localhost:5005/carts")
+	res, err := http.Get("http://localhost:5005/api/carts")
 	if err != nil {
 		log.Fatal(err)
 	}
