@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	ent "e1shoppingcartservice/entities"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -50,19 +51,19 @@ func main() {
 	fmt.Println("Services stopped")
 }
 
-type Product struct {
-	ID         int
-	Name       string
-	USDPerUnit float64
-	Unit       string
-}
+// type Product struct {
+// 	ID         int
+// 	Name       string
+// 	USDPerUnit float64
+// 	Unit       string
+// }
 
 func createProductService() *http.Server {
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/products", func(w http.ResponseWriter, r *http.Request) {
-		data, err := json.Marshal(products)
+		data, err := json.Marshal(ent.Products)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -87,7 +88,7 @@ func createProductService() *http.Server {
 			return
 		}
 
-		for _, p := range products {
+		for _, p := range ent.Products {
 			if id == p.ID {
 				data, err := json.Marshal(p)
 				if err != nil {

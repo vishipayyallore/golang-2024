@@ -1,6 +1,6 @@
-package main
+package entities
 
-var products = []Product{
+var Products = []Product{
 	{ID: 1, Name: "Apples", USDPerUnit: 1.99, Unit: "Pound"},
 	{ID: 2, Name: "Oranges", USDPerUnit: 2.99, Unit: "Pound"},
 	{ID: 3, Name: "Bread", USDPerUnit: 3.49, Unit: "Each"},
