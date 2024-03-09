@@ -1,6 +1,7 @@
 package main
 
 import (
+	ent "e1shoppingcartservice/entities"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -9,14 +10,8 @@ import (
 	"time"
 )
 
-type Cart struct {
-	ID         int   `json:"id,omitempty"`
-	CustomerID int   `json:"customerId,omitempty"`
-	ProductIDs []int `json:"productIds,omitempty"`
-}
-
 var nextID int = 1
-var carts = make([]Cart, 0)
+var carts = make([]ent.Cart, 0)
 
 var cartMux = http.NewServeMux()
 
@@ -30,7 +25,6 @@ func createShoppingCartService() *http.Server {
 	}
 
 	return &s
-
 }
 
 type loggingMiddleware struct {
@@ -63,7 +57,7 @@ func cartsHandler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Content-Type", "application/json")
 		w.Write(data)
 	case http.MethodPost:
-		var c Cart
+		var c ent.Cart
 		dec := json.NewDecoder(r.Body)
 		err := dec.Decode(&c)
 		if err != nil {
