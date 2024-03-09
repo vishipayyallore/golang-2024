@@ -72,7 +72,7 @@ func createProductService() *http.Server {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/products", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/products", func(w http.ResponseWriter, r *http.Request) {
 		data, err := json.Marshal(products)
 		if err != nil {
 			log.Fatal(err)
@@ -82,8 +82,8 @@ func createProductService() *http.Server {
 		w.Write(data)
 	})
 
-	pattern := regexp.MustCompile(`^\/products\/(\d+?)$`)
-	mux.HandleFunc("/products/", func(w http.ResponseWriter, r *http.Request) {
+	pattern := regexp.MustCompile(`^\/api/products\/(\d+?)$`)
+	mux.HandleFunc("/api/products/", func(w http.ResponseWriter, r *http.Request) {
 		matches := pattern.FindStringSubmatch(r.URL.Path)
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
