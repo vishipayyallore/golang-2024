@@ -27,7 +27,7 @@ func createShoppingCartService() *http.Server {
 	cartMux.Handle("/carts", &validationMiddleware{next: http.HandlerFunc(cartsHandler)})
 
 	s := http.Server{
-		Addr:    ":5000",
+		Addr:    ":5005",
 		Handler: &loggingMiddleware{next: cartMux},
 	}
 
