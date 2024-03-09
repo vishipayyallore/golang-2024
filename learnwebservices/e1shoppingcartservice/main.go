@@ -32,7 +32,7 @@ func main() {
 	}()
 
 	time.Sleep(1 * time.Second)
-	res, err := http.Get("http://localhost:5005/carts")
+	res, err := http.Get("http://localhost:5005/api/carts")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -61,7 +61,7 @@ func createProductService() *http.Server {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/products", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/products", func(w http.ResponseWriter, r *http.Request) {
 		data, err := json.Marshal(products)
 		if err != nil {
 			log.Fatal(err)
@@ -71,9 +71,11 @@ func createProductService() *http.Server {
 		w.Write(data)
 	})
 
-	pattern := regexp.MustCompile(`^\/products\/(\d+?)$`)
-	mux.HandleFunc("/products/", func(w http.ResponseWriter, r *http.Request) {
+	pattern := regexp.MustCompile(`^\/api/products\/(\d+?)$`)
+	mux.HandleFunc("/api/products/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("Request: ", r.URL.Path)
 		matches := pattern.FindStringSubmatch(r.URL.Path)
+		fmt.Println("Matches: ", matches)
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
 			return
@@ -130,7 +132,7 @@ func createCustomerService() *http.Server {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/customers", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/api/customers", func(w http.ResponseWriter, r *http.Request) {
 
 		data, err := json.Marshal(customers)
 		if err != nil {
@@ -143,8 +145,8 @@ func createCustomerService() *http.Server {
 
 	})
 
-	pattern := regexp.MustCompile(`^\/customers\/(\d+?)$`)
-	mux.HandleFunc("/customers/", func(w http.ResponseWriter, r *http.Request) {
+	pattern := regexp.MustCompile(`^\/api/customers\/(\d+?)$`)
+	mux.HandleFunc("/api/customers/", func(w http.ResponseWriter, r *http.Request) {
 		matches := pattern.FindStringSubmatch(r.URL.Path)
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
