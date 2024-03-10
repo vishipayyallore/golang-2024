@@ -12,9 +12,13 @@ import (
 	"strconv"
 )
 
+const (
+	CustomersFilePath = "../data/customers.csv"
+)
+
 func CreateCustomerService() *http.Server {
 
-	f, err := os.Open("customers.csv")
+	f, err := os.Open(CustomersFilePath)
 	if err != nil {
 		log.Fatal(err)
 	}
