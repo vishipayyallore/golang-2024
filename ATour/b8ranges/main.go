@@ -17,6 +17,8 @@ func main() {
 	showRangeOnStrings()
 
 	showRangeAsForLoop()
+
+	showRangeWithPow()
 }
 
 func showRangeOnSlices() {
@@ -67,6 +69,31 @@ func showRangeAsForLoop() {
 
 	for i, v := range pows {
 		utl.PFmted("2**%d = %d\n", i, v)
+	}
+}
+
+/*
+You can skip the index or value by assigning to _.
+for i, _ := range pow
+for _, value := range pow
+*/
+func showRangeWithPow() {
+	utl.PLine("\nRange with Pow")
+
+	pow := make([]int, 10)
+
+	// If you only want the index, you can omit the second variable.
+	for i := range pow {
+		pow[i] = 1 << uint(i) // == 2**i
+	}
+
+	for i, value := range pow {
+		utl.PFmted("2**%d = %d\n", i, value)
+	}
+
+	// You can skip the index or value by assigning to _. If you only want the index, you can omit the second variable.
+	for _, value := range pow {
+		utl.PFmted("%d\n", value)
 	}
 }
 
