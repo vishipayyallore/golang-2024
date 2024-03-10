@@ -4,7 +4,7 @@ import (
 	"context"
 	ent "e1shoppingcartservice/entities"
 	svc "e1shoppingcartservice/services"
-	"encoding/csv"
+	utls "e1shoppingcartservice/utilities"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -112,7 +112,7 @@ func createCustomerService() *http.Server {
 	if err != nil {
 		log.Fatal(err)
 	}
-	customers, err := readCustomers(f)
+	customers, err := utls.ReadCustomers(f)
 	f.Close()
 	if err != nil {
 		log.Fatal(err)
@@ -170,29 +170,4 @@ func createCustomerService() *http.Server {
 
 	return &s
 
-}
-
-func readCustomers(r io.Reader) ([]ent.Customer, error) {
-	customers := make([]ent.Customer, 0)
-	csvReader := csv.NewReader(r)
-	csvReader.Read() // throw away header
-	for {
-		fields, err := csvReader.Read()
-		if err == io.EOF {
-			return customers, nil
-		}
-		if err != nil {
-			return nil, err
-		}
-		var c ent.Customer
-		id, err := strconv.Atoi(fields[0])
-		if err != nil {
-			continue
-		}
-		c.ID = id
-		c.FirstName = fields[1]
-		c.LastName = fields[2]
-		c.Address = fields[3]
-		customers = append(customers, c)
-	}
 }
