@@ -2,8 +2,6 @@ package main
 
 import (
 	"context"
-	ent "e1shoppingcartservice/entities"
-	svc "e1shoppingcartservice/services"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -19,7 +17,7 @@ import (
 func main() {
 	cs := createCustomerService()
 	ps := createProductService()
-	scs := svc.CreateShoppingCartService()
+	scs := createShoppingCartService()
 
 	go func() {
 		cs.ListenAndServe()
@@ -52,12 +50,19 @@ func main() {
 	fmt.Println("Services stopped")
 }
 
+type Product struct {
+	ID         int
+	Name       string
+	USDPerUnit float64
+	Unit       string
+}
+
 func createProductService() *http.Server {
 
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/api/products", func(w http.ResponseWriter, r *http.Request) {
-		data, err := json.Marshal(ent.Products)
+		data, err := json.Marshal(products)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -68,9 +73,7 @@ func createProductService() *http.Server {
 
 	pattern := regexp.MustCompile(`^\/api/products\/(\d+?)$`)
 	mux.HandleFunc("/api/products/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Request: ", r.URL.Path)
 		matches := pattern.FindStringSubmatch(r.URL.Path)
-		fmt.Println("Matches: ", matches)
 		if len(matches) == 0 {
 			w.WriteHeader(http.StatusBadRequest)
 			return
@@ -82,7 +85,7 @@ func createProductService() *http.Server {
 			return
 		}
 
-		for _, p := range ent.Products {
+		for _, p := range products {
 			if id == p.ID {
 				data, err := json.Marshal(p)
 				if err != nil {
@@ -104,6 +107,13 @@ func createProductService() *http.Server {
 	}
 
 	return &s
+}
+
+type Customer struct {
+	ID        int    `json:"id"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Address   string `json:"address"`
 }
 
 func createCustomerService() *http.Server {
@@ -172,8 +182,8 @@ func createCustomerService() *http.Server {
 
 }
 
-func readCustomers(r io.Reader) ([]ent.Customer, error) {
-	customers := make([]ent.Customer, 0)
+func readCustomers(r io.Reader) ([]Customer, error) {
+	customers := make([]Customer, 0)
 	csvReader := csv.NewReader(r)
 	csvReader.Read() // throw away header
 	for {
@@ -184,7 +194,7 @@ func readCustomers(r io.Reader) ([]ent.Customer, error) {
 		if err != nil {
 			return nil, err
 		}
-		var c ent.Customer
+		var c Customer
 		id, err := strconv.Atoi(fields[0])
 		if err != nil {
 			continue
