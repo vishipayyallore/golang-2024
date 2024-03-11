@@ -1,3 +1,7 @@
+/*
+Reference: https://pkg.go.dev/golang.org/x/tour/pic#pkg-overview
+*/
+
 package main
 
 import (
