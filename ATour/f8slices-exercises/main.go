@@ -27,12 +27,15 @@ func main() {
 	imgData := Pic(dx, dy)
 
 	// Create a grayscale image
-	img := image.NewGray(image.Rect(0, 0, dx, dy))
+	// img := image.NewGray(image.Rect(0, 0, dx, dy))
+	img := image.NewRGBA64(image.Rect(0, 0, dx, dy))
 
 	// Set pixel values based on the generated data
 	for y := 0; y < dy; y++ {
 		for x := 0; x < dx; x++ {
-			img.Set(x, y, color.Gray{Y: imgData[y][x]})
+			// img.Set(x, y, color.Gray{Y: imgData[y][x]})
+			// img.Set(x, y, color.RGBA{R: 229, G: 176, B: 135, A: imgData[y][x]})
+			img.Set(x, y, color.RGBA{R: imgData[y][x]})
 		}
 	}
 
