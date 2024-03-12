@@ -21,6 +21,42 @@ func main() {
 	config := utl.HeaderConfig{TitleColor: color.FgHiMagenta}
 	header.DisplayHeader("Maps - Creating a Map", config)
 
+	showMapsDemo1()
+
+	showMapsDemo2()
+}
+
+type Vertex struct {
+	Lat, Long float64
+}
+
+var m1 map[string]Vertex
+
+func showMapsDemo2() {
+	utl.PLine("\nShowing Maps - Demo 2")
+
+	utl.PFmted("M1 Values: %v", m1)
+	utl.PLine("\nM1 Len: ", len(m1))
+	utl.PFmted("Is M1 Nil: %v", m1 == nil)
+
+	// The zero value of a map is nil. A nil map has no keys, nor can keys be added.
+	// m1["One"] = Vertex{1, 2}
+	// for k := range m1 {
+	// 	utl.PLine("M1 Key: ", k)
+	// }
+
+	// The make function returns a map of the given type, initialized and ready for use.
+	m1 = make(map[string]Vertex)
+	m1["Bell Labs"] = Vertex{
+		40.68433, -74.39967,
+	}
+
+	utl.PFmted("\nM1 Values: %v", m1)
+	utl.PFmted("\nM1 `Bell Labs` Value: %v", m1["Bell Labs"])
+	utl.PLine("\nM1 Len: ", len(m1))
+}
+
+func showMapsDemo1() {
 	header.DisplayHeader("Maps - Creating a Map", utl.HeaderConfig{HeaderChar: subHeaderChar})
 	m := make(map[string]int)
 
@@ -54,7 +90,6 @@ func main() {
 
 	n := map[string]int{"foo": 1, "bar": 2}
 	utl.PLine("map:", n)
-
 }
 
 /*
