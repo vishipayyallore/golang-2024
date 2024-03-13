@@ -10,6 +10,10 @@ var header = utl.Header{}
 
 const subHeaderChar = '-'
 
+type Vertex struct {
+	Lat, Long float64
+}
+
 /*
 A map maps keys to values. The zero value of a map is nil. A nil map has no keys, nor can keys be added.
 The make function returns a map of the given type, initialized and ready for use.
@@ -24,16 +28,29 @@ func main() {
 	showMapsDemo1()
 
 	showMapsDemo2()
+
+	showMapLiterals()
 }
 
-type Vertex struct {
-	Lat, Long float64
-}
+func showMapLiterals() {
+	utl.PLine("\nShowing Map Literals")
 
-var m1 map[string]Vertex
+	var m = map[string]Vertex{
+		"Bell Labs": {
+			40.68433, -74.39967,
+		},
+		"Google": {
+			37.42202, -122.08408,
+		},
+	}
+
+	utl.PFmted("M Values: %v", m)
+}
 
 func showMapsDemo2() {
 	utl.PLine("\nShowing Maps - Demo 2")
+
+	var m1 map[string]Vertex
 
 	utl.PFmted("M1 Values: %v", m1)
 	utl.PLine("\nM1 Len: ", len(m1))

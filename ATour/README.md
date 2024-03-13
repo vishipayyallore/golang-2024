@@ -20,7 +20,7 @@
 |7. | Structs | Struct Fields | Pointers to structs | Struct Literals | Arrays |
 |8. | Slices | Slices ... references to arrays | Slice literals | Slice defaults | Slice length and capacity |
 |9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | Range |
-|10. | Range continued | Exercise: Slices | Maps | 4 | 5 |
+|10. | Range continued | Exercise: Slices | Maps | Map literals | 5 |
 |11. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
