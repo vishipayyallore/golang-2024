@@ -36,6 +36,9 @@ func showMapLiterals() {
 	utl.PLine("\nShowing Map Literals")
 
 	var m = map[string]Vertex{
+
+		// "Stores": Vertex{ 37.7749, -122.4194, },
+		// If the top-level type is just a type name, you can omit it from the elements of the literal.
 		"Bell Labs": {
 			40.68433, -74.39967,
 		},
