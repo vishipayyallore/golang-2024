@@ -30,6 +30,26 @@ func main() {
 	showBasicDataTypesAsJson()
 
 	showSliceAndMapsAsJson()
+
+	showCustomTypesAsJson()
+}
+
+func showCustomTypesAsJson() {
+	utl.PLine("\nShowing custom types as JSON")
+
+	// The JSON package can automatically encode your custom data types. It will only include exported fields in the encoded output and will by default use those names as the JSON keys.
+	res1D := &response1{
+		Page:   1,
+		Fruits: []string{"apple", "peach", "pear"}}
+	res1B, _ := json.Marshal(res1D)
+	utl.PLine(string(res1B))
+
+	// You can use tags on struct field declarations to customize the encoded JSON key names. Check the definition of response2 above to see an example of such tags.
+	res2D := &response2{
+		Page:   1,
+		Fruits: []string{"apple", "peach", "pear"}}
+	res2B, _ := json.Marshal(res2D)
+	utl.PLine(string(res2B))
 }
 
 // Here are some for slices and maps, which encode to JSON arrays and objects as you’d expect.
