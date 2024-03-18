@@ -21,7 +21,7 @@
 |8. | Slices | Slices ... references to arrays | Slice literals | Slice defaults | Slice length and capacity |
 |9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | Range |
 |10. | Range continued | Exercise: Slices | Maps | Map literals | Map literals continued |
-|11. | 1 | 2 | 3 | 4 | 5 |
+|11. | Mutating Maps | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
