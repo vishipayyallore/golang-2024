@@ -30,6 +30,27 @@ func main() {
 	showMapsDemo2()
 
 	showMapLiterals()
+
+	showMutatingMaps()
+}
+
+func showMutatingMaps() {
+	utl.PLine("\n\nShowing Mutating Maps")
+
+	m := make(map[string]int)
+
+	m["Answer"] = 42
+	utl.PLine("The value:", m["Answer"])
+
+	m["Answer"] = 48
+	utl.PLine("The value:", m["Answer"])
+
+	delete(m, "Answer")
+	utl.PLine("The value:", m["Answer"])
+
+	v, prs := m["Answer"]
+	utl.PLine("The value:", v, "Present?", prs)
+
 }
 
 func showMapLiterals() {
