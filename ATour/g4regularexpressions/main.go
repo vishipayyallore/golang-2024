@@ -44,6 +44,8 @@ func main() {
 	// These FindAll variants are available for byte slices as well.
 	utl.PLine("FindAllStringSubmatch: ", r.FindAllStringSubmatch("peach punch pinch", -1))
 
+	utl.PLine("FindAllStringSubmatchIndex: ", r.FindAllStringSubmatchIndex("peach punch pinch", -1))
+
 	// Providing a non-negative integer as the second argument to these functions will limit the number of matches.
 	utl.PLine("FindAllString: ", r.FindAllString("peach punch pinch", 2))
 
@@ -52,6 +54,7 @@ func main() {
 
 	// When creating constants with regular expressions you can use the MustCompile variation of Compile. A plain Compile won’t work for constants because it has 2 return values.
 	r = regexp.MustCompile("p([a-z]+)ch")
+	utl.PLine("MustCompile: ", r)
 
 	// The regexp package can also be used to replace subsets of strings with other values.
 	utl.PLine("ReplaceAllString: ", r.ReplaceAllString("a peach", "<fruit>"))
