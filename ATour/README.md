@@ -21,7 +21,8 @@
 |8. | Slices | Slices ... references to arrays | Slice literals | Slice defaults | Slice length and capacity |
 |9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | Range |
 |10. | Range continued | Exercise: Slices | Maps | Map literals | Map literals continued |
-|11. | Mutating Maps | Exercise: Maps | 3 | 4 | 5 |
+|11. | Mutating Maps | Exercise: Maps | Function values | 4 | 5 |
+|12. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -38,3 +39,4 @@
 |9. | Mutexes | Stateful Goroutines | Sorting | Sorting by Functions | Panic |
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
 |11. | Regular Expressions | JSON | 3 | 4 | 5 |
+|12. | 1 | 2 | 3 | 4 | 5 |
