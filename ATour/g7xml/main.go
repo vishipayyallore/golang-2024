@@ -40,4 +40,26 @@ func main() {
 
 	// To add a generic XML header to the output, append it explicitly.
 	utl.PLine("xml.Header + string(out)\n", xml.Header+string(out))
+
+	// Use Unmarshal to parse a stream of bytes with XML into a data structure.
+	// If the XML is malformed or cannot be mapped onto Plant, a descriptive error will be returned.
+	var p Plant
+	if err := xml.Unmarshal(out, &p); err != nil {
+		panic(err)
+	}
+	utl.PLine("xml.Unmarshal(out, &p)\n", p)
+
+	tomato := &Plant{Id: 81, Name: "Tomato"}
+	tomato.Origin = []string{"Mexico", "California"}
+
+	// The parent>child>plant field tag tells the encoder to nest all plants under <parent><child>...
+	type Nesting struct {
+		XMLName xml.Name `xml:"nesting"`
+		Plants  []*Plant `xml:"parent>child>plant"`
+	}
+
+	nesting := &Nesting{}
+	nesting.Plants = []*Plant{coffee, tomato}
+	out, _ = xml.MarshalIndent(nesting, " ", "  ")
+	utl.PLine("xml.MarshalIndent(nesting, \" \", \"  \")\n", string(out))
 }
