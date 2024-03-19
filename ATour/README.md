@@ -38,5 +38,5 @@
 |8. | Tickers | Worker Pools | WaitGroups | Rate Limiting | Atomic Counters |
 |9. | Mutexes | Stateful Goroutines | Sorting | Sorting by Functions | Panic |
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
-|11. | Regular Expressions | JSON | 3 | 4 | 5 |
+|11. | Regular Expressions | JSON | XML | 4 | 5 |
 |12. | 1 | 2 | 3 | 4 | 5 |
