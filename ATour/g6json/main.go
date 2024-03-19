@@ -3,6 +3,7 @@ package main
 import (
 	utl "autilities"
 	"encoding/json"
+	"os"
 )
 
 var header = utl.Header{}
@@ -32,6 +33,60 @@ func main() {
 	showSliceAndMapsAsJson()
 
 	showCustomTypesAsJson()
+
+	showDecodingJson()
+
+	showStreamJsonEncodings()
+}
+
+// In the examples above we always used bytes and strings as intermediates between the data and JSON representation on standard out.
+// We can also stream JSON encodings directly to os.Writers like os.Stdout or even HTTP response bodies.
+func showStreamJsonEncodings() {
+	utl.PLine("\nShowing stream JSON encodings")
+
+	enc := json.NewEncoder(os.Stdout)
+	d := map[string]int{"apple": 5, "lettuce": 7}
+	enc.Encode(d)
+}
+
+func showDecodingJson() {
+	utl.PLine("\nShowing decoding JSON")
+
+	// We’ll start by encoding these examples of atomic values to JSON strings, which are a sequence of bytes.
+	b := []byte(`{"Name":"Wednesday","Age":6,"Parents":["Gomez","Morticia"]}`)
+	var f interface{}
+	json.Unmarshal(b, &f)
+	m := f.(map[string]interface{})
+	utl.PLine(m)
+
+	// Now let’s look at decoding JSON data into Go values. Here’s an example for a generic data structure.
+	byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
+
+	// We need to provide a variable where the JSON package can put the decoded data. This map[string]interface{} will hold a map of strings to arbitrary data types.
+	var dat map[string]interface{}
+
+	// Here’s the actual decoding, and a check for associated errors.
+	if err := json.Unmarshal(byt, &dat); err != nil {
+		panic(err)
+	}
+	utl.PLine(dat)
+
+	// In order to use the values in the decoded map, we’ll need to convert them to their appropriate type.
+	// For example here we convert the value in num to the expected float64 type.
+	num := dat["num"].(float64)
+	utl.PLine(num)
+
+	// Accessing nested data requires a series of conversions.
+	strs := dat["strs"].([]interface{})
+	str1 := strs[0].(string)
+	utl.PLine(str1)
+
+	// We can also decode JSON into custom data types. This has the advantages of adding additional type-safety to our programs and eliminating the need for type assertions when accessing the decoded data.
+	str := `{"page": 1, "fruits": ["apple", "peach"]}`
+	res := response2{}
+	json.Unmarshal([]byte(str), &res)
+	utl.PLine(res)
+	utl.PLine(res.Fruits[0])
 }
 
 func showCustomTypesAsJson() {
