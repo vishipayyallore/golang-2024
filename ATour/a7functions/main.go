@@ -2,6 +2,7 @@ package main
 
 import (
 	utl "autilities"
+	"math"
 )
 
 var header = utl.Header{}
@@ -47,6 +48,26 @@ func main() {
 	nums := []int{1, 2, 3, 4}
 	sum = addAll(nums...)
 	utl.PLine("Sum: ", sum)
+
+	showFunctionValues()
+}
+
+// Function values may be used as function arguments and return values.
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
+// Functions are values too. They can be passed around just like other values.
+func showFunctionValues() {
+	utl.PLine("\nShowing Function Values")
+
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	utl.PLine("Hypotenuse: ", hypot(5, 12))
+
+	utl.PLine("Compute: ", compute(hypot))
+	utl.PLine("Compute: ", compute(math.Pow))
 }
 
 /*
