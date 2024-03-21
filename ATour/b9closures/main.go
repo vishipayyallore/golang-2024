@@ -14,9 +14,15 @@ func main() {
 	sequence1 := numberSequence()
 	sequence2 := numberSequence()
 
-	for i := 1; i <= 10; i++ {
+	pos, neg := adder(), adder()
+
+	for i := 1; i <= 5; i++ {
+		utl.PLine("Iteration: ", i)
 		utl.PFmted("Sequence 1: %d\n", sequence1())
 		utl.PFmted("Sequence 2: %d\n", sequence2())
+
+		utl.PFmted("Positive: %d\n", pos(i))
+		utl.PFmted("Negative: %d\n\n", neg(-2*i))
 	}
 
 }
@@ -28,6 +34,19 @@ func numberSequence() func() int {
 	return func() int {
 		i++
 		return i
+	}
+}
+
+/*
+Go functions may be closures. A closure is a function value that references variables from outside its body. The function may access and
+assign to the referenced variables; in this sense the function is "bound" to the variables.
+The adder function returns a closure. Each closure is bound to its own sum variable.
+*/
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
 	}
 }
 
