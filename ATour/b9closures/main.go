@@ -6,6 +6,20 @@ import (
 
 var header = utl.Header{}
 
+// fibonacci is a function that returns
+// a function that returns an int.
+func fibonacci() func() int {
+
+	a, b := 0, 1
+
+	return func() int {
+		result := a
+		a, b = b, a+b
+
+		return result
+	}
+}
+
 func main() {
 
 	header.DisplayHeader("Showing Closures")
@@ -16,13 +30,17 @@ func main() {
 
 	pos, neg := adder(), adder()
 
-	for i := 1; i <= 5; i++ {
+	f := fibonacci()
+
+	for i := 1; i <= 6; i++ {
 		utl.PLine("Iteration: ", i)
 		utl.PFmted("Sequence 1: %d\n", sequence1())
 		utl.PFmted("Sequence 2: %d\n", sequence2())
 
 		utl.PFmted("Positive: %d\n", pos(i))
-		utl.PFmted("Negative: %d\n\n", neg(-2*i))
+		utl.PFmted("Negative: %d\n", neg(-2*i))
+
+		utl.PFmted("Fibonacci: %d\n\n", f())
 	}
 
 }
