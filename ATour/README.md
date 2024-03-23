@@ -22,7 +22,8 @@
 |9. | Nil slices | Creating a slice with make | Slices of slices | Appending to a slice | Range |
 |10. | Range continued | Exercise: Slices | Maps | Map literals | Map literals continued |
 |11. | Mutating Maps | Exercise: Maps | Function values | Function closures | Exercise: Fibonacci closure |
-|12. | 1 | 2 | 3 | 4 | 5 |
+|12. | Methods | 2 | 3 | 4 | 5 |
+|13. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -40,3 +41,4 @@
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
 |12. | 1 | 2 | 3 | 4 | 5 |
+|13. | 1 | 2 | 3 | 4 | 5 |
