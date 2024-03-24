@@ -2,6 +2,7 @@ package main
 
 import (
 	utl "autilities"
+	"math"
 )
 
 var header = utl.Header{}
@@ -21,6 +22,14 @@ func (r *rect) area() int {
 	return r.width * r.height
 }
 
+type Vertex struct {
+	X, Y float64
+}
+
+/*
+Go does not have classes. However, you can define methods on types. A method is a function with a special receiver argument.
+The receiver appears in its own argument list between the func keyword and the method name.
+*/
 func main() {
 	header.DisplayHeader("Showing Methods")
 
@@ -29,6 +38,9 @@ func main() {
 
 	rp := &r
 	showPointerReceiver(rp)
+
+	v := Vertex{3, 4}
+	utl.PLine("\nVertex: ", v)
 }
 
 func showValueReceiver(r rect) {
@@ -41,6 +53,10 @@ func showPointerReceiver(rp *rect) {
 	utl.PLine("\nPointer Receiver -> Rectangle: ", rp)
 	utl.PLine("Area: ", rp.area())
 	utl.PLine("Perimeter: ", rp.perim())
+}
+
+func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
 /*
