@@ -8,17 +8,17 @@ import (
 var header = utl.Header{}
 
 // Go supports methods defined on struct types.
-type rect struct {
+type Rect struct {
 	width, height int
 }
 
 // Methods can be defined for either pointer or value receiver types. Here’s an example of a value receiver.
-func (r rect) perim() int {
+func (r Rect) perim() int {
 	return 2*r.width + 2*r.height
 }
 
 // This area method has a receiver type of *rect (pointer).
-func (r *rect) area() int {
+func (r *Rect) area() int {
 	return r.width * r.height
 }
 
@@ -33,7 +33,7 @@ The receiver appears in its own argument list between the func keyword and the m
 func main() {
 	header.DisplayHeader("Showing Methods")
 
-	r := rect{width: 10, height: 5}
+	r := Rect{width: 10, height: 5}
 	showValueReceiver(r)
 
 	rp := &r
@@ -41,21 +41,27 @@ func main() {
 
 	v := Vertex{3, 4}
 	utl.PLine("\nVertex: ", v)
+	utl.PLine("Abs: ", v.Abs())
+	utl.PLine("Abs: ", Abs(v))
 }
 
-func showValueReceiver(r rect) {
+func showValueReceiver(r Rect) {
 	utl.PLine("Value Receiver -> Rectangle: ", r)
 	utl.PLine("Area: ", r.area())
 	utl.PLine("Perimeter: ", r.perim())
 }
 
-func showPointerReceiver(rp *rect) {
+func showPointerReceiver(rp *Rect) {
 	utl.PLine("\nPointer Receiver -> Rectangle: ", rp)
 	utl.PLine("Area: ", rp.area())
 	utl.PLine("Perimeter: ", rp.perim())
 }
 
 func (v Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func Abs(v Vertex) float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
