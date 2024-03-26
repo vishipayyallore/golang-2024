@@ -26,9 +26,11 @@ type Vertex struct {
 	X, Y float64
 }
 
+type Salary float64
+
 /*
 Go does not have classes. However, you can define methods on types. A method is a function with a special receiver argument.
-The receiver appears in its own argument list between the func keyword and the method name.
+We can have ONLY ONE RECEIVER for a method. The receiver appears in its own argument list between the func keyword and the method name.
 */
 func main() {
 	header.DisplayHeader("Showing Methods")
@@ -43,6 +45,15 @@ func main() {
 	utl.PLine("\nVertex: ", v)
 	utl.PLine("Abs: ", v.Abs())
 	utl.PLine("Abs: ", Abs(v))
+
+	s := Salary(50000.87)
+	s.showEmployeeSalary("John Doe")
+}
+
+func (s Salary) showEmployeeSalary(emp string) {
+	utl.PLine("\nMethod with Salary Receiver")
+	utl.PLine("Employee: ", emp)
+	utl.PLine("Salary: ", s)
 }
 
 func showValueReceiver(r Rect) {
