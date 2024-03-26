@@ -40,5 +40,5 @@
 |9. | Mutexes | Stateful Goroutines | Sorting | Sorting by Functions | Panic |
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
-|12. | Time Formatting / Parsing | Random Numbers | 3 | 4 | 5 |
+|12. | Time Formatting / Parsing | Random Numbers | Number Parsing | 4 | 5 |
 |13. | 1 | 2 | 3 | 4 | 5 |
