@@ -2,6 +2,7 @@ package main
 
 import (
 	utl "autilities"
+	"net"
 	"net/url"
 )
 
@@ -26,4 +27,26 @@ func main() {
 
 	// Accessing the scheme is straightforward.
 	utl.PLine("Scheme: ", u.Scheme)
+
+	// User contains all authentication info; call Username and Password on this for individual values.
+	utl.PLine("User: ", u.User)
+	utl.PLine("Username: ", u.User.Username())
+	p, _ := u.User.Password()
+	utl.PLine("Password: ", p)
+
+	// The Host contains both the hostname and the port, if present. Use SplitHostPort to extract them.
+	utl.PLine("Host: ", u.Host)
+	host, port, _ := net.SplitHostPort(u.Host)
+	utl.PLine("Host: ", host)
+	utl.PLine("Port: ", port)
+
+	// Here we extract the path and the fragment after the #.
+	utl.PLine("Path: ", u.Path)
+	utl.PLine("Fragment: ", u.Fragment)
+
+	// To get query params in a string of k=v format, use RawQuery. You can also parse query params into a map. The parsed query param maps are from strings to slices of strings, so index into [0] if you only want the first value.
+	utl.PLine("RawQuery: ", u.RawQuery)
+	m, _ := url.ParseQuery(u.RawQuery)
+	utl.PLine("Query Params: ", m)
+	utl.PLine("Query Param k: ", m["k"][0])
 }
