@@ -82,6 +82,10 @@ func (v Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
+func Abs(v Vertex) float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
 /*
 You can declare methods with pointer receivers. This means the receiver type has the literal syntax *T for some type T. (Also, T cannot itself
 be a pointer such as *int.). For example, the Scale method here is defined on *Vertex. Methods with pointer receivers can modify the value to
@@ -94,12 +98,6 @@ func (v *Vertex) Scale(f float64) {
 	v.Y = v.Y * f
 }
 
-func Abs(v Vertex) float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
-}
-
-/*
- */
 func Scale(v *Vertex, f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
