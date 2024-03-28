@@ -44,8 +44,16 @@ func main() {
 	v := Vertex{3, 4}
 	utl.PLine("\nVertex: ", v)
 	utl.PLine("Abs: ", v.Abs())
+
+	utl.PLine("Vertex: ", v)
 	utl.PLine("Abs: ", Abs(v))
+
+	utl.PLine("Vertex: ", v)
 	v.Scale(10)
+	utl.PLine("Scaled: ", v)
+
+	utl.PLine("Vertex: ", v)
+	Scale(&v, 10)
 	utl.PLine("Scaled: ", v)
 
 	s := Salary(50000.87)
@@ -88,6 +96,13 @@ func (v *Vertex) Scale(f float64) {
 
 func Abs(v Vertex) float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+/*
+ */
+func Scale(v *Vertex, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
 }
 
 /*
