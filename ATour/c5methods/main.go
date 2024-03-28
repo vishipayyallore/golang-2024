@@ -26,9 +26,11 @@ type Vertex struct {
 	X, Y float64
 }
 
+type Salary float64
+
 /*
 Go does not have classes. However, you can define methods on types. A method is a function with a special receiver argument.
-The receiver appears in its own argument list between the func keyword and the method name.
+We can have ONLY ONE RECEIVER for a method. The receiver appears in its own argument list between the func keyword and the method name.
 */
 func main() {
 	header.DisplayHeader("Showing Methods")
@@ -43,6 +45,17 @@ func main() {
 	utl.PLine("\nVertex: ", v)
 	utl.PLine("Abs: ", v.Abs())
 	utl.PLine("Abs: ", Abs(v))
+	v.Scale(10)
+	utl.PLine("Scaled: ", v)
+
+	s := Salary(50000.87)
+	s.showEmployeeSalary("John Doe")
+}
+
+func (s Salary) showEmployeeSalary(emp string) {
+	utl.PLine("\nMethod with Salary Receiver")
+	utl.PLine("Employee: ", emp)
+	utl.PLine("Salary: ", s)
 }
 
 func showValueReceiver(r Rect) {
@@ -59,6 +72,18 @@ func showPointerReceiver(rp *Rect) {
 
 func (v Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+/*
+You can declare methods with pointer receivers. This means the receiver type has the literal syntax *T for some type T. (Also, T cannot itself
+be a pointer such as *int.). For example, the Scale method here is defined on *Vertex. Methods with pointer receivers can modify the value to
+which the receiver points (as Scale does here). Since methods often need to modify their receiver, pointer receivers are more common than
+value receivers. With a value receiver, the Scale method operates on a copy of the original Vertex value. (This is the same behavior as for
+any other function argument.) The Scale method must have a pointer receiver to change the Vertex value declared in the main function.
+*/
+func (v *Vertex) Scale(f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
 }
 
 func Abs(v Vertex) float64 {
