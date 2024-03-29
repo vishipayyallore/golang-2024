@@ -51,8 +51,15 @@ func main() {
 	utl.PLine("Vertex: ", v)
 	v.Scale(10)
 	utl.PLine("Scaled: ", v)
+	// while methods with pointer receivers take either a value or a pointer as the receiver when they are called
+	p := &v
+	p.Scale(10) // OK
+	utl.PLine("P.Scaled: ", v)
 
 	utl.PLine("Vertex: ", v)
+	// functions with a pointer argument must take a pointer: Scale(v, 10)
+	// cannot use v (variable of type Vertex) as *Vertex value in argument to Scale
+	// Scale(v, 10)
 	Scale(&v, 10)
 	utl.PLine("Scaled: ", v)
 

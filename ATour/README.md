@@ -23,7 +23,8 @@
 |10. | Range continued | Exercise: Slices | Maps | Map literals | Map literals continued |
 |11. | Mutating Maps | Exercise: Maps | Function values | Function closures | Exercise: Fibonacci closure |
 |12. | Methods | Methods are functions | Methods continued | Pointer receivers | Pointers and functions |
-|13. | 1 | 2 | 3 | 4 | 5 |
+|13. | Methods and pointer indirection | 2 | 3 | 4 | 5 |
+|14. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -42,3 +43,4 @@
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
 |12. | Time Formatting / Parsing | Random Numbers | Number Parsing | URL Parsing | SHA256 Hashes |
 |13. | 1 | 2 | 3 | 4 | 5 |
+|14. | 1 | 2 | 3 | 4 | 5 |
