@@ -44,8 +44,25 @@ func main() {
 	v := Vertex{3, 4}
 	utl.PLine("\nVertex: ", v)
 	utl.PLine("Abs: ", v.Abs())
+
+	utl.PLine("Vertex: ", v)
 	utl.PLine("Abs: ", Abs(v))
+
+	utl.PLine("Vertex: ", v)
+	// For the statement v.Scale(10), even though v is a value and not a pointer, the method with the pointer receiver is called automatically.
+	// That is, as a convenience, Go interprets the statement v.Scale(5) as (&v).Scale(5) since the Scale method has a pointer receiver.
 	v.Scale(10)
+	utl.PLine("Scaled: ", v)
+	// while methods with pointer receivers take either a value or a pointer as the receiver when they are called
+	p := &v
+	p.Scale(10) // OK
+	utl.PLine("P.Scaled: ", v)
+
+	utl.PLine("Vertex: ", v)
+	// functions with a pointer argument must take a pointer: Scale(v, 10)
+	// cannot use v (variable of type Vertex) as *Vertex value in argument to Scale
+	// Scale(v, 10)
+	Scale(&v, 10)
 	utl.PLine("Scaled: ", v)
 
 	s := Salary(50000.87)
@@ -74,6 +91,10 @@ func (v Vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
+func Abs(v Vertex) float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
 /*
 You can declare methods with pointer receivers. This means the receiver type has the literal syntax *T for some type T. (Also, T cannot itself
 be a pointer such as *int.). For example, the Scale method here is defined on *Vertex. Methods with pointer receivers can modify the value to
@@ -86,8 +107,9 @@ func (v *Vertex) Scale(f float64) {
 	v.Y = v.Y * f
 }
 
-func Abs(v Vertex) float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+func Scale(v *Vertex, f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
 }
 
 /*
