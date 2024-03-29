@@ -49,6 +49,8 @@ func main() {
 	utl.PLine("Abs: ", Abs(v))
 
 	utl.PLine("Vertex: ", v)
+	// For the statement v.Scale(10), even though v is a value and not a pointer, the method with the pointer receiver is called automatically.
+	// That is, as a convenience, Go interprets the statement v.Scale(5) as (&v).Scale(5) since the Scale method has a pointer receiver.
 	v.Scale(10)
 	utl.PLine("Scaled: ", v)
 	// while methods with pointer receivers take either a value or a pointer as the receiver when they are called
