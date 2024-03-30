@@ -42,5 +42,5 @@
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
 |12. | Time Formatting / Parsing | Random Numbers | Number Parsing | URL Parsing | SHA256 Hashes |
-|13. | 1 | 2 | 3 | 4 | 5 |
+|13. | Base64 Encoding | 2 | 3 | 4 | 5 |
 |14. | 1 | 2 | 3 | 4 | 5 |
