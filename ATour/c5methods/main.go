@@ -43,10 +43,18 @@ func main() {
 
 	v := Vertex{3, 4}
 	utl.PLine("\nVertex: ", v)
+	// while methods with value receivers take either a value or a pointer as the receiver when they are called
 	utl.PLine("Abs: ", v.Abs())
+	// functions with a value argument must take a value: Abs(&v)
+	p1 := &v
+	// In this case, the method call p.Abs() is interpreted as (*p).Abs().
+	utl.PLine("Abs: ", p1.Abs())
 
 	utl.PLine("Vertex: ", v)
+	// Functions that take a value argument must take a value of that specific type: Abs(v)
 	utl.PLine("Abs: ", Abs(v))
+	// cannot use &v (value of type *Vertex) as Vertex value in argument to Ab
+	// utl.PLine("Not allowed: ", Abs(&v))
 
 	utl.PLine("Vertex: ", v)
 	// For the statement v.Scale(10), even though v is a value and not a pointer, the method with the pointer receiver is called automatically.
