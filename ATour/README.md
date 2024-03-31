@@ -6,6 +6,7 @@
 > 1. <https://go.dev/tour/welcome/1>
 > 1. <https://gobyexample.com>
 > 1. `go get -u golang.org/x/tour/pic`
+> 1. <https://go.dev/ref/spec>
 
 ## A Tour of Go
 
