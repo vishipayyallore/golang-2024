@@ -32,8 +32,18 @@ func main() {
 	d := 3.1415
 	fmt.Println(d)
 
-	var e int = int(d)
+	// Not allowed -> cannot use d (variable of type float64) as int value in variable declaration
+	// var e int = d
+	var e int = int(d) // Explicit Type conversion
 	fmt.Println(e)
+
+	var f int8 = 127
+	fmt.Println(f)
+
+	// Not allowed -> cannot use f (variable of type int8) as int16 value in variable declaration
+	// var g int16 = f
+	var g int16 = int16(f) // Explicit Type conversion
+	fmt.Println(g)
 }
 
 // func FmtPln(a ...interface{}) (n int, err error) {
