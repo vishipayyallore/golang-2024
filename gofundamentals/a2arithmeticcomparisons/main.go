@@ -21,8 +21,8 @@ func main() {
 	n1, n2 := 5, 2
 
 	fmt.Println("Addition: ", n1+n2)
-	fmt.Println(n1 - n2)
-	fmt.Println(n1 * n2)
+	fmt.Println("Substraction: ", n1-n2)
+	fmt.Println("Multiplication: ", n1*n2)
 	fmt.Println("Integer Division: ", n1/n2) // Integer Division
 	fmt.Println("Float Division: ", float64(n1)/float64(n2))
 	fmt.Println("Modulus: ", n1%n2) // Modulus
