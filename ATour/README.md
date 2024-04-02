@@ -24,7 +24,7 @@
 |10. | Range continued | Exercise: Slices | Maps | Map literals | Map literals continued |
 |11. | Mutating Maps | Exercise: Maps | Function values | Function closures | Exercise: Fibonacci closure |
 |12. | Methods | Methods are functions | Methods continued | Pointer receivers | Pointers and functions |
-|13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | 4 | 5 |
+|13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | Interfaces | 5 |
 |14. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
