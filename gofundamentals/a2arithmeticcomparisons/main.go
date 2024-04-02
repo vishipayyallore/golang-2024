@@ -23,9 +23,9 @@ func main() {
 	fmt.Println("Addition: ", n1+n2)
 	fmt.Println(n1 - n2)
 	fmt.Println(n1 * n2)
-	fmt.Println("Integer Division: ", n1/n2)
+	fmt.Println("Integer Division: ", n1/n2) // Integer Division
 	fmt.Println("Float Division: ", float64(n1)/float64(n2))
-	fmt.Println("Modulus: ", n1%n2)
+	fmt.Println("Modulus: ", n1%n2) // Modulus
 
 	n3, n4 := 5.0, 2.0
 	fmt.Println(n3 + n4)
@@ -39,6 +39,9 @@ func main() {
 	fmt.Println(float32(n1) / float32(n2))
 
 	fmt.Println(n1 == n2)
+	fmt.Println(n1 != n2)
 	fmt.Println(n1 < n2)
+	fmt.Println(n1 <= n2)
 	fmt.Println(n1 > n2)
+	fmt.Println(n1 >= n2)
 }
