@@ -43,5 +43,5 @@
 |10. | Defer | Recover | String Functions | String Formatting | Text Templates |
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
 |12. | Time Formatting / Parsing | Random Numbers | Number Parsing | URL Parsing | SHA256 Hashes |
-|13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | 5 |
+|13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
 |14. | 1 | 2 | 3 | 4 | 5 |
