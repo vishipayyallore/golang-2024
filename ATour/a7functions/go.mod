@@ -1,3 +1,3 @@
 module a7functions
 
-go 1.22.1
+go 1.22.2
