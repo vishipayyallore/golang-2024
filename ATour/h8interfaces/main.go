@@ -31,13 +31,13 @@ func main() {
 	utl.PLine("A: ", a)
 	utl.PLine("a.Abs() = ", a.Abs())
 
-	a = &v // a *Vertex implements Abser
-	utl.PLine("A: ", a)
-	utl.PLine("a.Abs() = ", a.Abs())
-
 	// In the following line, v is a Vertex (not *Vertex) and does NOT implement Abser.
 	// cannot use v (variable of type Vertex) as Abser value in assignment: Vertex does not implement Abser (method Abs has pointer receiver)
 	// a = v
+
+	a = &v // a *Vertex implements Abser
+	utl.PLine("A: ", a)
+	utl.PLine("a.Abs() = ", a.Abs())
 }
 
 type Abser interface {
