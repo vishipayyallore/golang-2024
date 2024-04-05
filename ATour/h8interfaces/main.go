@@ -42,6 +42,15 @@ func main() {
 	// Implicit interfaces
 	var i I = P{Age: 25, Name: "John"}
 	i.Display()
+	describe(i)
+
+	var i1 I = &P{Age: 25, Name: "John"}
+	i1.Display()
+	describe(i1)
+
+	var i2 = F(math.Pi)
+	i2.Display()
+	describe(i2)
 }
 
 type Abser interface {
@@ -56,6 +65,13 @@ func (f FloatValue) Abs() float64 {
 	}
 
 	return float64(f)
+}
+
+type F float64
+
+func (f F) Display() {
+	utl.PLine("\nDisplaying Float F.Display()")
+	utl.PLine(f)
 }
 
 type Vertex struct {
@@ -85,4 +101,12 @@ func (p P) Display() {
 	utl.PLine("\nDisplaying Person")
 	utl.PLine("Age: ", p.Age)
 	utl.PLine("Name: ", p.Name)
+}
+
+/*
+Under the hood, interface values can be thought of as a tuple of a value and a concrete type: (value, type). An interface value holds a
+value of a specific underlying concrete type. Calling a method on an interface value executes the method of the same name on its underlying type.
+*/
+func describe(i I) {
+	utl.PFmted("(%v, %T)\n", i, i)
 }
