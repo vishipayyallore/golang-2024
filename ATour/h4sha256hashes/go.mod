@@ -1,3 +1,3 @@
 module h4sha256hashes
 
-go 1.22.1
+go 1.22.2
