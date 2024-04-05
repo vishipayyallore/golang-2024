@@ -45,7 +45,3 @@ func main() {
 	var g int16 = int16(f) // Explicit Type conversion
 	fmt.Println(g)
 }
-
-// func FmtPln(a ...interface{}) (n int, err error) {
-// 	return fmt.Println(a...)
-// }
