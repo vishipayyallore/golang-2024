@@ -16,7 +16,20 @@ func main() {
 	*/
 	header.DisplayHeader("Showing Interfaces")
 
-	// Implicit interfaces
+	/*
+		Implicit interfaces. If the concrete value inside the interface itself is nil, the method will be called with a nil receiver.
+		In Go it is common to write methods that gracefully handle being called with a nil receiver. Note that an interface value that
+		holds a nil concrete value is itself non-nil
+	*/
+	var t *P
+	var i I = t
+	i.Display()
+	describe(i)
+
+	var i3 I = new(P)
+	i3.Display()
+	describe(i3)
+
 	var i1 I = &P{Age: 25, Name: "John"}
 	i1.Display()
 	describe(i1)
