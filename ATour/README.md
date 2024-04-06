@@ -25,7 +25,7 @@
 |11. | Mutating Maps | Exercise: Maps | Function values | Function closures | Exercise: Fibonacci closure |
 |12. | Methods | Methods are functions | Methods continued | Pointer receivers | Pointers and functions |
 |13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | Interfaces | Interfaces are implemented implicitly |
-|14. | Interface values | 2 | 3 | 4 | 5 |
+|14. | Interface values | Interface values with nil underlying values | 3 | 4 | 5 |
 |15. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
