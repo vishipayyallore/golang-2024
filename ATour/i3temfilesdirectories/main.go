@@ -40,6 +40,15 @@ func main() {
 	_, err = f.Write([]byte{1, 2, 3, 4})
 	check(err)
 
+	// Close the file to ensure all data is flushed to disk before reading.
+	defer f.Close()
+
+	// Read the content of the temporary file
+	content, err := os.ReadFile(f.Name())
+	check(err)
+
+	utl.PLine("File content: ", content, " of length: ", len(content))
+
 	// If we intend to write many temporary files, we may prefer to create a temporary directory. os.MkdirTemp’s arguments are the same
 	// as CreateTemp’s, but it returns a directory name rather than an open file.
 	dname, err := os.MkdirTemp("", "sampledir")
