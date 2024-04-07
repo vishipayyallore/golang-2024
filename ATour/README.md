@@ -25,7 +25,7 @@
 |11. | Mutating Maps | Exercise: Maps | Function values | Function closures | Exercise: Fibonacci closure |
 |12. | Methods | Methods are functions | Methods continued | Pointer receivers | Pointers and functions |
 |13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | Interfaces | Interfaces are implemented implicitly |
-|14. | Interface values | 2 | 3 | 4 | 5 |
+|14. | Interface values | Interface values with nil underlying values | 3 | 4 | 5 |
 |15. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
@@ -45,5 +45,5 @@
 |11. | Regular Expressions | JSON | XML | Time | Epoch |
 |12. | Time Formatting / Parsing | Random Numbers | Number Parsing | URL Parsing | SHA256 Hashes |
 |13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
-|14. | Directories | 2 | 3 | 4 | 5 |
+|14. | Directories | Temporary Files and Directories | 3 | 4 | 5 |
 |15. | 1 | 2 | 3 | 4 | 5 |
