@@ -25,6 +25,8 @@ func main() {
 	showConstantExpressions()
 
 	showConstantGroup()
+
+	showConstantGroupWithIota()
 }
 
 func showConstantsDemo1() {
@@ -106,7 +108,9 @@ func showConstantGroup() {
 	autilities.PrintValueAndType(bbb)
 	autilities.PrintValueAndType(ccc)
 	autilities.PrintValueAndType(ddd)
+}
 
+func showConstantGroupWithIota() {
 	const c = iota
 	autilities.PrintValueAndType(c)
 
