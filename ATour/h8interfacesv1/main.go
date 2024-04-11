@@ -37,6 +37,14 @@ func main() {
 	var i2 = F(math.Pi)
 	i2.Display()
 	describe(i2)
+
+	// A nil interface value holds neither value nor concrete type. Calling a method on a nil interface is a run-time error
+	// because there is no type inside the interface tuple to indicate which concrete method to call.
+	utl.PLine("\nnil interface value")
+	var i4 I
+	describe(i4)
+	// This will cause a run-time error
+	// i4.Display()
 }
 
 /*
@@ -77,5 +85,6 @@ Under the hood, interface values can be thought of as a tuple of a value and a c
 value of a specific underlying concrete type. Calling a method on an interface value executes the method of the same name on its underlying type.
 */
 func describe(i I) {
+	utl.PLine("Describing I interface")
 	utl.PFmted("(%v, %T)\n", i, i)
 }
