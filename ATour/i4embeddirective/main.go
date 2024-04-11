@@ -14,6 +14,8 @@ var fileString string
 var fileByte []byte
 
 //go:embed folder/single_file.txt
+//go:embed folder/file1.hash
+//go:embed folder/file2.hash
 //go:embed folder/*.hash
 var folder embed.FS
 
