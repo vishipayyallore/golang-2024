@@ -55,4 +55,12 @@ func main() {
 
 	content2, _ := folder.ReadFile("folder/file2.hash")
 	print("\n", string(content2))
+
+	// Read all files in the folder
+	utl.PLine("\n\nReading all files in the folder")
+	files, _ := folder.ReadDir("folder")
+	for _, file := range files {
+		content, _ := folder.ReadFile("folder/" + file.Name())
+		print("\n", string(content))
+	}
 }
