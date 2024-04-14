@@ -36,9 +36,9 @@ Import the embed package; if you don’t use any exported identifiers from this 
 
 ******************** Create these files and folders in the project directory: ********************
 mkdir -p folder
-echo "hello go" > folder/single_file.txt
-echo "123" > folder/file1.hash
-echo "456" > folder/file2.hash
+echo "This is Single File." > folder/single_file.txt
+echo "123 from file1.hash" > folder/file1.hash
+echo "456 from file2.hash" > folder/file2.hash
 */
 func main() {
 	/*
