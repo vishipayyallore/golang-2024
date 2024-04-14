@@ -54,5 +54,5 @@ func main() {
 	print(string(content1))
 
 	content2, _ := folder.ReadFile("folder/file2.hash")
-	print(string(content2))
+	print("\n", string(content2))
 }
