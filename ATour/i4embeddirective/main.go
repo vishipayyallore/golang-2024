@@ -47,8 +47,8 @@ func main() {
 	*/
 	header.DisplayHeader("Showing Embed Directive")
 
-	print(fileString)
-	print(string(fileByte))
+	print("File Content: ", fileString)
+	print("File Content string(fileByte): ", string(fileByte))
 
 	content1, _ := folder.ReadFile("folder/file1.hash")
 	print(string(content1))
