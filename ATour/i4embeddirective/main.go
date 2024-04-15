@@ -36,9 +36,9 @@ Import the embed package; if you don’t use any exported identifiers from this 
 
 ******************** Create these files and folders in the project directory: ********************
 mkdir -p folder
-echo "hello go" > folder/single_file.txt
-echo "123" > folder/file1.hash
-echo "456" > folder/file2.hash
+echo "This is Single File." > folder/single_file.txt
+echo "123 from file1.hash" > folder/file1.hash
+echo "456 from file2.hash" > folder/file2.hash
 */
 func main() {
 	/*
@@ -47,12 +47,20 @@ func main() {
 	*/
 	header.DisplayHeader("Showing Embed Directive")
 
-	print(fileString)
-	print(string(fileByte))
+	print("File Content: ", fileString)
+	print("File Content string(fileByte): ", string(fileByte))
 
 	content1, _ := folder.ReadFile("folder/file1.hash")
 	print(string(content1))
 
 	content2, _ := folder.ReadFile("folder/file2.hash")
-	print(string(content2))
+	print("\n", string(content2))
+
+	// Read all files in the folder
+	utl.PLine("\n\nReading all files in the folder")
+	files, _ := folder.ReadDir("folder")
+	for _, file := range files {
+		content, _ := folder.ReadFile("folder/" + file.Name())
+		print("\n", string(content))
+	}
 }
