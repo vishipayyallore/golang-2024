@@ -22,6 +22,7 @@ func main() {
 	*/
 	s := i.(string)
 	utl.PLine("s: ", s)
+	describe(s)
 
 	/*
 		To test whether an interface value holds a specific type, a type assertion can return two values: the underlying
@@ -29,14 +30,35 @@ func main() {
 		t, ok := i.(T)
 	*/
 	s, ok := i.(string)
-	utl.PLine("s: ", s, " ok: ", ok)
+	utl.PLine("\ns: ", s, " ok: ", ok)
+	describe(s)
 
 	f, ok := i.(float64)
-	utl.PLine("f: ", f, " ok: ", ok)
+	utl.PLine("\nf: ", f, " ok: ", ok)
+	describe(f)
 
 	/*
 		If i does not hold a T, the statement will trigger a panic. // panic: interface conversion: interface {} is string, not float64
 	*/
 	// f = i.(float64) // panic
 	// utl.PLine("f: ", f)
+
+	p, ok := i.(*P)
+	utl.PLine("\np: ", p, " ok: ", ok)
+	describe(p)
+}
+
+type P struct {
+	Age  int
+	Name string
+}
+
+/*
+Under the hood, interface values can be thought of as a tuple of a value and a concrete type: (value, type). An interface value holds a
+value of a specific underlying concrete type. Calling a method on an interface value executes the method of the same name on its underlying type.
+*/
+func describe(i interface{}) {
+	utl.PLine("Describing I interface")
+
+	utl.PFmted("(%v, %T)\n", i, i)
 }
