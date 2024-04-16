@@ -8,12 +8,14 @@ import (
 )
 
 func main() {
+	fmt.Println("Welcome to the coffee shop!")
+	fmt.Println("\nHere is our menu:")
 	fmt.Println("Please select an option")
 	fmt.Println("1) Print menu")
 	in := bufio.NewReader(os.Stdin)
 	choice, _ := in.ReadString('\n')
 	choice = strings.TrimSpace(choice) // we don't know what to do with this yet!
-	fmt.Println("You chose:", choice)
+	fmt.Println("\nYou chose:", choice)
 
 	menu := []menuItem{
 		{name: "Coffee", prices: map[string]float64{"small": 1.65, "medium": 1.80, "large": 1.95}},
