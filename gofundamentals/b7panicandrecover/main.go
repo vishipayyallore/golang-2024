@@ -24,5 +24,6 @@ func divide(dividend, divisor int) int {
 			fmt.Println("No panic detected! ", msg)
 		}
 	}()
+
 	return dividend / divisor
 }
