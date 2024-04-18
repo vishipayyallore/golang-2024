@@ -8,6 +8,8 @@ import (
 deferred functions are FILO (First in Last out) in nature.
 */
 func main() {
+	fmt.Println("Showing Deferred Functions in action")
+
 	fmt.Println("main 1")
 	defer fmt.Println("defer 1")
 	fmt.Println("main 2")
