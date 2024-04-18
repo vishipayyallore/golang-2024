@@ -14,6 +14,7 @@ func main() {
 		go run .
 		go test -v
 		go test -bench=.
+		go test -bench=. -v
 	*/
 	header.DisplayHeader("Showing Testing and Benchmarking in GoLang")
 
