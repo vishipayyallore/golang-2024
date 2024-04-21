@@ -46,6 +46,12 @@ func main() {
 	p, ok := i.(*P)
 	utl.PLine("\np: ", p, " ok: ", ok)
 	describe(p)
+
+	verifyTypes(21)
+	verifyTypes("hello")
+	verifyTypes(true)
+	verifyTypes(3.14)
+	verifyTypes(P{Age: 21, Name: "John"})
 }
 
 type P struct {
@@ -61,4 +67,16 @@ func describe(i interface{}) {
 	utl.PLine("Describing I interface")
 
 	utl.PFmted("(%v, %T)\n", i, i)
+}
+
+func verifyTypes(i interface{}) {
+	utl.PLine("\nVerifying types")
+	switch v := i.(type) {
+	case int:
+		utl.PFmted("Twice %v is %v\n", v, v*2)
+	case string:
+		utl.PFmted("%q is %v bytes long\n", v, len(v))
+	default:
+		utl.PFmted("I don't know about type %T!\n", v)
+	}
 }

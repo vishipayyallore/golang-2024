@@ -26,7 +26,8 @@
 |12. | Methods | Methods are functions | Methods continued | Pointer receivers | Pointers and functions |
 |13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | Interfaces | Interfaces are implemented implicitly |
 |14. | Interface values | Interface values with nil underlying values | Nil interface values | The empty interface | Type assertions |
-|15. | 1 | 2 | 3 | 4 | 5 |
+|15. | Type switches | 2 | 3 | 4 | 5 |
+|16. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -47,3 +48,4 @@
 |13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
 |14. | Directories | Temporary Files and Directories | Embed Directive | Testing and Benchmarking | Command-Line Arguments |
 |15. | 1 | 2 | 3 | 4 | 5 |
+|16. | 1 | 2 | 3 | 4 | 5 |
