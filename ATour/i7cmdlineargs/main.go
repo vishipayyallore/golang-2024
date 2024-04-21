@@ -26,6 +26,8 @@ func main() {
 	fmt.Println("Arguments without Program Name: ", argsWithoutProg)
 
 	// You can get individual args with normal indexing.
-	arg := os.Args[3]
-	fmt.Println("Third Argument: ", arg)
+	if len(os.Args) >= 4 {
+		arg := os.Args[3]
+		fmt.Println("Third Argument: ", arg)
+	}
 }
