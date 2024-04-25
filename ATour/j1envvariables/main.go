@@ -26,6 +26,6 @@ func main() {
 	utl.PLine()
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)
-		utl.PLine(pair[0])
+		utl.PLine(pair[0], " = ", pair[1])
 	}
 }
