@@ -47,5 +47,5 @@
 |12. | Time Formatting / Parsing | Random Numbers | Number Parsing | URL Parsing | SHA256 Hashes |
 |13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
 |14. | Directories | Temporary Files and Directories | Embed Directive | Testing and Benchmarking | Command-Line Arguments |
-|15. | Command-Line Flags | Command-Line Subcommands | 3 | 4 | 5 |
+|15. | Command-Line Flags | Command-Line Subcommands | Environment Variables | 4 | 5 |
 |16. | 1 | 2 | 3 | 4 | 5 |
