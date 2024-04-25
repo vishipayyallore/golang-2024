@@ -1,5 +1,5 @@
-// https://pkg.go.dev/net/http@go1.21.6#ListenAndServeTLS
-// https://pkg.go.dev/net/http@go1.21.6#Server
+// https://pkg.go.dev/net/http@go1.22.2#ListenAndServeTLS
+// https://pkg.go.dev/net/http@go1.22.2#Server
 // go run "C:\Program Files\Go\src\crypto\tls\generate_cert.go" --host localhost
 
 package main
