@@ -2,7 +2,10 @@ package main
 
 import (
 	utl "autilities"
+	"bytes"
+	"fmt"
 	"log"
+	"log/slog"
 	"os"
 )
 
@@ -33,10 +36,28 @@ func main() {
 
 	// It may be useful to create a custom logger and pass it around. When creating a new logger, we can set a prefix to
 	// distinguish its output from other loggers.
-	custlog := log.New(os.Stdout, "my:", log.LstdFlags)
-	custlog.Println("from mylog")
+	custlog := log.New(os.Stdout, "Cust Log: ", log.LstdFlags)
+	custlog.Println("from custlog")
 
 	// We can set the prefix on existing loggers (including the standard one) with the SetPrefix method.
-	custlog.SetPrefix("ohmy:")
-	custlog.Println("from mylog")
+	custlog.SetPrefix("Cust Log: ")
+	custlog.Println("from custlog")
+
+	// Loggers can have custom output targets; any io.Writer works.
+	var buf bytes.Buffer
+	buflog := log.New(&buf, "buf:", log.LstdFlags)
+
+	// This call writes the log output into buf.
+	buflog.Println("hello")
+
+	// This will actually show it on standard output.
+	fmt.Print("from buflog:", buf.String())
+
+	// The slog package provides structured log output. For example, logging in JSON format is straightforward.
+	jsonHandler := slog.NewJSONHandler(os.Stderr, nil)
+	myslog := slog.New(jsonHandler)
+	myslog.Info("hi there")
+
+	// In addition to the message, slog output can contain an arbitrary number of key=value pairs.
+	myslog.Info("hello again", "key", "val", "age", 25)
 }
