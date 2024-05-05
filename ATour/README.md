@@ -28,6 +28,7 @@
 |14. | Interface values | Interface values with nil underlying values | Nil interface values | The empty interface | Type assertions |
 |15. | Type switches | Stringers | Exercise Stringers | Errors | Exercise: Errors |
 |16. | Readers | 2 | 3 | 4 | 5 |
+|17. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
@@ -48,4 +49,5 @@
 |13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
 |14. | Directories | Temporary Files and Directories | Embed Directive | Testing and Benchmarking | Command-Line Arguments |
 |15. | Command-Line Flags | Command-Line Subcommands | Environment Variables | Logging | HTTP Client |
-|16. | 1 | 2 | 3 | 4 | 5 |
+|16. | HTTP Server | 2 | 3 | 4 | 5 |
+|17. | 1 | 2 | 3 | 4 | 5 |
