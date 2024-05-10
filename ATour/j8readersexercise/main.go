@@ -15,12 +15,12 @@ func main() {
 	 */
 	header.DisplayHeader("Showing Exercise: Readers")
 
-	reader.Validate(MyReader{})
+	reader.Validate(CustomReader{})
 }
 
-type MyReader struct{}
+type CustomReader struct{}
 
-func (r MyReader) Read(b []byte) (int, error) {
+func (r CustomReader) Read(b []byte) (int, error) {
 	// Fill the byte slice with 'A' characters.
 	for i := range b {
 		b[i] = 'A'
