@@ -49,5 +49,5 @@
 |13. | Base64 Encoding | Reading Files | Writing Files | Line Filters | File Paths |
 |14. | Directories | Temporary Files and Directories | Embed Directive | Testing and Benchmarking | Command-Line Arguments |
 |15. | Command-Line Flags | Command-Line Subcommands | Environment Variables | Logging | HTTP Client |
-|16. | HTTP Server | 2 | 3 | 4 | 5 |
+|16. | HTTP Server | Context | 3 | 4 | 5 |
 |17. | 1 | 2 | 3 | 4 | 5 |
