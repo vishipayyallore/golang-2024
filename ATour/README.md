@@ -27,7 +27,7 @@
 |13. | Methods and pointer indirection | Methods and pointer indirection (2) | Choosing a value or pointer receiver | Interfaces | Interfaces are implemented implicitly |
 |14. | Interface values | Interface values with nil underlying values | Nil interface values | The empty interface | Type assertions |
 |15. | Type switches | Stringers | Exercise Stringers | Errors | Exercise: Errors |
-|16. | Readers | Exercise: Readers | Exercise: rot13Reader | 4 | 5 |
+|16. | Readers | Exercise: Readers | Exercise: rot13Reader | Images | 5 |
 |17. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
