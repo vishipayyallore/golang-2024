@@ -2,68 +2,40 @@ package main
 
 import (
 	utl "autilities"
-	"io"
+	"os"
 	"os/exec"
+	"syscall"
 )
 
 var header = utl.Header{}
 
 /*
-Sometimes our Go programs need to spawn other, non-Go processes.
-For example, we might need to run a shell command or execute a system binary. In this recipe, we will learn how to spawn processes in Go.
+Sometimes we just want to completely replace the current Go process with another (perhaps non-Go) one. To do this we’ll use
+Go’s implementation of the classic exec function.
 */
 func main() {
 	/*
-		Spawning Processes. EXECUTE THIS PROGRAM IN THE BASH TERMINAL
-	*/
-	header.DisplayHeader("Showing Spawning Processes")
+	 */
+	header.DisplayHeader("Showing Exec'ing Processes")
 
-	// We’ll start with a simple command that takes no arguments or input and just prints something to stdout. The exec.Command helper creates an object to represent this external process.
-	dateCmd := exec.Command("date")
-
-	// The Output method runs the command, waits for it to finish and collects its standard output. If there were no errors, dateOut will hold bytes with the date info.
-	dateOut, err := dateCmd.Output()
-	if err != nil {
-		panic(err)
-	}
-	utl.PLine("> date")
-	utl.PLine(string(dateOut))
-
-	// Output and other methods of Command will return *exec.Error if there was a problem executing the command (e.g. wrong path), and *exec.ExitError if the command ran but exited with a non-zero return code.
-	_, err = exec.Command("date", "-x").Output()
-	if err != nil {
-		switch e := err.(type) {
-		case *exec.Error:
-			utl.PLine("failed executing:", err)
-		case *exec.ExitError:
-			utl.PLine("command exit rc =", e.ExitCode())
-		default:
-			panic(err)
-		}
+	// For our example we’ll exec ls. Go requires an absolute path to the binary we want to execute, so we’ll use exec.LookPath to
+	// find it (probably /bin/ls).
+	binary, lookErr := exec.LookPath("ls")
+	if lookErr != nil {
+		panic(lookErr)
 	}
 
-	// Next we’ll look at a slightly more involved case where we pipe data to the external process on its stdin and collect the results from its stdout.
-	grepCmd := exec.Command("grep", "hello")
+	// Exec requires arguments in slice form (as opposed to one big string). We’ll give ls a few common arguments. Note that the
+	// first argument should be the program name.
+	args := []string{"ls", "-a", "-l", "-h"}
 
-	// Here we explicitly grab input/output pipes, start the process, write some input to it, read the resulting output, and finally wait for the process to exit.
-	grepIn, _ := grepCmd.StdinPipe()
-	grepOut, _ := grepCmd.StdoutPipe()
-	grepCmd.Start()
-	grepIn.Write([]byte("hello grep\ngoodbye grep"))
-	grepIn.Close()
-	grepBytes, _ := io.ReadAll(grepOut)
-	grepCmd.Wait()
+	// Exec also needs a set of environment variables to use. Here we just provide our current environment.
+	env := os.Environ()
 
-	// We omitted error checks in the above example, but you could use the usual if err != nil pattern for all of them. We also only collect the StdoutPipe results, but you could collect the StderrPipe in exactly the same way.
-	utl.PLine("> grep hello")
-	utl.PLine(string(grepBytes))
-
-	// Note that when spawning commands we need to provide an explicitly delineated command and argument array, vs. being able to just pass in one command-line string. If you want to spawn a full command with a string, you can use bash’s -c option:
-	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
-	lsOut, err := lsCmd.Output()
-	if err != nil {
-		panic(err)
+	// Here’s the actual syscall.Exec call. If this call is successful, the execution of our process will end here and be replaced
+	// by the /bin/ls -a -l -h process. If there is an error we’ll get a return value.
+	execErr := syscall.Exec(binary, args, env)
+	if execErr != nil {
+		panic(execErr)
 	}
-	utl.PLine("> ls -a -l -h")
-	utl.PLine(string(lsOut))
 }
