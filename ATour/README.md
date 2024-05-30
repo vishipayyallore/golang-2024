@@ -51,4 +51,4 @@
 |14. | Directories | Temporary Files and Directories | Embed Directive | Testing and Benchmarking | Command-Line Arguments |
 |15. | Command-Line Flags | Command-Line Subcommands | Environment Variables | Logging | HTTP Client |
 |16. | HTTP Server | Context | Spawning Processes | Exec'ing Processes | Signals |
-|17. | 1 | 2 | 3 | 4 | 5 |
+|17. | Exit | 2 | 3 | 4 | 5 |
