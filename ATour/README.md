@@ -28,7 +28,8 @@
 |14. | Interface values | Interface values with nil underlying values | Nil interface values | The empty interface | Type assertions |
 |15. | Type switches | Stringers | Exercise Stringers | Errors | Exercise: Errors |
 |16. | Readers | Exercise: Readers | Exercise: rot13Reader | Images | Exercise: Images |
-|17. | 1 | 2 | 3 | 4 | 5 |
+|17. | Type parameters | 2 | 3 | 4 | 5 |
+|18. | 1 | 2 | 3 | 4 | 5 |
 
 ## Go by Example
 
