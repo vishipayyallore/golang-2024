@@ -11,6 +11,8 @@
 ```powershell
 go work init
 
-go mod init A1Packages
+mkdir a1packages && cd a1packages
+go mod init a1packages
 go work use .
+go run .
 ```
