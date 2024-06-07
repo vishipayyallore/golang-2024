@@ -1,3 +1,3 @@
 module b3arrays
 
-go 1.22.2
+go 1.22.4
