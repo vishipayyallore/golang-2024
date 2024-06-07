@@ -1,3 +1,3 @@
 module k1rot13reader
 
-go 1.22.3
+go 1.22.4
