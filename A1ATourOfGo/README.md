@@ -8,13 +8,23 @@
 
 ```powershell
 go work init
+go work sync
+
+go mod tidy
 ```
 
 ## Topics
 
 ### X. [Title](Link)
 
-### 4. [Title](Link)
+### 4. [Functions](https://go.dev/tour/basics/4)
+
+```powershell
+mkdir a4functions && cd a4functions
+go mod init a4functions
+go work use .
+go run .
+```
 
 ### 3. [Exported names](https://go.dev/tour/basics/3)
 
