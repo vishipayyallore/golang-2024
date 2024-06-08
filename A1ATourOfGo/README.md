@@ -12,7 +12,18 @@ go work init
 
 ## Topics
 
-### [Imports](https://go.dev/tour/basics/2)
+### 4. [Title](Link)
+
+### 3. [Exported names](https://go.dev/tour/basics/3)
+
+```powershell
+mkdir a3exportednames && cd a3exportednames
+go mod init a3exportednames
+go work use .
+go run .
+```
+
+### 2. [Imports](https://go.dev/tour/basics/2)
 
 ```powershell
 mkdir a2imports && cd a2imports
@@ -21,7 +32,7 @@ go work use .
 go run .
 ```
 
-### [Packages](https://go.dev/tour/basics/1)
+### 1. [Packages](https://go.dev/tour/basics/1)
 
 ```powershell
 mkdir a1packages && cd a1packages
