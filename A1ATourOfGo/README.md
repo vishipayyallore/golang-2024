@@ -9,7 +9,6 @@
 ```powershell
 go work init
 go work sync
-
 go mod tidy
 ```
 
