@@ -1,3 +1,3 @@
 module e2globalmiddleware
 
-go 1.22.1
+go 1.22.4

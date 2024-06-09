@@ -1,3 +1,3 @@
 module c1jsonmessages/entities
 
-go 1.22.0
+go 1.22.4
