@@ -1,6 +1,6 @@
 module a1variables
 
-go 1.22.4
+go 1.22.5
 
 require github.com/fatih/color v1.16.0
 
