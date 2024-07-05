@@ -21,27 +21,27 @@ func main() {
 	var a string
 	a = "foo"
 
-	fmt.Println(a)
+	fmt.Println("String : ", a)
 
 	var b int = 99
-	fmt.Println(b)
+	fmt.Println("Integer : ", b)
 
 	var c = true
-	fmt.Println(c)
+	fmt.Println("Boolean : ", c)
 
 	d := 3.1415
-	fmt.Println(d)
+	fmt.Println("Float 64 :", d)
 
 	// Not allowed -> cannot use d (variable of type float64) as int value in variable declaration
 	// var e int = d
 	var e int = int(d) // Explicit Type conversion
-	fmt.Println(e)
+	fmt.Println("Integer : ", e)
 
 	var f int8 = 127
-	fmt.Println(f)
+	fmt.Println("Integer-8 : ", f)
 
 	// Not allowed -> cannot use f (variable of type int8) as int16 value in variable declaration
 	// var g int16 = f
 	var g int16 = int16(f) // Explicit Type conversion
-	fmt.Println(g)
+	fmt.Println("Integer-16 : ", g)
 }
