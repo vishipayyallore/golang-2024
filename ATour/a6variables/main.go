@@ -29,6 +29,15 @@ func main() {
 	var e int
 	utl.PLine("E: ", e)
 
+	var f3 string
+	utl.PLine("F3: ", f3)
+
+	var f1 string = "apple"
+	utl.PLine("F1: ", f1)
+
+	var f2 = "apple"
+	utl.PLine("F2: ", f2)
+
 	f := "apple" // This syntax is only available inside functions.
 	utl.PLine("F: ", f)
 
