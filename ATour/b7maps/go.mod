@@ -1,6 +1,6 @@
 module b7maps
 
-go 1.22.4
+go 1.23.0
 
 require github.com/fatih/color v1.16.0
 

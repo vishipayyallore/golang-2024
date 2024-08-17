@@ -1,5 +1,5 @@
 module j8readersexercise
 
-go 1.22.4
+go 1.23.0
 
 require golang.org/x/tour v0.1.0
